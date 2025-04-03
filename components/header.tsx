@@ -1,0 +1,112 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { Menu, X } from "lucide-react"
+
+export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-dimas-black py-4" : "bg-dimas-black/80 py-6"}`}
+    >
+      <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+        <Link href="/" className="relative z-10 flex items-center">
+          <div className="relative h-8 w-32 mr-3">
+            <Image
+              src="/placeholder.svg?height=32&width=128"
+              alt="Dimas Construções"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          <div className="h-8 w-px bg-fernanda-gold/30 mx-3 hidden md:block"></div>
+          <div className="hidden md:block">
+            <p className="text-white text-xs uppercase tracking-wider">Consultora</p>
+            <p className="text-fernanda-gold font-medium">Fernanda</p>
+          </div>
+        </Link>
+
+        <nav className="hidden md:flex items-center space-x-8">
+          {[
+            { name: "Home", href: "/" },
+            { name: "Sobre", href: "/sobre" },
+            { name: "Empreendimentos", href: "/empreendimentos" },
+            { name: "Contato", href: "/contato" },
+          ].map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-white text-sm uppercase tracking-wider hover:text-fernanda-gold transition-colors"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+
+        <button className="md:hidden text-white" onClick={() => setMenuOpen(true)}>
+          <Menu className="h-6 w-6" />
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-dimas-black z-50 flex flex-col">
+          <div className="container mx-auto px-4 py-6 flex justify-between items-center">
+            <Link href="/" className="relative z-10 flex items-center">
+              <div className="relative h-8 w-32 mr-3">
+                <Image
+                  src="/placeholder.svg?height=32&width=128"
+                  alt="Dimas Construções"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="h-8 w-px bg-fernanda-gold/30 mx-3"></div>
+              <div>
+                <p className="text-white text-xs uppercase tracking-wider">Consultora</p>
+                <p className="text-fernanda-gold font-medium">Fernanda</p>
+              </div>
+            </Link>
+
+            <button className="text-white" onClick={() => setMenuOpen(false)}>
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+
+          <div className="flex-1 flex flex-col items-center justify-center space-y-8">
+            {[
+              { name: "Home", href: "/" },
+              { name: "Sobre", href: "/sobre" },
+              { name: "Empreendimentos", href: "/empreendimentos" },
+              { name: "Contato", href: "/contato" },
+            ].map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-white text-2xl uppercase tracking-wider"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
+  )
+}
+

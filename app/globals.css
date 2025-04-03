@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 20% 87%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 30 20% 87%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 30 20% 87%;
+    --accent-foreground: 0 0% 7%;
+    --destructive: 0 84% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 20% 87%;
+    --input: 30 20% 87%;
+    --ring: 0 0% 7%;
+    --radius: 0rem;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-dimas-cream text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.diagonal-line {
+  position: relative;
+}
+
+.diagonal-line::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100px;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.7) 50%, transparent);
+  padding: 2rem;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-card-overlay {
+  transform: translateY(0);
+}
+
+.project-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(18, 18, 18, 0.8);
+  padding: 1rem 2rem;
+  transition: opacity 0.5s ease;
+}
+
+.project-card:hover .project-title-overlay {
+  opacity: 0;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f9f295 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.fernanda-badge {
+  position: relative;
+  display: inline-block;
+}
+
+.fernanda-badge::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 1px solid #d4af37;
+  z-index: -1;
+}
+
+.fernanda-badge::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 1px solid #d4af37;
+  opacity: 0.5;
+  z-index: -2;
+}
+
