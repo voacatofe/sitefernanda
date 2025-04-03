@@ -30,14 +30,20 @@ jobs:
       - name: Build project
         run: pnpm build
       
+      - name: Prepare for deployment
+        run: |
+          mkdir -p .deploy
+          cp -r .next .deploy/
+          cp -r public .deploy/
+          
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: fernandasoaresimoveis.com.br
           username: u491560244.darlan
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: public_html/
+          local-dir: .deploy/
+          server-dir: /
           dangerous-clean-slate: false
           state-name: .ftp-deploy-sync-state-prod.json
           dry-run: false
@@ -45,6 +51,4 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-            **/.next/static/**
-            **/.next/cache/**
             README.md 
