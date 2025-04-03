@@ -34,7 +34,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: fernandasoaresimoveis.com.br
-          username: u491560244.darlan	
+          username: u491560244.darlan
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: public_html/dev/
