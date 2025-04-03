@@ -131,6 +131,13 @@ const projectsData = {
   },
 }
 
+// Adicionar esta função para gerar os parâmetros estáticos
+export function generateStaticParams() {
+  return Object.keys(projectsData).map((slug) => ({
+    slug,
+  }))
+}
+
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const [activeTab, setActiveTab] = useState("visao-geral")
   const [isLoaded, setIsLoaded] = useState(false)
