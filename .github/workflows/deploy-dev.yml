@@ -39,8 +39,12 @@ jobs:
           local-dir: ./
           server-dir: public_html/dev/
           dangerous-clean-slate: false
+          state-name: .ftp-deploy-sync-state-dev.json
+          dry-run: false
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
+            **/.next/static/**
+            **/.next/cache/**
             README.md 
