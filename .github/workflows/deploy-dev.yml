@@ -28,8 +28,8 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: dimassaojose.com.br
-          username: u491560244.dimassaojose.com.br
+          server: fernandasoaresimoveis.com.br
+          username: u491560244.fernandasoaresimoveis.com.br
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: public_html/dev/
