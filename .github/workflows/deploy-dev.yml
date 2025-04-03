@@ -42,7 +42,7 @@ jobs:
           server: fernandasoaresimoveis.com.br
           username: u491560244.darlan
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: .deploy/
+          local-dir: ./out/
           server-dir: /dev/
           dangerous-clean-slate: false
           state-name: .ftp-deploy-sync-state-dev.json
