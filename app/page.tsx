@@ -50,17 +50,18 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen">
         <Image
-          src="/placeholder.svg?height=1080&width=1920"
-          alt="Dimas Construções"
+          src="/images/florianopolis.webp"
+          alt="Empreendimentos de Alto Padrão"
           fill
           className="object-cover"
           priority
+          quality={100}
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
 
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
-            className="text-center"
+            className="text-center px-4 md:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -71,18 +72,21 @@ export default function Home() {
               </span>
             </div>
             <h1 className="text-white text-4xl md:text-6xl font-light mb-6 tracking-wider">
-              EMPREENDIMENTOS DE <span className="gold-gradient font-medium">ALTO PADRÃO</span>
+              EMPREENDIMENTOS DE <span className="text-fernanda-gold font-medium">ALTO PADRÃO</span>
             </h1>
             <div className="w-20 h-0.5 bg-fernanda-gold mx-auto mb-8"></div>
-            <p className="text-white/90 max-w-xl mx-auto mb-12">
-              Conheça os projetos exclusivos da Dimas Construções com Fernanda, consultora especializada com mais de 18
-              anos de experiência.
+            <p className="text-white/90 max-w-xl mx-auto mb-12 text-lg">
+              Conheça os projetos exclusivos da Dimas Construções com Fernanda,
+              consultora especializada com mais de 18 anos de experiência.
             </p>
             <Button
+              asChild
               variant="outline"
-              className="border-white text-white hover:bg-fernanda-gold hover:text-dimas-black hover:border-fernanda-gold rounded-none uppercase text-xs tracking-wider px-8 py-6"
+              className="border-fernanda-gold bg-fernanda-gold/20 text-fernanda-gold hover:bg-fernanda-gold hover:text-dimas-black hover:border-fernanda-gold rounded-none uppercase text-xs tracking-wider px-8 py-6"
             >
-              Conheça nossos empreendimentos
+              <Link href="/empreendimentos">
+                Conheça nossos empreendimentos
+              </Link>
             </Button>
           </motion.div>
         </div>
@@ -118,10 +122,12 @@ export default function Home() {
             >
               <div className="aspect-[3/4] relative rounded-none overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=800&width=600"
+                  src="/images/Fernanda Soares.jpg"
                   alt="Fernanda - Consultora Dimas Construções"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
+                  quality={100}
+                  priority
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-fernanda-gold p-6 shadow-md">
