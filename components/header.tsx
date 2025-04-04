@@ -24,12 +24,12 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <Link href="/" className="relative z-10 flex items-center">
-          <div className="relative h-8 w-32 mr-3">
+          <div className="relative h-12 w-12 mr-3">
             <Image
-              src="/placeholder.svg?height=32&width=128"
-              alt="Dimas Construções"
+              src="/images/logo SF.png"
+              alt="SF Logo"
               fill
-              className="object-contain"
+              className="object-contain brightness-0 invert"
               priority
             />
           </div>
@@ -67,12 +67,13 @@ export default function Header() {
         <div className="fixed inset-0 bg-dimas-black z-50 flex flex-col">
           <div className="container mx-auto px-4 py-6 flex justify-between items-center">
             <Link href="/" className="relative z-10 flex items-center">
-              <div className="relative h-8 w-32 mr-3">
+              <div className="relative h-12 w-12 mr-3">
                 <Image
-                  src="/placeholder.svg?height=32&width=128"
-                  alt="Dimas Construções"
+                  src="/images/logo.png"
+                  alt="SF Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain brightness-0 invert"
+                  priority
                 />
               </div>
               <div className="h-8 w-px bg-fernanda-gold/30 mx-3"></div>
