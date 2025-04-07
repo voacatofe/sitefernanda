@@ -69,7 +69,6 @@ export default function AboutPage() {
                   alt="Fernanda - Consultora Dimas Construções"
                   fill
                   className="object-cover"
-                  quality={100}
                   priority
                 />
               </div>
