@@ -21,7 +21,7 @@ export default function DSeasonPage() {
   ]
 
   return (
-    <main className="min-h-screen bg-white pt-20">
+    <main className="min-h-screen bg-white pt-24">
       {/* Hero Section */}
       <section className="relative h-[70vh]">
         <Image src="/placeholder.svg?height=1080&width=1920" alt="D'Season" fill className="object-cover" />

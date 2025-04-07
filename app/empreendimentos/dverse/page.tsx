@@ -21,11 +21,21 @@ export default function DVersePage() {
   ]
 
   return (
-    <main className="min-h-screen bg-white pt-20">
+    <main className="min-h-screen bg-white pt-24">
       {/* Hero Section */}
-      <section className="relative h-[70vh]">
-        <Image src="/placeholder.svg?height=1080&width=1920" alt="D'Verse" fill className="object-cover" />
-        <div className="absolute inset-0 bg-black/40"></div>
+      <section className="relative h-[70vh] overflow-hidden">
+        <div className="relative w-full h-full">
+          <Image
+            src="/images/dverse/dverse.jpg"
+            alt="D'Verse"
+            fill
+            sizes="100vw"
+            quality={100}
+            priority
+            className="object-cover object-center brightness-75"
+          />
+        </div>
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
             <motion.div

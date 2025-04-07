@@ -9,15 +9,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-6">
-              <div className="relative h-10 w-40 mr-3">
+              <div className="relative h-12 w-12 mr-3">
                 <Image
-                  src="/placeholder.svg?height=40&width=160"
-                  alt="Dimas Construções"
+                  src="/images/logo SF.png"
+                  alt="SF Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain brightness-0 invert"
+                  priority
                 />
               </div>
-              <div className="h-10 w-px bg-fernanda-gold/30 mx-3"></div>
+              <div className="h-8 w-px bg-fernanda-gold/30 mx-3"></div>
               <div>
                 <p className="text-white text-xs uppercase tracking-wider">Consultora</p>
                 <p className="text-fernanda-gold font-medium">Fernanda</p>
@@ -106,10 +107,14 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-dimas-gray/20 mt-12 pt-8 text-center">
-          <div className="relative mx-auto h-12 w-12 mb-6 diagonal-line">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-white font-light">D</span>
-            </div>
+          <div className="relative mx-auto h-12 w-12 mb-6">
+            <Image
+              src="/images/logo SF.png"
+              alt="SF Logo"
+              fill
+              className="object-contain brightness-0 invert"
+              priority
+            />
           </div>
           <p className="text-dimas-gray text-xs">
             © {new Date().getFullYear()} Dimas Construções. Todos os direitos reservados.

@@ -14,43 +14,46 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-24 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-[50vh]">
+      <section className="relative h-[70vh] overflow-hidden">
         <Image
-          src="/placeholder.svg?height=1080&width=1920"
+          src="/images/fernandasoares.jpg"
           alt="Sobre Fernanda"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
+          quality={100}
         />
         <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="mb-4">
-              <span className="inline-block px-4 py-1 bg-fernanda-gold/20 text-white text-sm uppercase tracking-wider border border-fernanda-gold/50">
-                Consultora Imobiliária
-              </span>
-            </div>
-            <h1 className="text-white text-4xl md:text-6xl font-light mb-6 tracking-wider">
-              SOBRE <span className="gold-gradient font-medium">FERNANDA</span>
-            </h1>
-            <div className="w-20 h-0.5 bg-fernanda-gold mx-auto mb-8"></div>
-            <p className="text-white/90 max-w-xl mx-auto">
-              Conheça a trajetória e experiência da consultora imobiliária de elite da Dimas Construções
-            </p>
-          </motion.div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-4 lg:px-8">
+            <motion.div
+              className="max-w-2xl pl-0 lg:pl-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="mb-4">
+                <span className="inline-block px-4 py-1 bg-fernanda-gold/20 text-white text-sm uppercase tracking-wider border border-fernanda-gold/50">
+                  Consultora Imobiliária
+                </span>
+              </div>
+              <h1 className="text-white text-4xl md:text-6xl font-light mb-6 tracking-wider">
+                SOBRE <span className="gold-gradient font-medium">FERNANDA</span>
+              </h1>
+              <div className="w-20 h-0.5 bg-fernanda-gold mb-8"></div>
+              <p className="text-white/90 max-w-xl mb-8">
+                Conheça a trajetória e experiência da consultora imobiliária de elite da Dimas Construções
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* About Fernanda */}
-      <section className="py-20">
+      <section className="py-20 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -62,14 +65,16 @@ export default function AboutPage() {
             >
               <div className="aspect-[3/4] relative rounded-none overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=800&width=600"
+                  src="/images/fernandasoares3.jpg"
                   alt="Fernanda - Consultora Dimas Construções"
                   fill
                   className="object-cover"
+                  quality={100}
+                  priority
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-fernanda-gold p-6 shadow-md">
-                <p className="font-light text-dimas-black uppercase tracking-wider text-sm">Campeã de Vendas 2024</p>
+              <div className="absolute bottom-0 right-0 md:-bottom-6 md:-right-6 bg-fernanda-gold p-4 md:p-6 shadow-md">
+                <p className="font-light text-dimas-black uppercase tracking-wider text-xs md:text-sm">Campeã de Vendas 2024</p>
               </div>
             </motion.div>
 
@@ -131,7 +136,7 @@ export default function AboutPage() {
       </section>
 
       {/* Philosophy */}
-      <section className="py-20 bg-dimas-black text-white">
+      <section className="py-20 bg-dimas-black overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -184,10 +189,11 @@ export default function AboutPage() {
             >
               <div className="aspect-video relative rounded-none overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=600&width=800"
+                  src="/images/fernandasoares4.jpg"
                   alt="Fernanda em ação"
                   fill
                   className="object-cover"
+                  quality={100}
                 />
               </div>
             </motion.div>
@@ -196,7 +202,7 @@ export default function AboutPage() {
       </section>
 
       {/* Achievements */}
-      <section className="py-20">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-3xl mx-auto text-center mb-16"
@@ -264,7 +270,7 @@ export default function AboutPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-dimas-black text-white">
+      <section className="py-16 bg-dimas-black text-white overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-8 md:mb-0">

@@ -69,7 +69,7 @@ export default function Header() {
             <Link href="/" className="relative z-10 flex items-center">
               <div className="relative h-12 w-12 mr-3">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo SF.png"
                   alt="SF Logo"
                   fill
                   className="object-contain brightness-0 invert"
