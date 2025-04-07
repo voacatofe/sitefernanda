@@ -19,36 +19,36 @@ export default function Home() {
       id: "dverse",
       title: "D'VERSE",
       description: "Viva a sofisticação e a beleza natural da Praia Brava",
-      image: "/placeholder.svg?height=800&width=1200",
+      image: "/images/dverse/dverse.jpg",
       link: "/empreendimentos/dverse",
     },
     {
       id: "dseason",
       title: "D'SEASON",
       description: "O primeiro resort urbano Dimas",
-      image: "/placeholder.svg?height=800&width=1200",
+      image: "/images/dseason/dseason.jpg",
       link: "/empreendimentos/dseason",
     },
     {
       id: "dsense",
       title: "D'SENSE",
       description: "Onde estilo, me sinto em casa",
-      image: "/placeholder.svg?height=800&width=1200",
+      image: "/images/dsense/dsense.jpg",
       link: "/empreendimentos/dsense",
     },
     {
       id: "dvert",
       title: "D'VERT",
       description: "Viver que transforma",
-      image: "/placeholder.svg?height=800&width=1200",
+      image: "/images/dvert/dvert.jpg",
       link: "/empreendimentos/dvert",
     },
   ]
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen">
+      <section className="relative h-screen overflow-hidden">
         <Image
           src="/images/florianopolis.webp"
           alt="Empreendimentos de Alto Padrão"
@@ -72,7 +72,8 @@ export default function Home() {
               </span>
             </div>
             <h1 className="text-white text-4xl md:text-6xl font-light mb-6 tracking-wider">
-              EMPREENDIMENTOS DE <span className="text-fernanda-gold font-medium">ALTO PADRÃO</span>
+              <span className="text-3xl md:text-6xl block mb-2">EMPREENDIMENTOS</span>
+              DE <span className="text-fernanda-gold font-medium">ALTO PADRÃO</span>
             </h1>
             <div className="w-20 h-0.5 bg-fernanda-gold mx-auto mb-8"></div>
             <p className="text-white/90 max-w-xl mx-auto mb-12 text-lg">
@@ -110,7 +111,7 @@ export default function Home() {
       </section>
 
       {/* Fernanda Introduction */}
-      <section className="py-20 bg-dimas-black text-white">
+      <section className="py-20 bg-dimas-black text-white overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -130,8 +131,8 @@ export default function Home() {
                   priority
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-fernanda-gold p-6 shadow-md">
-                <p className="font-light text-dimas-black uppercase tracking-wider text-sm">Campeã de Vendas 2024</p>
+              <div className="absolute bottom-0 right-0 md:-bottom-6 md:-right-6 bg-fernanda-gold p-4 md:p-6 shadow-md">
+                <p className="font-light text-dimas-black uppercase tracking-wider text-xs md:text-sm">Campeã de Vendas 2024</p>
               </div>
             </motion.div>
 
@@ -186,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* Launches Section */}
-      <section className="py-20">
+      <section className="py-20 overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-3xl mx-auto text-center mb-16"
@@ -284,7 +285,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-dimas-beige">
+      <section className="py-20 bg-dimas-beige overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-3xl mx-auto text-center mb-16"
@@ -341,7 +342,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Fernanda */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-3xl mx-auto text-center mb-16"
@@ -398,7 +399,7 @@ export default function Home() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-dimas-black text-white">
+      <section className="py-16 bg-dimas-black text-white overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-8 md:mb-0">

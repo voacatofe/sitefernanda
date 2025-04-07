@@ -21,10 +21,10 @@ const projectsData = {
       { title: "Localização", description: "Área nobre com fácil acesso" },
       { title: "Entrega", description: "Previsão para Dezembro/2025" },
     ],
-    gallery: Array(6).fill("/placeholder.svg?height=600&width=800"),
-    heroImage: "/placeholder.svg?height=1080&width=1920",
-    mainImage: "/placeholder.svg?height=800&width=1000",
-    additionalImages: ["/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+    gallery: Array(6).fill("/images/dverse/dverse.jpg"),
+    heroImage: "/images/dverse/dverse.jpg",
+    mainImage: "/images/dverse/dverse.jpg",
+    additionalImages: ["/images/dverse/dverse.jpg", "/images/dverse/dverse.jpg"],
     floorplans: [
       {
         title: "Apartamento 120m²",
@@ -71,10 +71,10 @@ const projectsData = {
       { title: "Localização", description: "Região em desenvolvimento com infraestrutura completa" },
       { title: "Entrega", description: "Previsão para Junho/2025" },
     ],
-    gallery: Array(6).fill("/placeholder.svg?height=600&width=800"),
-    heroImage: "/placeholder.svg?height=1080&width=1920",
-    mainImage: "/placeholder.svg?height=800&width=1000",
-    additionalImages: ["/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+    gallery: Array(6).fill("/images/dseason/dseason.jpg"),
+    heroImage: "/images/dseason/dseason.jpg",
+    mainImage: "/images/dseason/dseason.jpg",
+    additionalImages: ["/images/dseason/dseason.jpg", "/images/dseason/dseason.jpg"],
     floorplans: [
       {
         title: "Apartamento 80m²",
@@ -113,8 +113,7 @@ const projectsData = {
     tagline: "Onde estilo, me sinto em casa",
     description:
       "O D'SENSE é um empreendimento que valoriza o estilo e o conforto. Com design contemporâneo e áreas de lazer completas, oferece apartamentos funcionais e bem distribuídos.",
-    // Rest of the data would be similar to the other projects
-    heroImage: "/placeholder.svg?height=1080&width=1920",
+    heroImage: "/images/dsense/dsense.jpg",
     fernandasNotes:
       "O D'SENSE traz uma proposta inovadora de moradia, com ambientes que estimulam os sentidos e proporcionam uma experiência única. Recomendo para pessoas que valorizam design e funcionalidade.",
   },
@@ -123,8 +122,7 @@ const projectsData = {
     tagline: "Viver que transforma",
     description:
       "O D'VERT é um empreendimento que valoriza a integração com a natureza. Com design contemporâneo e áreas verdes, oferece apartamentos funcionais e bem distribuídos.",
-    // Rest of the data would be similar to the other projects
-    heroImage: "/placeholder.svg?height=1080&width=1920",
+    heroImage: "/images/dvert/dvert.jpg",
     fernandasNotes:
       "O D'VERT é perfeito para quem busca uma conexão com a natureza sem abrir mão do conforto urbano. As áreas verdes e a arquitetura sustentável fazem deste empreendimento uma escolha consciente e sofisticada.",
   },
@@ -146,7 +144,9 @@ export default async function ProjectPage({ params }: Props) {
     return <div className="min-h-screen flex items-center justify-center">Projeto não encontrado</div>
   }
 
-  return <ProjectContent project={project} />
+  return <main className="min-h-screen bg-white pt-24">
+    <ProjectContent project={project} />
+  </main>
 }
 
 // Manter generateStaticParams como está

@@ -20,7 +20,7 @@ export default function ProjectsPage() {
       id: "dverse",
       title: "D'VERSE",
       description: "Viva a sofisticação e a beleza natural da Praia Brava",
-      image: "/placeholder.svg?height=800&width=1200",
+      image: "/images/dverse/dverse.jpg",
       link: "/empreendimentos/dverse",
       recommended: true,
     },
@@ -28,7 +28,7 @@ export default function ProjectsPage() {
       id: "dseason",
       title: "D'SEASON",
       description: "O primeiro resort urbano Dimas",
-      image: "/placeholder.svg?height=800&width=1200",
+      image: "/images/dseason/dseason.jpg",
       link: "/empreendimentos/dseason",
       recommended: true,
     },
@@ -36,7 +36,7 @@ export default function ProjectsPage() {
       id: "dsense",
       title: "D'SENSE",
       description: "Onde estilo, me sinto em casa",
-      image: "/placeholder.svg?height=800&width=1200",
+      image: "/images/dsense/dsense.jpg",
       link: "/empreendimentos/dsense",
       recommended: true,
     },
@@ -44,7 +44,7 @@ export default function ProjectsPage() {
       id: "dvert",
       title: "D'VERT",
       description: "Viver que transforma",
-      image: "/placeholder.svg?height=800&width=1200",
+      image: "/images/dvert/dvert.webp",
       link: "/empreendimentos/dvert",
       recommended: false,
     },
@@ -52,7 +52,7 @@ export default function ProjectsPage() {
       id: "dyard",
       title: "D'YARD",
       description: "Um projeto onde não existem mais padrões",
-      image: "/placeholder.svg?height=800&width=1200",
+      image: "/images/dyard/dyard.jpg",
       link: "/empreendimentos/dyard",
       recommended: false,
     },
@@ -60,43 +60,49 @@ export default function ProjectsPage() {
       id: "dnex",
       title: "D'NEX",
       description: "The new living experience",
-      image: "/placeholder.svg?height=800&width=1200",
+      image: "/images/dnex/dnex.jpg",
       link: "/empreendimentos/dnex",
       recommended: false,
     },
   ]
 
   return (
-    <div className="min-h-screen pt-20">
+    <main className="min-h-screen bg-white pt-24 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-[50vh]">
-        <Image
-          src="/placeholder.svg?height=1080&width=1920"
-          alt="Empreendimentos Dimas"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40"></div>
+      <section className="relative h-[50vh] overflow-hidden">
+        <div className="relative w-full h-full">
+          <Image
+            src="/images/ponte.png"
+            alt="Empreendimentos Dimas"
+            fill
+            sizes="100vw"
+            className="object-cover brightness-75 object-[75%_center] md:object-center"
+            quality={100}
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-black/40" />
 
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="mb-4">
-              <span className="inline-block px-4 py-1 bg-fernanda-gold/20 text-white text-sm uppercase tracking-wider border border-fernanda-gold/50">
-                Seleção Fernanda
-              </span>
-            </div>
-            <h1 className="text-white text-4xl md:text-6xl font-light mb-6 tracking-wider">EMPREENDIMENTOS</h1>
-            <div className="w-20 h-0.5 bg-fernanda-gold mx-auto mb-8"></div>
-            <p className="text-white/90 max-w-xl mx-auto">
-              Conheça os projetos exclusivos da Dimas Construções selecionados por Fernanda
-            </p>
-          </motion.div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-4 lg:px-8">
+            <motion.div
+              className="max-w-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="mb-4">
+                <span className="inline-block px-4 py-1 bg-fernanda-gold/20 text-white text-sm uppercase tracking-wider border border-fernanda-gold/50">
+                  Seleção Fernanda
+                </span>
+              </div>
+              <h1 className="text-white text-3xl md:text-5xl font-light mb-6 tracking-wider">EMPREENDIMENTOS</h1>
+              <div className="w-20 h-0.5 bg-fernanda-gold mb-8"></div>
+              <p className="text-white/90 max-w-xl">
+                Conheça os projetos exclusivos da Dimas Construções selecionados por Fernanda
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -188,7 +194,7 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   )
 }
 
