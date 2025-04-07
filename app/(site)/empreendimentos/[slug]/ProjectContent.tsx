@@ -6,50 +6,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ChevronLeft, ArrowRight, Phone, Mail, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-interface Feature {
-  title: string
-  description: string
-}
-
-interface Floorplan {
-  title: string
-  description: string
-  image: string
-}
-
-interface NearbyLocation {
-  time: string
-  place: string
-  description: string
-}
-
-interface Location {
-  description: string
-  nearby: NearbyLocation[]
-  mapImage: string
-}
-
-interface Differential {
-  title: string
-  description: string
-}
-
-interface Project {
-  title: string
-  tagline: string
-  description: string
-  longDescription?: string
-  features?: Feature[]
-  gallery?: string[]
-  heroImage: string
-  mainImage?: string
-  additionalImages?: string[]
-  floorplans?: Floorplan[]
-  location?: Location
-  differentials?: Differential[]
-  fernandasNotes?: string
-}
+import { Project, Feature, Floorplan, Location, NearbyLocation, Differential } from "@/app/data/empreendimentos/types"
 
 interface ProjectContentProps {
   project: Project
@@ -248,42 +205,39 @@ export default function ProjectContent({ project }: ProjectContentProps) {
 
           {/* Localização */}
           {activeTab === "localizacao" && project.location && (
-            <div>
-              <h2 className="text-3xl font-light text-dimas-black mb-6">Localização {project.title}</h2>
-              <div className="w-20 h-0.5 bg-fernanda-gold mb-12"></div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+              <div>
+                <h2 className="text-3xl font-light text-dimas-black mb-6">Localização</h2>
+                <div className="w-20 h-0.5 bg-fernanda-gold mb-8"></div>
+                <p className="text-dimas-black/80 font-light mb-10">{project.location.description}</p>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                  <p className="text-dimas-black/80 font-light mb-6">{project.location.description}</p>
-
-                  <div className="space-y-6 mb-10">
-                    {project.location.nearby.map((item, index) => (
-                      <div key={index} className="flex items-start">
-                        <div className="w-12 h-12 bg-fernanda-gold/10 flex items-center justify-center mr-4">
-                          <span className="text-fernanda-gold font-medium">{item.time}</span>
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-light text-dimas-black">{item.place}</h3>
-                          <p className="text-dimas-black/60 font-light">{item.description}</p>
-                        </div>
+                <div className="space-y-6 mb-10">
+                  {project.location.nearby?.map((nearby, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="w-16 h-16 flex-shrink-0 bg-fernanda-gold/10 border border-fernanda-gold/30 flex items-center justify-center">
+                        <span className="text-fernanda-gold font-light">{nearby.time}</span>
                       </div>
-                    ))}
-                  </div>
-
-                  <Button className="bg-dimas-black text-white hover:bg-fernanda-gold hover:text-dimas-black rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
-                    <span>Como chegar</span>
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Button>
+                      <div className="ml-6">
+                        <h3 className="text-xl font-light text-dimas-black mb-1">{nearby.place}</h3>
+                        <p className="text-dimas-black/60 font-light">{nearby.description}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
 
-                <div className="aspect-square relative rounded-none overflow-hidden">
-                  <Image
-                    src={project.location.mapImage || "/placeholder.svg"}
-                    alt="Mapa de Localização"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                <Button className="bg-dimas-black text-white hover:bg-fernanda-gold hover:text-dimas-black rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
+                  <span>Como Chegar</span>
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+              </div>
+
+              <div className="aspect-square relative rounded-none overflow-hidden">
+                <Image
+                  src={project.location.mapImage || "/placeholder.svg"}
+                  alt={`Localização do ${project.title}`}
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           )}

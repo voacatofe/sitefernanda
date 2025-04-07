@@ -1,12 +1,12 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import { projectsData } from "@/app/data/empreendimentos/projects"
 
 export default function ProjectsPage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -15,56 +15,15 @@ export default function ProjectsPage() {
     setIsLoaded(true)
   }, [])
 
-  const projects = [
-    {
-      id: "dverse",
-      title: "D'VERSE",
-      description: "Viva a sofisticação e a beleza natural da Praia Brava",
-      image: "/images/dverse/dverse.jpg",
-      link: "/empreendimentos/dverse",
-      recommended: true,
-    },
-    {
-      id: "dseason",
-      title: "D'SEASON",
-      description: "O primeiro resort urbano Dimas",
-      image: "/images/dseason/dseason.jpg",
-      link: "/empreendimentos/dseason",
-      recommended: true,
-    },
-    {
-      id: "dsense",
-      title: "D'SENSE",
-      description: "Onde estilo, me sinto em casa",
-      image: "/images/dsense/dsense.jpg",
-      link: "/empreendimentos/dsense",
-      recommended: true,
-    },
-    {
-      id: "dvert",
-      title: "D'VERT",
-      description: "Viver que transforma",
-      image: "/images/dvert/dvert.webp",
-      link: "/empreendimentos/dvert",
-      recommended: false,
-    },
-    {
-      id: "dyard",
-      title: "D'YARD",
-      description: "Um projeto onde não existem mais padrões",
-      image: "/images/dyard/dyard.jpg",
-      link: "/empreendimentos/dyard",
-      recommended: false,
-    },
-    {
-      id: "dnex",
-      title: "D'NEX",
-      description: "The new living experience",
-      image: "/images/dnex/dnex.jpg",
-      link: "/empreendimentos/dnex",
-      recommended: false,
-    },
-  ]
+  // Converte os dados do projectsData para o formato da página
+  const projects = Object.entries(projectsData).map(([id, project]) => ({
+    id,
+    title: project.title,
+    description: project.tagline,
+    image: project.heroImage,
+    link: `/empreendimentos/${id}`,
+    recommended: project.status === "lancamento" || project.status === "construcao"
+  }))
 
   return (
     <main className="min-h-screen bg-white pt-24 overflow-x-hidden">
@@ -176,7 +135,7 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-2">
               <div className="relative h-24 w-24 rounded-full overflow-hidden mx-auto lg:mx-0">
-                <Image src="/placeholder.svg?height=96&width=96" alt="Fernanda" fill className="object-cover" />
+                <Image src="/images/Fernanda Soares.jpg" alt="Fernanda" fill className="object-cover" />
               </div>
             </div>
             <div className="lg:col-span-7 text-center lg:text-left">

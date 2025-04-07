@@ -22,15 +22,9 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${galano.variable} font-galano antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          {children}
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
-
-
-import './globals.css'

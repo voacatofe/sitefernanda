@@ -6,6 +6,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight, Award, Users, TrendingUp, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { projectsData } from "@/app/data/empreendimentos/projects"
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -14,36 +15,17 @@ export default function Home() {
     setIsLoaded(true)
   }, [])
 
-  const projects = [
-    {
-      id: "dverse",
-      title: "D'VERSE",
-      description: "Viva a sofisticação e a beleza natural da Praia Brava",
-      image: "/images/dverse/dverse.jpg",
-      link: "/empreendimentos/dverse",
-    },
-    {
-      id: "dseason",
-      title: "D'SEASON",
-      description: "O primeiro resort urbano Dimas",
-      image: "/images/dseason/dseason.jpg",
-      link: "/empreendimentos/dseason",
-    },
-    {
-      id: "dsense",
-      title: "D'SENSE",
-      description: "Onde estilo, me sinto em casa",
-      image: "/images/dsense/dsense.jpg",
-      link: "/empreendimentos/dsense",
-    },
-    {
-      id: "dvert",
-      title: "D'VERT",
-      description: "Viver que transforma",
-      image: "/images/dvert/dvert.jpg",
-      link: "/empreendimentos/dvert",
-    },
-  ]
+  // Seleciona apenas 3 empreendimentos em destaque
+  const featuredProjects = Object.entries(projectsData)
+    .filter(([_, project]) => project.status === "lancamento" || project.status === "construcao")
+    .slice(0, 3)
+    .map(([id, project]) => ({
+      id,
+      title: project.title,
+      description: project.tagline,
+      image: project.heroImage,
+      link: `/empreendimentos/${id}`,
+    }))
 
   return (
     <div className="min-h-screen overflow-x-hidden">
@@ -199,86 +181,49 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-light text-dimas-black mb-6">Empreendimentos em Destaque</h2>
             <div className="w-20 h-0.5 bg-fernanda-gold mx-auto mb-8"></div>
             <p className="text-dimas-black/70">
-              Conheça os projetos exclusivos da Dimas Construções, selecionados especialmente por Fernanda para você.
+              Conheça os lançamentos e empreendimentos em construção da Dimas Construções
             </p>
           </motion.div>
 
-          <div className="space-y-16">
-            {projects.map((project, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {featuredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="grid grid-cols-1 md:grid-cols-12 gap-0"
+                className="group relative"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                {index % 2 === 0 ? (
-                  <>
-                    <div className="md:col-span-5 relative aspect-[4/3] md:aspect-auto">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <div className="px-3 py-1 bg-fernanda-gold text-dimas-black text-xs uppercase tracking-wider">
-                          Recomendado por Fernanda
-                        </div>
-                      </div>
+                <Link href={project.link} className="block">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:opacity-20"></div>
+                    <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                      <h3 className="text-2xl font-light text-white mb-2">{project.title}</h3>
+                      <p className="text-white/90 font-light">{project.description}</p>
                     </div>
-                    <div className="md:col-span-7 bg-dimas-black text-white p-8 md:p-12 flex flex-col justify-center">
-                      <h3 className="text-3xl font-light mb-4">{project.title}</h3>
-                      <p className="text-white/80 mb-8">{project.description}</p>
-                      <div>
-                        <Link
-                          href={project.link}
-                          className="inline-flex items-center text-fernanda-gold hover:text-white transition-colors"
-                        >
-                          <span className="text-sm uppercase tracking-wider mr-2">Saiba mais</span>
-                          <ArrowRight className="h-4 w-4" />
-                        </Link>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="md:col-span-7 bg-dimas-black text-white p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
-                      <h3 className="text-3xl font-light mb-4">{project.title}</h3>
-                      <p className="text-white/80 mb-8">{project.description}</p>
-                      <div>
-                        <Link
-                          href={project.link}
-                          className="inline-flex items-center text-fernanda-gold hover:text-white transition-colors"
-                        >
-                          <span className="text-sm uppercase tracking-wider mr-2">Saiba mais</span>
-                          <ArrowRight className="h-4 w-4" />
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="md:col-span-5 relative aspect-[4/3] md:aspect-auto order-1 md:order-2">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute top-4 right-4">
-                        <div className="px-3 py-1 bg-fernanda-gold text-dimas-black text-xs uppercase tracking-wider">
-                          Recomendado por Fernanda
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                )}
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center mt-16">
-            <Button className="bg-dimas-black text-white hover:bg-fernanda-gold hover:text-dimas-black rounded-none uppercase text-xs tracking-wider px-8 py-6">
-              Ver todos os empreendimentos
+          <div className="text-center">
+            <Button
+              asChild
+              variant="outline"
+              className="border-fernanda-gold bg-transparent text-fernanda-gold hover:bg-fernanda-gold hover:text-dimas-black hover:border-fernanda-gold rounded-none uppercase text-xs tracking-wider px-8 py-6"
+            >
+              <Link href="/empreendimentos">
+                Ver todos os empreendimentos
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>
