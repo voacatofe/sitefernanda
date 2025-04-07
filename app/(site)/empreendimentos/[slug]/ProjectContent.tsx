@@ -21,7 +21,7 @@ export default function ProjectContent({ project }: ProjectContentProps) {
   }, [])
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen pt-24">
       {/* Hero Section */}
       <section className="relative h-[70vh]">
         <Image

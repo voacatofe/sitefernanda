@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
+import { ImageUploader } from "@/app/components/image-uploader"
 
 export default function AdminEmpreendimentos() {
   const [selectedProject, setSelectedProject] = useState<string>(Object.keys(projectsData)[0])
@@ -95,6 +96,16 @@ export default function AdminEmpreendimentos() {
                         }
                       />
                     </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="heroImage">Imagem Principal</Label>
+                    <ImageUploader
+                      value={editingProject.heroImage || ""}
+                      onChange={(value: string) =>
+                        setEditingProject({ ...editingProject, heroImage: value })
+                      }
+                    />
                   </div>
 
                   <div className="space-y-2">
@@ -507,13 +518,12 @@ export default function AdminEmpreendimentos() {
                       <Card key={index}>
                         <CardContent className="pt-6">
                           <div className="space-y-2">
-                            <Label htmlFor={`gallery-image-${index}`}>URL da Imagem</Label>
-                            <Input
-                              id={`gallery-image-${index}`}
-                              value={image}
-                              onChange={(e) => {
+                            <Label htmlFor={`gallery-image-${index}`}>Imagem</Label>
+                            <ImageUploader
+                              value={image || ""}
+                              onChange={(value: string) => {
                                 const newGallery = [...(editingProject.gallery || [])]
-                                newGallery[index] = e.target.value
+                                newGallery[index] = value
                                 setEditingProject({
                                   ...editingProject,
                                   gallery: newGallery,
@@ -580,14 +590,13 @@ export default function AdminEmpreendimentos() {
                             </div>
                             <div className="space-y-2">
                               <Label htmlFor={`floorplan-image-${index}`}>Imagem</Label>
-                              <Input
-                                id={`floorplan-image-${index}`}
-                                value={floorplan.image}
-                                onChange={(e) => {
+                              <ImageUploader
+                                value={floorplan.image || ""}
+                                onChange={(value: string) => {
                                   const newFloorplans = [...(editingProject.floorplans || [])]
                                   newFloorplans[index] = {
                                     ...newFloorplans[index],
-                                    image: e.target.value,
+                                    image: value,
                                   }
                                   setEditingProject({
                                     ...editingProject,

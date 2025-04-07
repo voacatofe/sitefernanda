@@ -18,7 +18,7 @@ export default async function ProjectPage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen bg-white pt-24">
+    <main className="min-h-screen bg-white">
       <ProjectContent project={project} />
     </main>
   )
