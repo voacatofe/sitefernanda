@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { galano } from "./fonts"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import SessionProvider from "@/components/session-provider"
+import { AuthProvider } from "@/components/auth-provider"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 
@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${galano.variable} font-galano antialiased`}>
-        <SessionProvider>
+        <AuthProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
             {children}
           </ThemeProvider>
-        </SessionProvider>
+        </AuthProvider>
       </body>
     </html>
   )

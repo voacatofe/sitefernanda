@@ -34,41 +34,25 @@ jobs:
       
       - name: Prepare for deployment
         run: |
+          # Usando diretamente o build estático gerado pelo Next.js
           mkdir -p .deploy
+          cp -r out/* .deploy/
           
-          # Criar página temporária de manutenção
-          echo '<!DOCTYPE html>' > .deploy/index.html
-          echo '<html lang="pt-BR">' >> .deploy/index.html
-          echo '<head>' >> .deploy/index.html
-          echo '  <meta charset="UTF-8">' >> .deploy/index.html
-          echo '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' >> .deploy/index.html
-          echo '  <title>Fernanda Soares Imóveis - Em Breve</title>' >> .deploy/index.html
-          echo '  <style>' >> .deploy/index.html
-          echo '    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; flex-direction: column; text-align: center; background-color: #f5f5f5; }' >> .deploy/index.html
-          echo '    .container { max-width: 800px; padding: 40px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }' >> .deploy/index.html
-          echo '    h1 { color: #333; font-size: 2.5rem; margin-bottom: 20px; }' >> .deploy/index.html
-          echo '    p { color: #666; font-size: 1.2rem; margin-bottom: 30px; }' >> .deploy/index.html
-          echo '    .contact { margin-top: 30px; font-weight: bold; }' >> .deploy/index.html
-          echo '    .logo { margin-bottom: 30px; font-size: 2.8rem; font-weight: bold; color: #333; }' >> .deploy/index.html
-          echo '  </style>' >> .deploy/index.html
-          echo '</head>' >> .deploy/index.html
-          echo '<body>' >> .deploy/index.html
-          echo '  <div class="container">' >> .deploy/index.html
-          echo '    <div class="logo">Fernanda Soares Imóveis</div>' >> .deploy/index.html
-          echo '    <h1>Site em construção</h1>' >> .deploy/index.html
-          echo '    <p>Estamos trabalhando para trazer a melhor experiência imobiliária para você. Nosso novo site estará disponível em breve!</p>' >> .deploy/index.html
-          echo '    <p>Enquanto isso, você pode entrar em contato conosco pelos meios abaixo:</p>' >> .deploy/index.html
-          echo '    <div class="contact">' >> .deploy/index.html
-          echo '      <p>Telefone: (xx) xxxxx-xxxx</p>' >> .deploy/index.html
-          echo '      <p>Email: contato@fernandasoaresimoveis.com.br</p>' >> .deploy/index.html
-          echo '    </div>' >> .deploy/index.html
-          echo '  </div>' >> .deploy/index.html
-          echo '</body>' >> .deploy/index.html
-          echo '</html>' >> .deploy/index.html
-          
-          # Copiar arquivos estáticos se houver
-          cp -r public/* .deploy/ || true
-          
+          # Adicionar arquivo .htaccess para configurar as regras de navegação
+          echo "# Enable URL rewriting" > .deploy/.htaccess
+          echo "RewriteEngine On" >> .deploy/.htaccess
+          echo "" >> .deploy/.htaccess
+          echo "# Redirect all requests to the index.html file for client-side routing" >> .deploy/.htaccess
+          echo "RewriteCond %{REQUEST_FILENAME} !-f" >> .deploy/.htaccess
+          echo "RewriteCond %{REQUEST_FILENAME} !-d" >> .deploy/.htaccess
+          echo "RewriteRule ^ index.html [L]" >> .deploy/.htaccess
+          echo "" >> .deploy/.htaccess
+          echo "# Disable directory listing" >> .deploy/.htaccess
+          echo "Options -Indexes" >> .deploy/.htaccess
+          echo "" >> .deploy/.htaccess
+          echo "# Set default index file" >> .deploy/.htaccess
+          echo "DirectoryIndex index.html" >> .deploy/.htaccess
+      
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:

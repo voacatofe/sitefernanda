@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  serverExternalPackages: ['@prisma/client', 'bcryptjs']
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+  // Não precisamos de serverExternalPackages no modo estático
 }
 
 module.exports = nextConfig 
