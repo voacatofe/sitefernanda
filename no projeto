@@ -1,0 +1,96 @@
+D	app/admin/layout.tsx
+M	app/layout.tsx
+A	auth.ts
+D	components/theme-provider.tsx
+M	next.config.js
+A	package-lock.json
+M	package.json
+A	postcss.config.js
+A	prisma/migrations/20250407151039_init/migration.sql
+A	prisma/migrations/migration_lock.toml
+A	prisma/schema.prisma
+A	scripts/hash-password.js
+R100	app/(site)/contato/page.tsx	src/app/(site)/contato/page.tsx
+R100	app/(site)/empreendimentos/[slug]/ProjectContent.tsx	src/app/(site)/empreendimentos/[slug]/ProjectContent.tsx
+R100	app/(site)/empreendimentos/[slug]/page.tsx	src/app/(site)/empreendimentos/[slug]/page.tsx
+R100	app/(site)/empreendimentos/page.tsx	src/app/(site)/empreendimentos/page.tsx
+R100	app/(site)/layout.tsx	src/app/(site)/layout.tsx
+R100	app/(site)/page.tsx	src/app/(site)/page.tsx
+R099	app/(site)/sobre/page.tsx	src/app/(site)/sobre/page.tsx
+R100	app/admin/empreendimentos/page.tsx	src/app/admin/empreendimentos/page.tsx
+A	src/app/admin/layout.tsx
+A	src/app/admin/login/page.tsx
+R100	app/admin/page.tsx	src/app/admin/page.tsx
+A	src/app/api/auth/[...nextauth]/route.ts
+A	src/app/api/seed/route.ts
+R100	app/components/image-uploader/index.tsx	src/app/components/image-uploader/index.tsx
+R100	app/components/ui/button.tsx	src/app/components/ui/button.tsx
+R100	app/components/ui/card.tsx	src/app/components/ui/card.tsx
+R100	app/components/ui/index.ts	src/app/components/ui/index.ts
+R100	app/data/empreendimentos/projects.ts	src/app/data/empreendimentos/projects.ts
+R100	app/data/empreendimentos/types.ts	src/app/data/empreendimentos/types.ts
+R050	app/fonts.ts	src/app/fonts.ts
+R100	app/globals.css	src/app/globals.css
+A	src/app/layout.tsx
+R100	app/lib/utils.ts	src/app/lib/utils.ts
+A	src/auth.ts
+R100	components/footer.tsx	src/components/footer.tsx
+R100	components/header.tsx	src/components/header.tsx
+A	src/components/session-provider.tsx
+A	src/components/theme-provider.tsx
+R100	components/ui/accordion.tsx	src/components/ui/accordion.tsx
+R100	components/ui/alert-dialog.tsx	src/components/ui/alert-dialog.tsx
+R100	components/ui/alert.tsx	src/components/ui/alert.tsx
+R100	components/ui/aspect-ratio.tsx	src/components/ui/aspect-ratio.tsx
+R100	components/ui/avatar.tsx	src/components/ui/avatar.tsx
+R100	components/ui/badge.tsx	src/components/ui/badge.tsx
+R100	components/ui/breadcrumb.tsx	src/components/ui/breadcrumb.tsx
+R100	components/ui/button.tsx	src/components/ui/button.tsx
+R100	components/ui/calendar.tsx	src/components/ui/calendar.tsx
+R100	components/ui/card.tsx	src/components/ui/card.tsx
+R100	components/ui/carousel.tsx	src/components/ui/carousel.tsx
+R100	components/ui/chart.tsx	src/components/ui/chart.tsx
+R100	components/ui/checkbox.tsx	src/components/ui/checkbox.tsx
+R100	components/ui/collapsible.tsx	src/components/ui/collapsible.tsx
+R100	components/ui/command.tsx	src/components/ui/command.tsx
+R100	components/ui/context-menu.tsx	src/components/ui/context-menu.tsx
+R100	components/ui/dialog.tsx	src/components/ui/dialog.tsx
+R100	components/ui/drawer.tsx	src/components/ui/drawer.tsx
+R100	components/ui/dropdown-menu.tsx	src/components/ui/dropdown-menu.tsx
+R100	components/ui/form.tsx	src/components/ui/form.tsx
+R100	components/ui/hover-card.tsx	src/components/ui/hover-card.tsx
+R100	components/ui/input-otp.tsx	src/components/ui/input-otp.tsx
+R100	components/ui/input.tsx	src/components/ui/input.tsx
+R100	components/ui/label.tsx	src/components/ui/label.tsx
+R100	components/ui/menubar.tsx	src/components/ui/menubar.tsx
+R100	components/ui/navigation-menu.tsx	src/components/ui/navigation-menu.tsx
+R100	components/ui/pagination.tsx	src/components/ui/pagination.tsx
+R100	components/ui/popover.tsx	src/components/ui/popover.tsx
+R100	components/ui/progress.tsx	src/components/ui/progress.tsx
+R100	components/ui/radio-group.tsx	src/components/ui/radio-group.tsx
+R100	components/ui/resizable.tsx	src/components/ui/resizable.tsx
+R100	components/ui/scroll-area.tsx	src/components/ui/scroll-area.tsx
+R100	components/ui/select.tsx	src/components/ui/select.tsx
+R100	components/ui/separator.tsx	src/components/ui/separator.tsx
+R100	components/ui/sheet.tsx	src/components/ui/sheet.tsx
+R100	components/ui/sidebar.tsx	src/components/ui/sidebar.tsx
+R100	components/ui/skeleton.tsx	src/components/ui/skeleton.tsx
+R100	components/ui/slider.tsx	src/components/ui/slider.tsx
+R100	components/ui/sonner.tsx	src/components/ui/sonner.tsx
+R100	components/ui/switch.tsx	src/components/ui/switch.tsx
+R100	components/ui/table.tsx	src/components/ui/table.tsx
+R100	components/ui/tabs.tsx	src/components/ui/tabs.tsx
+R100	components/ui/textarea.tsx	src/components/ui/textarea.tsx
+R100	components/ui/toast.tsx	src/components/ui/toast.tsx
+R100	components/ui/toaster.tsx	src/components/ui/toaster.tsx
+R100	components/ui/toggle-group.tsx	src/components/ui/toggle-group.tsx
+R100	components/ui/toggle.tsx	src/components/ui/toggle.tsx
+R100	components/ui/tooltip.tsx	src/components/ui/tooltip.tsx
+R100	components/ui/use-mobile.tsx	src/components/ui/use-mobile.tsx
+R100	components/ui/use-toast.ts	src/components/ui/use-toast.ts
+A	src/lib/prisma.ts
+R100	lib/utils.ts	src/lib/utils.ts
+A	src/middleware.ts
+D	tatus
+M	tsconfig.json
+A	types/next-auth.d.ts
