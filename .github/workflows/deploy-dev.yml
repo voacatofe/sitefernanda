@@ -35,7 +35,8 @@ jobs:
       - name: Prepare for deployment
         run: |
           mkdir -p .deploy
-          cp -r .next .deploy/
+          cp -r .next/standalone/* .deploy/
+          cp -r .next/static .deploy/.next/
           cp -r public .deploy/
           
       - name: FTP Deploy
