@@ -35,14 +35,29 @@ jobs:
       - name: Prepare for deployment
         run: |
           mkdir -p .deploy
-          cp -r out/* .deploy/
-          # Criar arquivo .htaccess para configurar o servidor
-          echo "RewriteEngine On" > .deploy/.htaccess
+          cp -r .next/standalone/* .deploy/
+          cp -r .next/static .deploy/.next/
+          cp -r public .deploy/
+          # Criar arquivo .htaccess para configurar redirecionamento de servidor
+          echo "DirectoryIndex server.js" > .deploy/.htaccess
+          echo "RewriteEngine On" >> .deploy/.htaccess
+          echo "RewriteRule ^$ server.js [L]" >> .deploy/.htaccess
           echo "RewriteCond %{REQUEST_FILENAME} !-f" >> .deploy/.htaccess
           echo "RewriteCond %{REQUEST_FILENAME} !-d" >> .deploy/.htaccess
-          echo "RewriteRule ^(.*)$ /index.html [L]" >> .deploy/.htaccess
-          echo "Options -Indexes" >> .deploy/.htaccess
-          
+          echo "RewriteRule ^(.*)$ server.js [L]" >> .deploy/.htaccess
+          # Criar um wrapper PHP para executar o Node.js (necessário em muitos hosts compartilhados)
+          echo "<?php" > .deploy/index.php
+          echo "header('Location: /server.js');" >> .deploy/index.php
+          echo "exit();" >> .deploy/index.php
+          # Gerar um arquivo .user.ini para configurar PHP
+          echo "engine = On" > .deploy/.user.ini
+          echo "short_open_tag = On" >> .deploy/.user.ini
+          # Criar arquivo .htaccess dentro da pasta .next
+          mkdir -p .deploy/.next
+          echo "Options +Indexes" > .deploy/.next/.htaccess
+          echo "Order allow,deny" >> .deploy/.next/.htaccess
+          echo "Allow from all" >> .deploy/.next/.htaccess
+      
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
