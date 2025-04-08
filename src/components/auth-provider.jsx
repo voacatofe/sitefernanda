@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase'
+import { auth } from '@/lib/auth'
 
 // Contexto de autenticação
 const AuthContext = createContext()
@@ -10,66 +10,49 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
+  // Carregar usuário do localStorage ao inicializar
   useEffect(() => {
-    // Verificar sessão atual do usuário
-    const getSession = async () => {
-      // Verificar se o supabase está disponível (client-side)
-      if (!supabase) {
-        setLoading(false)
-        return
+    const checkAuth = () => {
+      if (auth.isAuthenticated()) {
+        setUser(auth.getUser())
+      } else {
+        setUser(null)
       }
-      
-      try {
-        const { data: { session } } = await supabase.auth.getSession()
-        setUser(session?.user || null)
-      } catch (error) {
-        console.error('Erro ao obter sessão:', error)
-      } finally {
-        setLoading(false)
-      }
+      setLoading(false)
     }
 
-    getSession()
-
-    // Configurar listener para mudanças de autenticação
-    let subscription
-    if (supabase) {
-      const { data } = supabase.auth.onAuthStateChange(
-        (_event, session) => {
-          setUser(session?.user || null)
-        }
-      )
-      subscription = data.subscription
+    checkAuth()
+    
+    // Adicionar listener para evento de storage para sincronizar entre abas
+    const handleStorageChange = () => {
+      checkAuth()
     }
-
-    return () => {
-      if (subscription?.unsubscribe) {
-        subscription.unsubscribe()
-      }
-    }
+    
+    window.addEventListener('storage', handleStorageChange)
+    return () => window.removeEventListener('storage', handleStorageChange)
   }, [])
 
   // Funções de autenticação
   const signIn = async (email, password) => {
-    if (!supabase) {
-      return { error: { message: 'Cliente Supabase não disponível' } }
-    }
-    
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      })
-      return { data, error }
+      const result = auth.login(email, password)
+      
+      if (result.success) {
+        setUser(result.user)
+        return { data: result.user, error: null }
+      } else {
+        return { data: null, error: { message: result.message } }
+      }
     } catch (error) {
       return { error: { message: 'Erro ao tentar login: ' + error.message } }
     }
   }
 
   const signOut = async () => {
-    if (supabase) {
-      await supabase.auth.signOut()
-    }
+    auth.logout()
+    setUser(null)
+    // Disparar evento de storage para sincronizar outras abas
+    window.localStorage.setItem('auth_logout', Date.now().toString())
   }
 
   return (
