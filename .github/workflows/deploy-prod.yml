@@ -35,9 +35,13 @@ jobs:
       - name: Prepare for deployment
         run: |
           mkdir -p .deploy
-          cp -r .next/standalone/* .deploy/
-          cp -r .next/static .deploy/.next/
-          cp -r public .deploy/
+          cp -r out/* .deploy/
+          # Criar arquivo .htaccess para configurar o servidor
+          echo "RewriteEngine On" > .deploy/.htaccess
+          echo "RewriteCond %{REQUEST_FILENAME} !-f" >> .deploy/.htaccess
+          echo "RewriteCond %{REQUEST_FILENAME} !-d" >> .deploy/.htaccess
+          echo "RewriteRule ^(.*)$ /index.html [L]" >> .deploy/.htaccess
+          echo "Options -Indexes" >> .deploy/.htaccess
           
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
