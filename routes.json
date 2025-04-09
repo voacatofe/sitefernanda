@@ -1,0 +1,45 @@
+{
+  "version": 3,
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      "src": "/empreendimentos",
+      "dest": "/empreendimentos"
+    },
+    {
+      "src": "/empreendimentos/:id",
+      "dest": "/empreendimentos/:id"
+    },
+    {
+      "src": "/sobre",
+      "dest": "/sobre"
+    },
+    {
+      "src": "/contato",
+      "dest": "/contato"
+    },
+    {
+      "src": "/site",
+      "dest": "/site"
+    },
+    {
+      "src": "/admin/login",
+      "dest": "/admin/login"
+    },
+    {
+      "src": "/api/auth/session",
+      "dest": "/api/auth/session"
+    },
+    {
+      "src": "^/api/.*",
+      "status": 404
+    },
+    {
+      "src": "^(.*)$",
+      "dest": "/404"
+    }
+  ]
+} 

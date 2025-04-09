@@ -1,5 +1,5 @@
 [build]
-  command = "pnpm build"
+  command = "node scripts/netlify-build.js"
   publish = "out"
   
 [build.environment]
