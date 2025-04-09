@@ -31,6 +31,8 @@ jobs:
       
       - name: Generate static files
         run: pnpm build:static
+        env:
+          GITHUB_REF: ${{ github.ref }}
       
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4

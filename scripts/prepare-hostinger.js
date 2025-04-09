@@ -5,6 +5,11 @@ const { execSync } = require('child_process');
 
 console.log('Iniciando preparação para Hostinger...');
 
+// Detectar ambiente (dev ou prod)
+const isDev = process.env.GITHUB_REF === 'refs/heads/dev';
+const basePath = isDev ? '/dev' : '';
+console.log(`Ambiente detectado: ${isDev ? 'desenvolvimento (/dev)' : 'produção (raiz)'}`);
+
 // 1. Gerar o build estático
 console.log('Gerando build estático...');
 
@@ -16,6 +21,7 @@ if (fs.existsSync('./next.config.js')) {
 
 // Usar a configuração para exportação estática
 console.log('Usando configuração de exportação...');
+// Copiar o arquivo de configuração de exportação
 fs.copyFileSync('./next.export.config.js', './next.config.js');
 
 // Desabilitar temporariamente as funcionalidades de autenticação
@@ -31,7 +37,7 @@ try {
 # Configuração para Single Page Application
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
+  RewriteBase ${basePath}/
   
   # Não redirecionar arquivos existentes
   RewriteCond %{REQUEST_FILENAME} !-f

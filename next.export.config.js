@@ -2,6 +2,9 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
+  // Configurar o basePath de acordo com o ambiente
+  basePath: process.env.GITHUB_REF === 'refs/heads/dev' ? '/dev' : '',
+  assetPrefix: process.env.GITHUB_REF === 'refs/heads/dev' ? '/dev/' : '/',
   images: {
     unoptimized: true,
   },
