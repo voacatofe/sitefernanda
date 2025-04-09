@@ -42,6 +42,11 @@ const staticRoute = `
 // Versão estática para build
 export const dynamic = 'force-static';
 
+// Necessário para build estático com parâmetros dinâmicos
+export function generateStaticParams() {
+  return [{ nextauth: ['session'] }, { nextauth: ['signin'] }, { nextauth: ['signout'] }];
+}
+
 export function GET() {
   return new Response(JSON.stringify({ user: null }), {
     status: 200,
@@ -59,5 +64,46 @@ export function POST() {
 
 fs.mkdirSync(apiDir, { recursive: true });
 fs.writeFileSync(`${apiDir}/route.ts`, staticRoute);
+
+// Lidar com outras rotas de API que podem causar problemas
+console.log('Verificando outras rotas de API...');
+const apiPaths = [
+  './src/app/api/seed',
+  './src/app/api/auth/callback',
+  './src/app/api/auth/signin',
+  './src/app/api/auth/signout'
+];
+
+apiPaths.forEach(apiPath => {
+  if (fs.existsSync(`${apiPath}/route.ts`)) {
+    console.log(`Fazendo backup da rota: ${apiPath}`);
+    fs.copyFileSync(`${apiPath}/route.ts`, `${apiPath}/route.ts.bak`);
+    
+    // Criar versão estática da rota
+    fs.writeFileSync(`${apiPath}/route.ts`, `
+// Versão estática para build
+export const dynamic = 'force-static';
+
+// Necessário para build estático
+export function generateStaticParams() {
+  return [];
+}
+
+export function GET() {
+  return new Response(JSON.stringify({ disabled: true }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' }
+  });
+}
+
+export function POST() {
+  return new Response(JSON.stringify({ disabled: true }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' }
+  });
+}
+`);
+  }
+});
 
 console.log('Autenticação desabilitada para o build estático!'); 
