@@ -14,6 +14,8 @@ Este comando irá:
 2. Criar um arquivo `.htaccess` com configurações para SPA
 3. Criar simulações vazias das APIs de autenticação
 
+> **Nota de atualização (Abril 2024):** O processo de deploy está automatizado com GitHub Actions. Os arquivos gerados pelo comando `build:static` já estão configurados para funcionar na Hostinger.
+
 ## 1.2. Deploy automatizado com GitHub Actions
 
 Esse projeto utiliza GitHub Actions para automatizar o processo de deploy para a Hostinger, com o seguinte fluxo:
