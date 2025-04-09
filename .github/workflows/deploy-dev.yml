@@ -29,27 +29,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
       
-      - name: Build project
-        run: pnpm build
+      - name: Generate static files
+        run: pnpm build:static
       
-      - name: Prepare for deployment
-        run: |
-          mkdir -p .deploy
-          cp -r .next/standalone/* .deploy/
-          cp -r .next/static .deploy/.next/
-          cp -r public .deploy/
-          
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: fernandasoaresimoveis.com.br
           username: u491560244.darlan
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./.deploy/
+          local-dir: ./out/
           server-dir: /dev/
-          dangerous-clean-slate: false
-          state-name: .ftp-deploy-sync-state-dev.json
-          dry-run: false
+          dangerous-clean-slate: true
           exclude: |
             **/.git*
             **/.git*/**
