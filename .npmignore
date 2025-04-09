@@ -1,0 +1,8 @@
+# Arquivos de desenvolvimento que não são necessários no build
+prisma/seed.ts
+prisma/seed.js
+**/*.test.*
+**/*.spec.*
+.env*
+!.env.example
+!.env.*.example 
