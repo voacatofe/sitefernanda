@@ -14,12 +14,113 @@ Este comando irá:
 2. Criar um arquivo `.htaccess` com configurações para SPA
 3. Criar simulações vazias das APIs de autenticação
 
-## 2. Fazer upload para a Hostinger
+## 1.2. Deploy automatizado com GitHub Actions
 
-1. Acesse o Painel de Controle da Hostinger
-2. Vá para o Gerenciador de Arquivos
-3. Navegue até a pasta pública do seu domínio (geralmente `public_html/`)
-4. Faça upload de todos os arquivos da pasta `out/`
+Esse projeto utiliza GitHub Actions para automatizar o processo de deploy para a Hostinger, com o seguinte fluxo:
+
+- **Branch `dev`**: Deploy automático para o subdiretório `/dev` na Hostinger
+- **Branch `main`**: Deploy automático para a raiz do site (`public_html/`) na Hostinger
+
+### 1.2.1. Configuração do GitHub Actions
+
+1. Certifique-se de que o arquivo `.github/workflows/deploy.yml` esteja configurado:
+
+```yaml
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Generate static files
+        run: npm run build:static
+        
+      - name: Deploy to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: ${{ github.ref == 'refs/heads/main' ? '/' : '/dev/' }}
+          dangerous-clean-slate: true
+```
+
+### 1.2.2. Segredos do GitHub
+
+Certifique-se de configurar os seguintes segredos no seu repositório GitHub em Settings > Secrets > Actions:
+
+- `FTP_SERVER`: O endereço FTP da Hostinger (ex: `ftp.seudominio.com.br`)
+- `FTP_USERNAME`: Seu nome de usuário FTP da Hostinger
+- `FTP_PASSWORD`: Sua senha FTP da Hostinger
+
+### 1.2.3. Processo de Deploy
+
+1. Para fazer deploy no ambiente de desenvolvimento (`/dev`):
+   ```bash
+   git checkout dev
+   git add .
+   git commit -m "Suas alterações"
+   git push origin dev
+   ```
+   
+   Este push para a branch `dev` acionará automaticamente o GitHub Actions que fará:
+   - Checkout do código
+   - Instalação das dependências
+   - Geração dos arquivos estáticos
+   - Upload via FTP para o diretório `/dev` na Hostinger
+
+2. Para fazer deploy em produção (raiz do site):
+   ```bash
+   git checkout main
+   git merge dev  # Após testar e confirmar no ambiente de desenvolvimento
+   git push origin main
+   ```
+   
+   Este push para a branch `main` acionará o GitHub Actions que fará o mesmo processo, mas com upload para a raiz do site.
+
+3. Monitoramento dos deploys:
+   - Você pode acompanhar o status de cada deploy na aba "Actions" do seu repositório GitHub
+   - Em caso de falha, verifique os logs para identificar e corrigir o problema
+
+### 1.2.4. Deploy manual (se necessário)
+
+Caso precise fazer um deploy manual:
+
+1. Gere os arquivos estáticos localmente:
+   ```bash
+   npm run build:static
+   ```
+
+2. Utilize um cliente FTP (como FileZilla) para fazer upload:
+   - Servidor: seu servidor FTP da Hostinger
+   - Nome de usuário: seu nome de usuário FTP
+   - Senha: sua senha FTP
+   - Porta: 21 (padrão)
+   
+3. Navegue até o diretório correto na Hostinger:
+   - Para ambiente de desenvolvimento: `/dev`
+   - Para produção: raiz (`/`)
+   
+4. Faça upload de todos os arquivos da pasta `out/` para o diretório correspondente
 
 ## 3. Solução de API separada (próxima etapa)
 
