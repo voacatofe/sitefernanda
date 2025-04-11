@@ -124,154 +124,413 @@ Caso precise fazer um deploy manual:
    
 4. Faça upload de todos os arquivos da pasta `out/` para o diretório correspondente
 
-## 3. Solução de API separada (próxima etapa)
+## 3. Solução de API separada com Vercel
 
-Para a parte de autenticação e APIs dinâmicas, você pode:
+Para a parte de autenticação e APIs dinâmicas, vamos usar a Vercel para hospedar nossa API, pois ela oferece:
+- Um plano gratuito generoso
+- Integração nativa com Next.js
+- Deploy automático a partir do GitHub
+- Excelente performance global
 
-1. **Usar um serviço gratuito para a API**:
-   - [Vercel](https://vercel.com) (plano gratuito)
-   - [Netlify](https://netlify.com) (funções)
-   - [Railway](https://railway.app) (período gratuito inicial)
-   - [Render](https://render.com) (plano gratuito)
+### 3.1. Criando o projeto da API no GitHub
 
-2. **Configurar um repositório separado** apenas para a parte de API/backend
-   
-3. **Modificar o frontend** para apontar para a API externa:
-   ```js
-   // Exemplo:
-   const API_URL = "https://sua-api-externa.vercel.app/api";
-   ```
+1. **Acesse o GitHub e crie um novo repositório**:
+   - Abra [GitHub](https://github.com/) e faça login
+   - Clique no botão "+" no canto superior direito e selecione "Novo repositório"
+   - Nomeie o repositório como `fernanda-api` (ou nome de sua preferência)
+   - Escolha "Privado" para manter seu código seguro
+   - Clique em "Criar repositório"
 
-## 4. Configuração do repositório da API no GitHub
-
-### 4.1. Criar o repositório para a API
-
-1. Acesse [GitHub](https://github.com/) e faça login na sua conta
-2. Clique no botão "New" (Novo) para criar um repositório 
-3. Nomeie o repositório (ex: `fernanda-api` ou `sitefernanda-api`)
-4. Escolha a visibilidade (privado ou público)
-5. Ignore as opções para adicionar README, .gitignore, etc. (vamos inicializar manualmente)
-6. Clique em "Create repository" (Criar repositório)
-
-### 4.2. Preparar os arquivos da API
-
-1. Crie uma nova pasta local para o projeto da API:
+2. **Clone o repositório para sua máquina local**:
    ```bash
-   mkdir fernanda-api
+   # Abra o terminal e execute:
+   git clone https://github.com/SEU-USUARIO/fernanda-api.git
    cd fernanda-api
    ```
 
-2. Inicialize um projeto Next.js básico:
+### 3.2. Configurando o projeto Next.js para a API
+
+1. **Crie um projeto Next.js básico**:
    ```bash
+   # No diretório do seu repositório, execute:
    npx create-next-app@latest . --typescript --eslint --tailwind=false --src-dir --app --import-alias="@/*"
    ```
+   
+   Quando solicitado sobre as opções, responda da seguinte forma:
+   - TypeScript? **Sim**
+   - ESLint? **Sim**
+   - Tailwind CSS? **Não** (não precisamos para uma API)
+   - Diretório `src/`? **Sim**
+   - App Router? **Sim**
+   - Alias de importação? **@/*** (padrão)
 
-3. Instale as dependências necessárias:
+2. **Instale as dependências necessárias**:
    ```bash
-   npm install @prisma/client bcryptjs next-auth
+   # Instale os pacotes necessários para autenticação e banco de dados
+   npm install @prisma/client bcryptjs next-auth@beta
    npm install prisma --save-dev
    ```
 
-4. Copie os arquivos-chave do projeto original:
-   - Copie o arquivo `prisma/schema.prisma` para a nova pasta `prisma/`
-   - Adapte os arquivos de autenticação (remova componentes desnecessários)
-
-5. Crie um arquivo `.env` básico:
-   ```
-   DATABASE_URL="postgresql://postgres:191f8ab64007e81cc28f@147.93.15.121:5435/fernanda_db?sslmode=disable"
-   NEXTAUTH_URL="https://sua-api-externa.vercel.app"
-   NEXTAUTH_SECRET="ZmVybmFuZGFfYWRtaW5fc2VjcmV0X2tleV8yMDI0"
+3. **Configure o Prisma**:
+   ```bash
+   # Inicialize o Prisma
+   npx prisma init
    ```
 
-### 4.3. Implementar apenas rotas de API necessárias
+4. **Copie o schema do Prisma do projeto principal**:
+   - Se você já tem um arquivo `prisma/schema.prisma` no projeto principal, copie-o para o novo projeto
+   - Caso contrário, crie um novo com a seguinte estrutura:
 
-1. Crie uma estrutura básica focada em APIs:
-   ```
-   src/
-   ├── app/
-   │   └── api/
-   │       ├── auth/
-   │       │   └── [...nextauth]/
-   │       │       └── route.ts
-   │       └── user/
-   │           └── route.ts
-   ├── lib/
-   │   └── prisma.ts
-   └── auth.ts
+   ```prisma
+   // prisma/schema.prisma
+   generator client {
+     provider = "prisma-client-js"
+   }
+
+   datasource db {
+     provider = "postgresql"
+     url      = env("DATABASE_URL")
+   }
+
+   model User {
+     id        String   @id @default(cuid())
+     name      String?
+     email     String   @unique
+     password  String
+     role      String   @default("user")
+     createdAt DateTime @default(now())
+     updatedAt DateTime @updatedAt
+   }
    ```
 
-2. Configure o servidor para permitir solicitações do seu site na Hostinger:
+5. **Crie um arquivo .env para as variáveis de ambiente**:
+   ```
+   # .env
+   DATABASE_URL="postgresql://usuario:senha@localhost:5432/fernanda_db?sslmode=disable"
+   NEXTAUTH_URL="http://localhost:3000"
+   NEXTAUTH_SECRET="chave-secreta-aqui-recomendado-gerar-uma-aleatoria"
+   ```
+
+### 3.3. Criando as rotas da API
+
+1. **Crie a estrutura básica de diretórios**:
+   ```bash
+   mkdir -p src/app/api/auth/[...nextauth]
+   mkdir -p src/app/api/user
+   mkdir -p src/lib
+   ```
+
+2. **Crie o arquivo de configuração do Prisma**:
+   ```javascript
+   // src/lib/prisma.ts
+   import { PrismaClient } from '@prisma/client'
+
+   const globalForPrisma = global as unknown as { prisma: PrismaClient }
+
+   export const prisma = globalForPrisma.prisma || new PrismaClient()
+
+   if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+
+   export default prisma
+   ```
+
+3. **Configure a autenticação com NextAuth**:
    ```typescript
+   // src/app/api/auth/[...nextauth]/route.ts
+   import NextAuth from "next-auth"
+   import CredentialsProvider from "next-auth/providers/credentials"
+   import { compare } from "bcryptjs"
+   import prisma from "@/lib/prisma"
+
+   const handler = NextAuth({
+     providers: [
+       CredentialsProvider({
+         name: "Credentials",
+         credentials: {
+           email: { label: "Email", type: "email" },
+           password: { label: "Senha", type: "password" }
+         },
+         async authorize(credentials) {
+           if (!credentials?.email || !credentials?.password) {
+             return null
+           }
+
+           const user = await prisma.user.findUnique({
+             where: {
+               email: credentials.email
+             }
+           })
+
+           if (!user) {
+             return null
+           }
+
+           const isPasswordValid = await compare(credentials.password, user.password)
+
+           if (!isPasswordValid) {
+             return null
+           }
+
+           return {
+             id: user.id,
+             email: user.email,
+             name: user.name,
+             role: user.role
+           }
+         }
+       })
+     ],
+     session: {
+       strategy: "jwt",
+     },
+     callbacks: {
+       async jwt({ token, user }) {
+         if (user) {
+           token.role = user.role;
+           token.id = user.id;
+         }
+         return token;
+       },
+       async session({ session, token }) {
+         if (session.user) {
+           session.user.role = token.role as string;
+           session.user.id = token.id as string;
+         }
+         return session;
+       },
+     },
+     pages: {
+       signIn: '/login',
+     }
+   })
+
+   export { handler as GET, handler as POST }
+   ```
+
+4. **Crie uma rota para usuários (opcional)**:
+   ```typescript
+   // src/app/api/user/route.ts
+   import { NextResponse } from "next/server"
+   import prisma from "@/lib/prisma"
+   import { hash } from "bcryptjs"
+
+   export async function POST(request: Request) {
+     try {
+       const { name, email, password, role } = await request.json()
+       
+       // Verificar se o usuário já existe
+       const existingUser = await prisma.user.findUnique({
+         where: { email }
+       })
+       
+       if (existingUser) {
+         return NextResponse.json(
+           { error: "O email já está em uso" },
+           { status: 400 }
+         )
+       }
+       
+       // Hash da senha
+       const hashedPassword = await hash(password, 10)
+       
+       // Criar novo usuário
+       const user = await prisma.user.create({
+         data: {
+           name,
+           email,
+           password: hashedPassword,
+           role: role || "user"
+         }
+       })
+       
+       // Retornar usuário sem a senha
+       const { password: _, ...userWithoutPassword } = user
+       return NextResponse.json(userWithoutPassword)
+     } catch (error) {
+       console.error("Erro ao criar usuário:", error)
+       return NextResponse.json(
+         { error: "Falha ao criar usuário" },
+         { status: 500 }
+       )
+     }
+   }
+
+   // Pegar todos os usuários (apenas para admin)
+   export async function GET(request: Request) {
+     try {
+       // Aqui você poderia adicionar verificação de autenticação
+       // usando headers ou cookies
+       
+       const users = await prisma.user.findMany({
+         select: {
+           id: true,
+           name: true,
+           email: true,
+           role: true,
+           createdAt: true,
+           updatedAt: true,
+           // Não incluir a senha
+         }
+       })
+       
+       return NextResponse.json(users)
+     } catch (error) {
+       console.error("Erro ao buscar usuários:", error)
+       return NextResponse.json(
+         { error: "Falha ao buscar usuários" },
+         { status: 500 }
+       )
+     }
+   }
+   ```
+
+5. **Configure o CORS para permitir acesso do seu site estático**:
+   ```javascript
    // next.config.js
-   module.exports = {
+   /** @type {import('next').NextConfig} */
+   const nextConfig = {
      async headers() {
        return [
          {
            source: '/api/:path*',
            headers: [
              { key: 'Access-Control-Allow-Credentials', value: 'true' },
-             { key: 'Access-Control-Allow-Origin', value: 'https://seudominio.com.br' },
+             { key: 'Access-Control-Allow-Origin', value: 'https://fernandasoaresimoveis.com.br' },
              { key: 'Access-Control-Allow-Methods', value: 'GET,OPTIONS,PATCH,DELETE,POST,PUT' },
-             { key: 'Access-Control-Allow-Headers', value: 'X-CSRF-Token, X-Requested-With, Accept, Content-Type' },
+             { key: 'Access-Control-Allow-Headers', value: 'X-CSRF-Token, X-Requested-With, Accept, Authorization, Content-Type' },
            ],
          },
        ]
      },
    }
+
+   module.exports = nextConfig
    ```
 
-### 4.4. Inicializar e enviar para o GitHub
+### 3.4. Preparando o projeto para deploy na Vercel
 
-1. Inicialize o repositório Git:
+1. **Commit e push das alterações**:
    ```bash
-   git init
    git add .
-   git commit -m "Primeira versão da API"
+   git commit -m "Configuração inicial da API"
+   git push origin main
    ```
 
-2. Conecte ao repositório remoto:
+2. **Crie uma conta na Vercel**:
+   - Acesse [Vercel](https://vercel.com/) e clique em "Sign Up"
+   - Escolha "Continue with GitHub" para conectar sua conta GitHub
+
+3. **Configure seu projeto na Vercel**:
+   - Após o login, clique em "Add New..." > "Project"
+   - Selecione o repositório `fernanda-api` que você acabou de criar
+   - Na configuração do projeto:
+     - Framework Preset: Next.js
+     - Root Directory: ./
+     - Build Command: (deixe o padrão)
+     - Output Directory: (deixe o padrão)
+
+4. **Configure as variáveis de ambiente**:
+   - Na tela de configuração do projeto (antes de finalizar o deploy), clique em "Environment Variables"
+   - Adicione as seguintes variáveis:
+     - `DATABASE_URL`: URL completa para seu banco de dados PostgreSQL
+     - `NEXTAUTH_SECRET`: Uma string segura e aleatória (pode gerar usando `openssl rand -base64 32`)
+     - `NEXTAUTH_URL`: Será preenchido automaticamente com a URL da Vercel após o deploy
+
+5. **Finalize o deploy**:
+   - Clique em "Deploy"
+   - Aguarde a conclusão do processo de build e deploy
+
+### 3.5. Configurando o banco de dados
+
+1. **Opções de banco de dados**:
+   - [Neon](https://neon.tech) (PostgreSQL com plano gratuito generoso)
+   - [Supabase](https://supabase.com) (PostgreSQL com interface amigável)
+   - [Railway](https://railway.app) (Múltiplos bancos com período trial)
+
+2. **Configurando o banco de dados Neon** (opção recomendada):
+   - Acesse [Neon](https://neon.tech) e crie uma conta
+   - Crie um novo projeto (ex: "fernanda-api")
+   - Ao criar o projeto, a conexão string será exibida. Copie-a
+   - Volte para a Vercel, vá em Settings > Environment Variables
+   - Atualize a variável `DATABASE_URL` com a string de conexão do Neon
+
+3. **Aplique as migrações do Prisma**:
    ```bash
-   git remote add origin https://github.com/SEU-USUARIO/fernanda-api.git
-   git push -u origin main
+   # Localmente, crie a migração
+   npx prisma migrate dev --name initial
+   
+   # Para aplicar no banco remoto
+   npx prisma migrate deploy
    ```
 
-### 4.5. Deployar a API
+### 3.6. Testando a API
 
-1. Acesse [Vercel](https://vercel.com/) e faça login com a conta do GitHub
-2. Importe o repositório `fernanda-api`
-3. Configure as variáveis de ambiente:
-   - DATABASE_URL
-   - NEXTAUTH_URL (a URL da sua Vercel)
-   - NEXTAUTH_SECRET
+1. **Teste local**:
+   ```bash
+   npm run dev
+   ```
+   - Acesse `http://localhost:3000/api/user` para verificar se a rota está funcionando
 
-4. Clique em "Deploy" e aguarde a conclusão
+2. **Teste a versão deployada**:
+   - Acesse `https://fernanda-api.vercel.app/api/user` (substituindo pelo seu domínio)
 
-### 4.6. Integrar o site estático com a API
+### 3.7. Integrando com o site estático
 
-1. No site estático hospedado na Hostinger, você precisará atualizar as referências para apontar para sua API externa:
-
+1. **Crie um arquivo de configuração para a API no site estático**:
    ```javascript
-   // Arquivo de configuração da API (a ser criado)
-   // public_html/config.js
-   
+   // public/config.js
    window.API_CONFIG = {
      BASE_URL: "https://fernanda-api.vercel.app",
      AUTH_URL: "https://fernanda-api.vercel.app/api/auth"
    };
    ```
 
-2. Inclua esse arquivo no seu HTML principal e use-o em qualquer script que precise acessar a API.
+2. **Adicione este arquivo ao seu HTML base**:
+   ```html
+   <!-- Adicione isso em public/index.html ou no seu componente Layout */-->
+   <script src="/config.js"></script>
+   ```
 
-## Limitações atuais da versão estática
+3. **Modifique seus componentes para usar a API externa**:
+   ```javascript
+   // Exemplo de uso em um componente de login
+   async function handleLogin(email, password) {
+     try {
+       const response = await fetch(`${window.API_CONFIG.AUTH_URL}/signin`, {
+         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({ email, password }),
+       });
+       
+       if (!response.ok) {
+         throw new Error('Falha na autenticação');
+       }
+       
+       const data = await response.json();
+       // Processar o login bem-sucedido
+     } catch (error) {
+       // Tratar erro
+     }
+   }
+   ```
 
-Na versão estática atual:
+### 3.8. Mantendo a API atualizada
 
-1. **Autenticação**: Não funcionará sem uma API externa
-2. **Painel Admin**: Não terá funcionalidade completa
-3. **Formulários dinâmicos**: Não funcionarão sem um backend
+1. **Atualizações automáticas**:
+   - A Vercel configura automaticamente o deploy contínuo
+   - Cada push para a branch `main` acionará um novo deploy
 
-## Próximos passos
+2. **Monitoramento**:
+   - Acesse o dashboard da Vercel para ver logs e métricas
+   - Configure alertas para ser notificado em caso de falhas
 
-1. Hospedar a versão estática na Hostinger
-2. Configurar um repositório separado apenas para a API
-3. Configurar integração entre o site estático e a API externa 
+## 4. Próximos passos
+
+1. ✅ Hospedar a versão estática na Hostinger
+2. ✅ Configurar um repositório separado para a API
+3. ✅ Configurar a API na Vercel
+4. ☐ Criar endpoints adicionais conforme necessário
+5. ☐ Configurar autenticação e autorização completas
+6. ☐ Integrar o frontend com a API externa 
