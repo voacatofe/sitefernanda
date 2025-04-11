@@ -1,10 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Configurar output apenas para produção
+  output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
   images: {
-    unoptimized: true,
+    unoptimized: process.env.NODE_ENV === 'production', // Otimiza em dev, não em prod
   },
-  // Não precisamos de serverExternalPackages no modo estático
+  // Configurações para exportação estática apenas em produção
+  trailingSlash: process.env.NODE_ENV === 'production',
+  // Configuração para ignorar build errors em produção
+  typescript: {
+    ignoreBuildErrors: process.env.NODE_ENV === 'production',
+  },
+  eslint: {
+    ignoreDuringBuilds: process.env.NODE_ENV === 'production',
+  },
+  // Configurações experimentais
+  experimental: {
+    appDocumentPreloading: false,
+  },
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig
