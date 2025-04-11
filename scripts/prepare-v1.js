@@ -172,7 +172,7 @@ fs.writeFileSync(documentPath, documentContent);
 // 6. Executar o build
 try {
   console.log('Gerando os arquivos estáticos...');
-  execSync('next build', { stdio: 'inherit' });
+  execSync('npx next build', { stdio: 'inherit' });
   
   // 7. Criar arquivo .htaccess
   console.log('Criando arquivo .htaccess...');
@@ -232,6 +232,44 @@ Sitemap: https://fernandasoaresimoveis.com.br/sitemap.xml
   if (fs.existsSync(adminOutputDir)) {
     console.log('Removendo a pasta admin do output...');
     fs.rmSync(adminOutputDir, { recursive: true, force: true });
+  }
+  
+  // 10. Verificar e corrigir imagens essenciais
+  console.log('Verificando se as imagens essenciais estão presentes...');
+  
+  // Lista de imagens essenciais que devem estar presentes
+  const essentialImages = [
+    { src: './public/images/Logo SF.png', dest: './out/images/Logo SF.png' },
+    { src: './public/images/florianopolis.webp', dest: './out/images/florianopolis.webp' },
+    { src: './public/images/ponte.png', dest: './out/images/ponte.png' },
+    { src: './public/images/Fernanda Soares.jpg', dest: './out/images/Fernanda Soares.jpg' }
+  ];
+  
+  // Garantir que o diretório existe
+  if (!fs.existsSync('./out/images')) {
+    fs.mkdirSync('./out/images', { recursive: true });
+  }
+  
+  // Copiar as imagens essenciais
+  essentialImages.forEach(img => {
+    if (fs.existsSync(img.src)) {
+      console.log(`Copiando ${img.src} para ${img.dest}`);
+      // Garantir que o diretório de destino existe
+      const destDir = path.dirname(img.dest);
+      if (!fs.existsSync(destDir)) {
+        fs.mkdirSync(destDir, { recursive: true });
+      }
+      fs.copyFileSync(img.src, img.dest);
+    } else {
+      console.warn(`Aviso: Imagem essencial não encontrada: ${img.src}`);
+    }
+  });
+
+  // Criar aliases para imagens com variações de nome (para compatibilidade)
+  // Por exemplo, cria uma cópia do logo com L minúsculo para caso algum componente use "logo" em vez de "Logo"
+  if (fs.existsSync('./out/images/Logo SF.png') && !fs.existsSync('./out/images/logo SF.png')) {
+    console.log('Criando alias para logo (minúsculo)...');
+    fs.copyFileSync('./out/images/Logo SF.png', './out/images/logo SF.png');
   }
   
   console.log('Preparação da versão V1 concluída! Os arquivos estão prontos na pasta "out/".');

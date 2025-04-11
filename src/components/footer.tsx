@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="flex items-center mb-6">
               <div className="relative h-12 w-12 mr-3">
                 <Image
-                  src="/images/logo SF.png"
+                  src="/images/Logo SF.png"
                   alt="SF Logo"
                   fill
                   className="object-contain brightness-0 invert"
@@ -109,7 +109,7 @@ export default function Footer() {
         <div className="border-t border-dimas-gray/20 mt-12 pt-8 text-center">
           <div className="relative mx-auto h-12 w-12 mb-6">
             <Image
-              src="/images/logo SF.png"
+              src="/images/Logo SF.png"
               alt="SF Logo"
               fill
               className="object-contain brightness-0 invert"
