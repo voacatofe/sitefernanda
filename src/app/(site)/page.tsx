@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { projectsData } from "@/app/data/empreendimentos/projects"
 import JeitoDimas from '@/components/JeitoDimas'
 import WhatsAppButton from '@/components/WhatsAppButton'
+import { ScheduleVisitForm } from '@/components/ScheduleVisitForm'
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -162,10 +163,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <Button className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90 rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
-                  <span>Agende uma consulta</span>
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
+                <ScheduleVisitForm />
               </motion.div>
             </div>
           </div>
@@ -300,10 +298,7 @@ export default function Home() {
                 <h3 className="text-2xl font-light mb-2">Pronto para encontrar o imóvel dos seus sonhos?</h3>
                 <p className="text-white/70">Entre em contato com Fernanda e agende uma consulta personalizada.</p>
               </div>
-              <Button className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90 rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
-                <span>Agende uma consulta</span>
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
+              <ScheduleVisitForm />
             </div>
           </div>
         </section>

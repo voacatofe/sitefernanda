@@ -12,20 +12,40 @@ export const projectsData: Record<string, Project> = {
       { title: "Localização", description: "Área nobre com fácil acesso" },
       { title: "Entrega", description: "Previsão para Dezembro/2025" },
     ],
-    gallery: Array(6).fill("/images/dverse/dverse.jpg"),
+    gallery: [
+      "/images/dverse/dverse (1).webp",
+      "/images/dverse/dverse (2).webp",
+      "/images/dverse/dverse (3).webp",
+      "/images/dverse/dverse (4).webp",
+      "/images/dverse/dverse (5).webp",
+      "/images/dverse/dverse (6).webp",
+      "/images/dverse/dverse (7).webp",
+      "/images/dverse/dverse (8).webp",
+      "/images/dverse/dverse (9).webp",
+      "/images/dverse/dverse (10).webp",
+      "/images/dverse/dverse (11).webp",
+      "/images/dverse/dverse (12).webp",
+      "/images/dverse/dverse (13).webp",
+      "/images/dverse/dverse (14).webp",
+      "/images/dverse/dverse (15).webp",
+      "/images/dverse/dverse (16).webp",
+      "/images/dverse/dverse (17).webp",
+      "/images/dverse/dverse (18).webp",
+      "/images/dverse/dverse (19).webp"
+    ],
     heroImage: "/images/dverse/dverse.jpg",
-    mainImage: "/images/dverse/dverse.jpg",
-    additionalImages: ["/images/dverse/dverse.jpg", "/images/dverse/dverse.jpg"],
+    mainImage: "/images/dverse/dverse (1).webp",
+    additionalImages: ["/images/dverse/dverse (2).webp", "/images/dverse/dverse (3).webp"],
     floorplans: [
       {
-        title: "Apartamento 120m²",
-        description: "3 suítes, living ampliado, varanda gourmet e cozinha integrada.",
-        image: "/placeholder.svg?height=800&width=1000",
+        title: "Apartamento 102m²",
+        description: "2 suítes, living ampliado com cozinha integrada, sacada e área de serviço.",
+        image: "/images/dverse/102m².png",
       },
       {
-        title: "Apartamento 200m²",
-        description: "4 suítes, living ampliado, varanda gourmet, cozinha integrada e área de serviço.",
-        image: "/placeholder.svg?height=800&width=1000",
+        title: "Apartamento 215m²",
+        description: "4 suítes, living/jantar/cozinha integrados com 56m², sacada ampla com 23m² e área de serviço.",
+        image: "/images/dverse/215m².png",
       },
     ],
     location: {
@@ -59,6 +79,11 @@ export const projectsData: Record<string, Project> = {
         lat: -26.9433,
         lng: -48.6367
       }
+    },
+    salesMaterial: {
+      title: "Catálogo Exclusivo D'VERSE",
+      description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
+      fileUrl: "/materiais/DVerse.pdf"
     }
   },
   dseason: {
@@ -119,6 +144,11 @@ export const projectsData: Record<string, Project> = {
         lat: -26.9901,
         lng: -48.6337
       }
+    },
+    salesMaterial: {
+      title: "Catálogo Exclusivo D'SEASON",
+      description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
+      fileUrl: "/materiais/DSeason Residence.pdf"
     }
   },
   dsense: {
@@ -179,6 +209,11 @@ export const projectsData: Record<string, Project> = {
         lat: -26.9901,
         lng: -48.6337
       }
+    },
+    salesMaterial: {
+      title: "Catálogo Exclusivo D'SENSE",
+      description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
+      fileUrl: "/materiais/DSense.pdf"
     }
   },
   dvert: {
@@ -239,6 +274,11 @@ export const projectsData: Record<string, Project> = {
         lat: -26.9147,
         lng: -49.0716
       }
+    },
+    salesMaterial: {
+      title: "Catálogo Exclusivo D'VERT",
+      description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
+      fileUrl: "/materiais/DVert Residence Club.pdf"
     }
   },
   dyard: {
@@ -299,6 +339,11 @@ export const projectsData: Record<string, Project> = {
         lat: -26.9901,
         lng: -48.6337
       }
+    },
+    salesMaterial: {
+      title: "Catálogo Exclusivo D'YARD",
+      description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
+      fileUrl: "/materiais/DYard.pdf"
     }
   },
   dnex: {
@@ -359,6 +404,11 @@ export const projectsData: Record<string, Project> = {
         lat: -26.9901,
         lng: -48.6337
       }
+    },
+    salesMaterial: {
+      title: "Catálogo Exclusivo D'NEX",
+      description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
+      fileUrl: "/materiais/DNex.pdf"
     }
   }
 } 

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react"
+import { Phone, Mail, Instagram, Linkedin } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -81,24 +81,17 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-center">
                 <Phone className="h-4 w-4 text-fernanda-gold mr-3" />
-                <span className="text-dimas-gray">+55 (XX) XXXX-XXXX</span>
+                <span className="text-dimas-gray">+55 48 9210-2930</span>
               </li>
               <li className="flex items-center">
                 <Mail className="h-4 w-4 text-fernanda-gold mr-3" />
-                <span className="text-dimas-gray">fernanda@dimasconstrucoes.com.br</span>
-              </li>
-              <li className="flex items-center">
-                <MapPin className="h-4 w-4 text-fernanda-gold mr-3" />
-                <span className="text-dimas-gray">Endereço da Dimas Construções</span>
+                <span className="text-dimas-gray">martinssoaresfernanda@gmail.com</span>
               </li>
               <li className="flex items-center space-x-4 pt-4">
-                <a href="#" className="text-dimas-gray hover:text-fernanda-gold transition-colors">
+                <a href="https://www.instagram.com/fernandasoares.imoveis/" target="_blank" rel="noopener noreferrer" className="text-dimas-gray hover:text-fernanda-gold transition-colors">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-dimas-gray hover:text-fernanda-gold transition-colors">
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-dimas-gray hover:text-fernanda-gold transition-colors">
+                <a href="https://www.linkedin.com/in/fernanda-soares-a133a120/" target="_blank" rel="noopener noreferrer" className="text-dimas-gray hover:text-fernanda-gold transition-colors">
                   <Linkedin className="h-5 w-5" />
                 </a>
               </li>
@@ -106,7 +99,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-dimas-gray/20 mt-12 pt-8 text-center">
+        <div className="border-t border-dimas-gray/20 mt-12 pt-12 text-center">
           <div className="relative mx-auto h-12 w-12 mb-6">
             <Image
               src="/images/Logo SF.png"

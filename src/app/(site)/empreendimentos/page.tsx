@@ -5,8 +5,9 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Search } from "lucide-react"
 import { projectsData } from "@/app/data/empreendimentos/projects"
+import { ScheduleVisitForm } from "@/components/ScheduleVisitForm"
 
 export default function ProjectsPage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -135,7 +136,7 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-2">
               <div className="relative h-24 w-24 rounded-full overflow-hidden mx-auto lg:mx-0">
-                <Image src="/images/Fernanda Soares.jpg" alt="Fernanda" fill className="object-cover" />
+                <Image src="/images/fs.jpg" alt="Fernanda" fill className="object-cover" />
               </div>
             </div>
             <div className="lg:col-span-7 text-center lg:text-left">
@@ -145,10 +146,7 @@ export default function ProjectsPage() {
               </p>
             </div>
             <div className="lg:col-span-3 text-center lg:text-right">
-              <Button className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90 rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
-                <span>Agende uma consulta</span>
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
+              <ScheduleVisitForm />
             </div>
           </div>
         </div>

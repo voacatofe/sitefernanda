@@ -5,24 +5,43 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Phone, Mail, MapPin, ArrowRight, Instagram, Facebook, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ScheduleVisitForm } from "@/components/ScheduleVisitForm"
+import JeitoDimas from "@/components/JeitoDimas"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
 
 export default function ContactPage() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
 
   useEffect(() => {
     setIsLoaded(true)
   }, [])
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setShowSuccessModal(true)
+    // Limpa o formulário
+    const form = e.target as HTMLFormElement
+    form.reset()
+  }
+
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-[50vh]">
+      <section className="relative h-[60vh] pt-24">
         <Image
-          src="/placeholder.svg?height=1080&width=1920"
+          src="/images/fs contato.png"
           alt="Contato Fernanda"
           fill
-          className="object-cover"
+          className="object-cover object-[15%_0%]"
           priority
+          quality={100}
         />
         <div className="absolute inset-0 bg-black/40"></div>
 
@@ -74,7 +93,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-light text-dimas-black mb-1">Telefone</h3>
-                    <p className="text-dimas-black/60">+55 (XX) XXXX-XXXX</p>
+                    <p className="text-dimas-black/60">+55 48 9210-2930</p>
                   </div>
                 </div>
 
@@ -84,17 +103,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-light text-dimas-black mb-1">E-mail</h3>
-                    <p className="text-dimas-black/60">fernanda@dimasconstrucoes.com.br</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="h-12 w-12 rounded-full bg-fernanda-gold/10 flex items-center justify-center mr-4">
-                    <MapPin className="h-5 w-5 text-fernanda-gold" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-light text-dimas-black mb-1">Escritório</h3>
-                    <p className="text-dimas-black/60">Endereço da Dimas Construções</p>
+                    <p className="text-dimas-black/60">martinssoaresfernanda@gmail.com</p>
                   </div>
                 </div>
 
@@ -102,35 +111,22 @@ export default function ContactPage() {
                   <h3 className="text-lg font-light text-dimas-black mb-4">Redes Sociais</h3>
                   <div className="flex space-x-4">
                     <a
-                      href="#"
+                      href="https://www.instagram.com/fernandasoares.imoveis/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="h-10 w-10 rounded-full bg-fernanda-gold/10 flex items-center justify-center text-fernanda-gold hover:bg-fernanda-gold hover:text-white transition-colors"
                     >
                       <Instagram className="h-5 w-5" />
                     </a>
                     <a
-                      href="#"
-                      className="h-10 w-10 rounded-full bg-fernanda-gold/10 flex items-center justify-center text-fernanda-gold hover:bg-fernanda-gold hover:text-white transition-colors"
-                    >
-                      <Facebook className="h-5 w-5" />
-                    </a>
-                    <a
-                      href="#"
+                      href="https://www.linkedin.com/in/fernanda-soares-a133a120/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="h-10 w-10 rounded-full bg-fernanda-gold/10 flex items-center justify-center text-fernanda-gold hover:bg-fernanda-gold hover:text-white transition-colors"
                     >
                       <Linkedin className="h-5 w-5" />
                     </a>
                   </div>
-                </div>
-              </div>
-
-              <div className="mt-12">
-                <div className="aspect-[16/9] relative rounded-none overflow-hidden">
-                  <Image
-                    src="/placeholder.svg?height=600&width=800"
-                    alt="Mapa Dimas Construções"
-                    fill
-                    className="object-cover"
-                  />
                 </div>
               </div>
             </motion.div>
@@ -143,7 +139,7 @@ export default function ContactPage() {
             >
               <div className="bg-white p-8 shadow-md border-t-2 border-fernanda-gold">
                 <h3 className="text-2xl font-light text-dimas-black mb-6">Agende uma consulta</h3>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-light text-dimas-black/80 mb-1">
@@ -216,77 +212,25 @@ export default function ContactPage() {
                   </div>
                 </form>
               </div>
-
-              <div className="mt-12 bg-dimas-beige p-8">
-                <h3 className="text-xl font-light text-dimas-black mb-6">Horário de Atendimento</h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between">
-                    <span className="text-dimas-black/70">Segunda a Sexta</span>
-                    <span className="text-dimas-black font-medium">9h às 18h</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-dimas-black/70">Sábado</span>
-                    <span className="text-dimas-black font-medium">9h às 13h</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-dimas-black/70">Domingo e Feriados</span>
-                    <span className="text-dimas-black font-medium">Mediante agendamento</span>
-                  </div>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-dimas-beige">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-3xl mx-auto text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-light text-dimas-black mb-6">O que dizem sobre Fernanda</h2>
-            <div className="w-20 h-0.5 bg-fernanda-gold mx-auto mb-8"></div>
-          </motion.div>
+      {/* Success Modal */}
+      <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-light text-dimas-black">Mensagem enviada com sucesso!</DialogTitle>
+            <DialogDescription className="text-dimas-black/70 pt-2">
+              Obrigada pelo seu contato. A Fernanda entrará em contato com você em breve para agendar sua consulta personalizada.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <motion.div
-                key={item}
-                className="bg-white p-8 shadow-md"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: item * 0.1 }}
-              >
-                <div className="flex items-center mb-6">
-                  <div className="relative h-16 w-16 rounded-full overflow-hidden mr-4">
-                    <Image
-                      src="/placeholder.svg?height=64&width=64"
-                      alt={`Cliente ${item}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-dimas-black">Cliente {item}</h3>
-                    <p className="text-dimas-black/60 text-sm">Proprietário no D'VERSE</p>
-                  </div>
-                </div>
-                <p className="text-dimas-black/80 italic">
-                  "Fernanda foi excepcional durante todo o processo de compra do meu imóvel. Seu conhecimento sobre os
-                  empreendimentos Dimas e sua atenção personalizada fizeram toda a diferença. Recomendo a todos que
-                  buscam um imóvel de alto padrão."
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Jeito Dimas Section */}
+      <JeitoDimas />
     </div>
   )
 }

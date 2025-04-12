@@ -61,4 +61,9 @@ export interface Project {
   status: ProjectStatus
   type: ProjectType
   address: Address
+  salesMaterial?: {
+    title: string
+    description: string
+    fileUrl: string
+  }
 } 

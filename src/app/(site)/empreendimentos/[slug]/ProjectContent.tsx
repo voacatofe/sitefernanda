@@ -7,6 +7,9 @@ import { motion } from "framer-motion"
 import { ChevronLeft, ArrowRight, Phone, Mail, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Project, Feature, Floorplan, Location, NearbyLocation, Differential } from "@/app/data/empreendimentos/types"
+import { ImageGallery } from "@/components/ImageGallery"
+import { DownloadMaterialForm } from "@/components/DownloadMaterialForm"
+import { ScheduleVisitForm } from "@/components/ScheduleVisitForm"
 
 interface ProjectContentProps {
   project: Project
@@ -55,6 +58,7 @@ export default function ProjectContent({ project }: ProjectContentProps) {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6">{project.title}</h1>
               <div className="w-20 h-0.5 bg-fernanda-gold mb-8"></div>
               <p className="text-xl text-white/90 font-light mb-8">{project.tagline}</p>
+              <ScheduleVisitForm projectTitle={project.title} />
             </motion.div>
           </div>
         </div>
@@ -121,10 +125,22 @@ export default function ProjectContent({ project }: ProjectContentProps) {
                   </div>
                 )}
 
-                <Button className="bg-dimas-black text-white hover:bg-fernanda-gold hover:text-dimas-black rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
-                  <span>Agende uma visita</span>
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
+                {project.salesMaterial && (
+                  <div className="mt-8 mb-12">
+                    <h3 className="text-xl font-light text-dimas-black mb-4">Material exclusivo</h3>
+                    <p className="text-dimas-black/80 mb-6">
+                      Temos um material exclusivo com mais detalhes sobre o {project.title}. 
+                      Baixe agora e descubra todos os diferenciais deste empreendimento.
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                      <DownloadMaterialForm
+                        title={project.salesMaterial.title}
+                        description={project.salesMaterial.description}
+                        fileUrl={project.salesMaterial.fileUrl}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="space-y-8">
@@ -161,19 +177,24 @@ export default function ProjectContent({ project }: ProjectContentProps) {
               <h2 className="text-3xl font-light text-dimas-black mb-6">Galeria {project.title}</h2>
               <div className="w-20 h-0.5 bg-fernanda-gold mb-12"></div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {project.gallery.map((image, index) => (
-                  <div key={index} className="aspect-[4/3] relative rounded-none overflow-hidden group">
-                    <Image
-                      src={image || "/placeholder.svg"}
-                      alt={`${project.title} Imagem ${index + 1}`}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                  </div>
-                ))}
-              </div>
+              <ImageGallery images={project.gallery} title={project.title} />
+              
+              {project.salesMaterial && (
+                <div className="mt-16 text-center">
+                  <h3 className="text-xl font-light text-dimas-black mb-4">
+                    Quer ver mais imagens e detalhes do empreendimento?
+                  </h3>
+                  <p className="text-dimas-black/80 mb-6 max-w-2xl mx-auto">
+                    Baixe nosso catálogo exclusivo com mais fotos e informações detalhadas sobre o {project.title}.
+                  </p>
+                  <DownloadMaterialForm
+                    title={project.salesMaterial.title}
+                    description={project.salesMaterial.description}
+                    fileUrl={project.salesMaterial.fileUrl}
+                    centered={true}
+                  />
+                </div>
+              )}
             </div>
           )}
 
@@ -200,45 +221,66 @@ export default function ProjectContent({ project }: ProjectContentProps) {
                   </div>
                 ))}
               </div>
+
+              {project.salesMaterial && (
+                <div className="mt-16 text-center">
+                  <h3 className="text-xl font-light text-dimas-black mb-4">
+                    Quer conhecer mais detalhes das plantas e acabamentos?
+                  </h3>
+                  <p className="text-dimas-black/80 mb-6 max-w-2xl mx-auto">
+                    Baixe nosso catálogo exclusivo com todas as informações sobre as plantas, 
+                    acabamentos e especificações do {project.title}.
+                  </p>
+                  <DownloadMaterialForm
+                    title={project.salesMaterial.title}
+                    description={project.salesMaterial.description}
+                    fileUrl={project.salesMaterial.fileUrl}
+                    centered={true}
+                  />
+                </div>
+              )}
             </div>
           )}
 
           {/* Localização */}
           {activeTab === "localizacao" && project.location && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              <div>
-                <h2 className="text-3xl font-light text-dimas-black mb-6">Localização</h2>
-                <div className="w-20 h-0.5 bg-fernanda-gold mb-8"></div>
-                <p className="text-dimas-black/80 font-light mb-10">{project.location.description}</p>
+            <div>
+              <h2 className="text-3xl font-light text-dimas-black mb-6">Localização</h2>
+              <div className="w-20 h-0.5 bg-fernanda-gold mb-8"></div>
+              <p className="text-dimas-black/80 font-light mb-10">
+                O D'VERSE está localizado em uma área privilegiada da Praia Brava, com acesso direto à praia e próximo à entrada principal do bairro. Com vista panorâmica para o mar, o empreendimento oferece o melhor da tranquilidade e sofisticação.
+              </p>
 
-                <div className="space-y-6 mb-10">
-                  {project.location.nearby?.map((nearby, index) => (
-                    <div key={index} className="flex items-start">
-                      <div className="w-16 h-16 flex-shrink-0 bg-fernanda-gold/10 border border-fernanda-gold/30 flex items-center justify-center">
-                        <span className="text-fernanda-gold font-light">{nearby.time}</span>
-                      </div>
-                      <div className="ml-6">
-                        <h3 className="text-xl font-light text-dimas-black mb-1">{nearby.place}</h3>
-                        <p className="text-dimas-black/60 font-light">{nearby.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <Button className="bg-dimas-black text-white hover:bg-fernanda-gold hover:text-dimas-black rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
-                  <span>Como Chegar</span>
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </div>
-
-              <div className="aspect-square relative rounded-none overflow-hidden">
+              <div className="aspect-video relative rounded-none overflow-hidden mb-12">
                 <Image
-                  src={project.location.mapImage || "/placeholder.svg"}
+                  src="/images/dverse/localização.png"
                   alt={`Localização do ${project.title}`}
                   fill
-                  className="object-cover"
+                  className="object-contain"
+                  priority
                 />
               </div>
+              
+              <div className="flex justify-center">
+                <ScheduleVisitForm projectTitle={project.title} centered={true} />
+              </div>
+              
+              {project.salesMaterial && (
+                <div className="mt-16 text-center">
+                  <h3 className="text-xl font-light text-dimas-black mb-4">
+                    Quer conhecer mais sobre a localização e o entorno?
+                  </h3>
+                  <p className="text-dimas-black/80 mb-6 max-w-2xl mx-auto">
+                    Baixe nosso material exclusivo com mais detalhes sobre a localização privilegiada do {project.title}.
+                  </p>
+                  <DownloadMaterialForm
+                    title={project.salesMaterial.title}
+                    description={project.salesMaterial.description}
+                    fileUrl={project.salesMaterial.fileUrl}
+                    centered={true}
+                  />
+                </div>
+              )}
             </div>
           )}
 
@@ -259,6 +301,23 @@ export default function ProjectContent({ project }: ProjectContentProps) {
                   </div>
                 ))}
               </div>
+              
+              {project.salesMaterial && (
+                <div className="mt-16 text-center">
+                  <h3 className="text-xl font-light text-dimas-black mb-4">
+                    Conheça todos os diferenciais em detalhes
+                  </h3>
+                  <p className="text-dimas-black/80 mb-6 max-w-2xl mx-auto">
+                    Baixe nosso catálogo completo e descubra todos os detalhes e acabamentos premium do {project.title}.
+                  </p>
+                  <DownloadMaterialForm
+                    title={project.salesMaterial.title}
+                    description={project.salesMaterial.description}
+                    fileUrl={project.salesMaterial.fileUrl}
+                    centered={true}
+                  />
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -282,7 +341,7 @@ export default function ProjectContent({ project }: ProjectContentProps) {
               </div>
               <div>
                 <h3 className="text-lg font-light text-dimas-black mb-1">Telefone</h3>
-                <p className="text-dimas-black/60">+55 (XX) XXXX-XXXX</p>
+                <p className="text-dimas-black/60">+55 48 9210-2930</p>
               </div>
             </div>
 
@@ -292,14 +351,11 @@ export default function ProjectContent({ project }: ProjectContentProps) {
               </div>
               <div>
                 <h3 className="text-lg font-light text-dimas-black mb-1">E-mail</h3>
-                <p className="text-dimas-black/60">fernanda@dimasconstrucoes.com.br</p>
+                <p className="text-dimas-black/60">martinssoaresfernanda@gmail.com</p>
               </div>
             </div>
 
-            <Button className="bg-dimas-black text-white hover:bg-fernanda-gold hover:text-dimas-black rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
-              <span>Agende uma visita</span>
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </Button>
+            <ScheduleVisitForm projectTitle={project.title} centered={true} />
           </div>
         </div>
       </section>
@@ -338,7 +394,17 @@ export default function ProjectContent({ project }: ProjectContentProps) {
                 ))}
               </ul>
 
-              <Button className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90 rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
+              <Button 
+                className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90 rounded-none uppercase text-xs tracking-wider px-8 py-6 group"
+                onClick={() => {
+                  // Role a página para o topo
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  // Espere um pouco e depois redirecione se necessário
+                  // setTimeout(() => {
+                  //   window.location.href = "/contato";
+                  // }, 500);
+                }}
+              >
                 <span>Agende uma consulta exclusiva</span>
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
@@ -347,10 +413,11 @@ export default function ProjectContent({ project }: ProjectContentProps) {
             <div className="relative order-1 lg:order-2">
               <div className="aspect-[3/4] relative rounded-none overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=800&width=600"
+                  src="/images/Fs2.jpg"
                   alt="Fernanda - Consultora Dimas Construções"
                   fill
                   className="object-cover"
+                  priority
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white p-6 shadow-md border-l-2 border-fernanda-gold">

@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { ArrowRight, Award, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ScheduleVisitForm } from "@/components/ScheduleVisitForm"
 
 export default function AboutPage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -125,10 +126,14 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <Button className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90 rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
-                <span>Agende uma consulta</span>
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
+              <ScheduleVisitForm 
+                triggerButton={
+                  <Button className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90 rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
+                    <span>Agende uma consulta</span>
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                }
+              />
             </motion.div>
           </div>
         </div>
@@ -276,10 +281,14 @@ export default function AboutPage() {
               <h3 className="text-2xl font-light mb-2">Pronto para encontrar o imóvel dos seus sonhos?</h3>
               <p className="text-white/70">Entre em contato com Fernanda e agende uma consulta personalizada.</p>
             </div>
-            <Button className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90 rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
-              <span>Agende uma consulta</span>
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </Button>
+            <ScheduleVisitForm 
+              triggerButton={
+                <Button className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90 rounded-none uppercase text-xs tracking-wider px-8 py-6 group">
+                  <span>Agende uma consulta</span>
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+              }
+            />
           </div>
         </div>
       </section>
