@@ -97,10 +97,14 @@ export const projectsData: Record<string, Project> = {
       { title: "Localização", description: "Vista privilegiada para o mar" },
       { title: "Entrega", description: "Previsão para Março/2025" },
     ],
-    gallery: Array(6).fill("/images/dseason/dseason.jpg"),
+    gallery: [
+      "/images/dseason/dseason.jpg",
+      "/images/dseason/dseason-imagem.png",
+      "/images/dseason/MM-02.jpg"
+    ],
     heroImage: "/images/dseason/dseason.jpg",
-    mainImage: "/images/dseason/dseason.jpg",
-    additionalImages: ["/images/dseason/dseason.jpg", "/images/dseason/dseason.jpg"],
+    mainImage: "/images/dseason/dseason-imagem.png",
+    additionalImages: ["/images/dseason/MM-02.jpg", "/images/dseason/dseason.jpg"],
     floorplans: [
       {
         title: "Apartamento 100m²",
