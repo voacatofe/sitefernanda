@@ -43,15 +43,6 @@ export default function RootLayout({
             {children}
           </ThemeProvider>
         </AuthProvider>
-        
-        {/* RD Station script */}
-        <Script 
-          id="rd-station-script"
-          type="text/javascript"
-          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/d21e392b-f626-4e80-892f-ca17bc6cc636-loader.js"
-          strategy="lazyOnload"
-          async
-        />
       </body>
     </html>
   )
