@@ -171,9 +171,9 @@ export const projectsData: Record<string, Project> = {
       }
     },
     salesMaterial: {
-      title: "Plantas D'SEASON",
-      description: "Acesse as plantas completas dos apartamentos de 157m² e 244m² com todos os detalhes e medidas.",
-      fileUrl: "/images/dseason/3 suites 157m².png"
+      title: "Catálogo Exclusivo D'SEASON",
+      description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
+      fileUrl: "/materiais/DSeason Residence.pdf"
     }
   },
   dsense: {
