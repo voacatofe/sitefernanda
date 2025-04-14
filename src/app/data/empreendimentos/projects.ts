@@ -448,16 +448,36 @@ export const projectsData: Record<string, Project> = {
       { title: "Conceito", description: "Smart Living - praticidade e compartilhamento" },
     ],
     gallery: [
-      "/images/dnex/dnex1.jpg",
-      "/images/dnex/dnex2.jpg",
-      "/images/dnex/dnex3.jpg",
-      "/images/dnex/dnex4.jpg",
-      "/images/dnex/dnex5.jpg",
-      "/images/dnex/dnex6.jpg"
+      "/images/dnex/dnex.jpg",
+      "/images/dnex/06_DIMAS_DNEX_FESTAS.jpg",
+      "/images/dnex/07_DIMAS_DNEX_GOURMET.jpg",
+      "/images/dnex/08_DIMAS_DNEX_TERRACO.jpg",
+      "/images/dnex/09_DIMAS_DNEX_LAVACAO.jpg",
+      "/images/dnex/10_DIMAS_DNEX_ESPACO_PET.jpg",
+      "/images/dnex/11_DIMAS_DNEX_KIDS.jpg",
+      "/images/dnex/12_DIMAS_DNEX_DELIVERY.jpg",
+      "/images/dnex/13_DIMAS_DNEX_OFICINA_KIDS.jpg",
+      "/images/dnex/14_DIMAS_DNEX_ACADEMIA.jpg",
+      "/images/dnex/15_DIMAS_DNEX_ACADEMIA_EXTERNA.jpg",
+      "/images/dnex/16_DIMAS_DNEX_QUADRA_AREIA.jpg",
+      "/images/dnex/17_DIMAS_DNEX_PISCINA.jpg",
+      "/images/dnex/18_DIMAS_DNEX_GRILL.jpg",
+      "/images/dnex/19_DIMAS_DNEX_OFICINA.jpg",
+      "/images/dnex/20_DIMAS_DNEX_COWORKING.jpg",
+      "/images/dnex/21_DIMAS_DNEX_JOGOS.jpg",
+      "/images/dnex/22_DIMAS_DNEX_LAVANDERIA.jpg",
+      "/images/dnex/23_DIMAS_DNEX_BIKESHARING.jpg",
+      "/images/dnex/24_DIMAS_DNEX_HOMEMARKET.jpg",
+      "/images/dnex/25_DIMAS_DNEX_HALL.jpg",
+      "/images/dnex/26_DIMAS_DNEX_TERRACO_GOURMET.jpg",
+      "/images/dnex/27_DIMAS_DNEX_COWORKING_02.jpg"
     ],
     heroImage: "/images/dnex/dnex.jpg",
     mainImage: "/images/dnex/dnex.jpg",
-    additionalImages: ["/images/dnex/dnex.jpg", "/images/dnex/dnex.jpg"],
+    additionalImages: [
+      "/images/dnex/17_DIMAS_DNEX_PISCINA.jpg",
+      "/images/dnex/20_DIMAS_DNEX_COWORKING.jpg"
+    ],
     floorplans: [
       {
         title: "Apartamento 75m²",
