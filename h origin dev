@@ -1,5 +1,0 @@
-[33mcommit 0c948221faa65929bdd63e6c42888f7f63a12fc7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m)[m
-Author: Seu Nome <seu_email@exemplo.com>
-Date:   Fri Apr 11 13:30:24 2025 -0300
-
-    feat: adicionar configuração para versão V1 (apenas frontend estático)
