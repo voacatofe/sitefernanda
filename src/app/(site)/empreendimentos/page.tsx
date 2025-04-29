@@ -33,7 +33,7 @@ export default function ProjectsPage() {
         <div className="relative w-full h-full">
           <Image
             src="/images/ponte.png"
-            alt="Empreendimentos Dimas"
+            alt="Empreendimentos Fernanda Soares"
             fill
             sizes="100vw"
             className="object-cover brightness-75 object-[75%_center] md:object-center"
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
               <h1 className="text-white text-3xl md:text-5xl font-light mb-6 tracking-wider">EMPREENDIMENTOS</h1>
               <div className="w-20 h-0.5 bg-fernanda-gold mb-8"></div>
               <p className="text-white/90 max-w-xl">
-                Conheça os projetos exclusivos da Dimas Construções selecionados por Fernanda
+                Conheça os projetos exclusivos selecionados por Fernanda
               </p>
             </motion.div>
           </div>

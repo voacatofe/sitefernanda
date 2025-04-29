@@ -37,7 +37,7 @@ export default function Home() {
         <section className="relative h-screen overflow-hidden">
           <Image
             src="/images/florianopolis.webp"
-            alt="Empreendimentos de Alto Padrão"
+            alt="Empreendimentos de Alto  - Fernanda Soares"
             fill
             className="object-cover"
             priority
@@ -54,17 +54,17 @@ export default function Home() {
             >
               <div className="mb-4">
                 <span className="inline-block px-4 py-1 bg-fernanda-gold/20 text-white text-sm uppercase tracking-wider border border-fernanda-gold/50">
-                  Consultora Imobiliária Dimas
+                  Consultora Imobiliária
                 </span>
               </div>
               <h1 className="text-white text-4xl md:text-6xl font-light mb-6 tracking-wider">
-                <span className="text-3xl md:text-6xl block mb-2">EMPREENDIMENTOS</span>
-                DE <span className="text-fernanda-gold font-medium">ALTO PADRÃO</span>
+                <span className="text-3xl md:text-6xl block mb-2">FERNANDA</span>
+                 <span className="text-fernanda-gold font-medium">SOARES</span>
               </h1>
               <div className="w-20 h-0.5 bg-fernanda-gold mx-auto mb-8"></div>
               <p className="text-white/90 max-w-xl mx-auto mb-12 text-lg">
-                Conheça os projetos exclusivos da Dimas Construções com Fernanda,
-                consultora especializada com mais de 18 anos de experiência.
+                Conheça os projetos exclusivos com Fernanda,
+                consultora especializada no mercado de alto padrão em Florianópolis.
               </p>
               <Button
                 asChild
@@ -72,7 +72,7 @@ export default function Home() {
                 className="border-fernanda-gold bg-fernanda-gold/20 text-fernanda-gold hover:bg-fernanda-gold hover:text-dimas-black hover:border-fernanda-gold rounded-none uppercase text-xs tracking-wider px-8 py-6"
               >
                 <Link href="/empreendimentos">
-                  Conheça nossos empreendimentos
+                  Conheça nossos lançamentos
                 </Link>
               </Button>
             </motion.div>
@@ -110,7 +110,7 @@ export default function Home() {
                 <div className="aspect-[3/4] relative rounded-none overflow-hidden">
                   <Image
                     src="/images/Fernanda Soares.jpg"
-                    alt="Fernanda - Consultora Dimas Construções"
+                    alt="Fernanda - Consultora Florianópolis"
                     fill
                     className="object-cover object-top"
                     quality={100}
@@ -131,12 +131,12 @@ export default function Home() {
                 <div className="inline-block mb-4 px-3 py-1 border border-fernanda-gold/50 bg-fernanda-gold/10">
                   <p className="text-fernanda-gold text-sm uppercase tracking-wider">Consultora Imobiliária</p>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-light text-white mb-6">Fernanda</h2>
+                <h2 className="text-3xl md:text-4xl font-light text-white mb-6">Fernanda Soares</h2>
                 <div className="w-20 h-0.5 bg-fernanda-gold mb-8"></div>
                 <p className="text-white/80 mb-10">
-                  Profissional dedicada com uma trajetória de excelência no mercado imobiliário, pronta para ajudar você a
+                  Profissional com excelência no mercado imobiliário, pronta para ajudar você a
                   encontrar o imóvel ideal. Com mais de 18 anos de experiência, Fernanda se destaca pelo atendimento
-                  personalizado e conhecimento profundo dos empreendimentos Dimas.
+                  personalizado e conhecimento profundo de investimentos imobiliários.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
@@ -182,7 +182,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-light text-dimas-black mb-6">Empreendimentos em Destaque</h2>
               <div className="w-20 h-0.5 bg-fernanda-gold mx-auto mb-8"></div>
               <p className="text-dimas-black/70">
-                Conheça os lançamentos e empreendimentos em construção da Dimas Construções
+                Conheça os lançamentos e empreendimentos em construção
               </p>
             </motion.div>
 
@@ -246,7 +246,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-light text-dimas-black mb-6">Por que escolher Fernanda</h2>
               <div className="w-20 h-0.5 bg-fernanda-gold mx-auto mb-8"></div>
               <p className="text-dimas-black/70">
-                Diferenciais que fazem da Fernanda a consultora ideal para encontrar seu imóvel Dimas.
+                Diferenciais que fazem da Fernanda a consultora ideal para encontrar seu imóvel.
               </p>
             </motion.div>
 
@@ -270,7 +270,7 @@ export default function Home() {
                 {
                   icon: <Star className="h-8 w-8 text-fernanda-gold" />,
                   title: "Excelência Reconhecida",
-                  description: "Premiada como consultora destaque da Dimas Construções por 5 anos consecutivos.",
+                  description: "Premiada como consultora destaque por 5 anos consecutivos.",
                 },
               ].map((item, index) => (
                 <motion.div

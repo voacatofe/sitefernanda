@@ -5,7 +5,7 @@ const JeitoDimas = () => {
   return (
     <section className="py-16 bg-[#181817]">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-white">Soluções únicas em moradia. É o jeito Dimas</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">Soluções únicas em moradia</h2>
         <p className="text-center mb-12 text-white/70 max-w-2xl mx-auto">
           Desenvolvemos uma linha de produtos específica para cada tipo de modo de vida. São produtos que englobam desde o luxo até os detalhes mais práticos da rotina.
         </p>

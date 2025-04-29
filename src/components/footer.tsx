@@ -26,7 +26,7 @@ export default function Footer() {
             </div>
             <p className="text-dimas-gray mb-6 max-w-md text-sm">
               Consultora imobiliária de elite com mais de 18 anos de experiência e R$50 milhões em vendas nos últimos 24
-              meses. Especializada em empreendimentos de alto padrão da Dimas Construções.
+              meses. Especializada em empreendimentos de alto padrão.
             </p>
           </div>
 
@@ -110,7 +110,7 @@ export default function Footer() {
             />
           </div>
           <p className="text-dimas-gray text-xs">
-            © {new Date().getFullYear()} Dimas Construções. Todos os direitos reservados.
+            © {new Date().getFullYear()} Fernanda Soares. Todos os direitos reservados.
           </p>
         </div>
       </div>

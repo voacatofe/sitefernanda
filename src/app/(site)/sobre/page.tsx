@@ -46,7 +46,7 @@ export default function AboutPage() {
               </h1>
               <div className="w-20 h-0.5 bg-fernanda-gold mb-8"></div>
               <p className="text-white/90 max-w-xl mb-8">
-                Conheça a trajetória e experiência da consultora imobiliária de elite da Dimas Construções
+                Conheça a trajetória e experiência da consultora imobiliária de alto padrão de Florianópolis.
               </p>
             </motion.div>
           </div>

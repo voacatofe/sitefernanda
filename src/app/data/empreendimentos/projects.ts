@@ -7,8 +7,8 @@ export const projectsData: Record<string, Project> = {
     description: "O D'VERSE Beach Concept é o primeiro empreendimento de alto padrão da Dimas Construções na exclusiva Praia Brava. Com acesso limitado e poucos terrenos disponíveis ao redor, o condomínio oferece privacidade e tranquilidade à beira-mar.",
     longDescription: "Localizado na Praia Brava em Florianópolis, o D'VERSE combina sofisticação, tecnologia e sustentabilidade. Cada detalhe das áreas comuns foi projetado pelo renomado escritório Anastassiadis Arquitetura, garantindo ambientes sofisticados e acolhedores pensados para o bem-estar dos futuros moradores. Além disso, o empreendimento inclui um espaço gastronômico integrado ao nível da rua (acessível pela Av. Tom Traugott Wildi) que traz conveniência tanto para os residentes quanto para a comunidade local.",
     features: [
-      { title: "Apartamentos", description: "De 102 a 366m² com 2, 3 e 4 suítes" },
-      { title: "Lazer", description: "Completo com lazer na cobertura" },
+      { title: "Apartamentos", description: "De 2, 3 e 4 suítes, com metragens que variam de aproximadamente 102 m² a 366 m² de área privativa." },
+      { title: "Lazer", description: "Completo, cobertura que inclui uma piscina com vista panorâmica do oceano, solário e sky lounge" },
       { title: "Localização", description: "A apenas 65 metros da areia da Praia Brava" },
       { title: "Entrega", description: "Previsão para Dezembro/2025" },
     ],
@@ -50,12 +50,7 @@ export const projectsData: Record<string, Project> = {
     ],
     location: {
       description: "O D'VERSE está localizado em uma área privilegiada, com fácil acesso às principais vias da cidade e próximo a diversos serviços e conveniências.",
-      nearby: [
-        { time: "5min", place: "Shopping Center", description: "Fácil acesso ao principal shopping da região" },
-        { time: "10min", place: "Parque Municipal", description: "Área verde para lazer e atividades ao ar livre" },
-        { time: "15min", place: "Centro da Cidade", description: "Acesso rápido ao centro comercial e financeiro" },
-      ],
-      mapImage: "/placeholder.svg?height=800&width=800",
+      mapImage: "/images/dverse/localização.png",
     },
     differentials: [
       { title: "Lazer na Cobertura", description: "Piscina com vista panorâmica do oceano, solário e sky lounge" },

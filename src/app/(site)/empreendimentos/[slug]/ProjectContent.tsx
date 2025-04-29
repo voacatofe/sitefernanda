@@ -248,12 +248,12 @@ export default function ProjectContent({ project }: ProjectContentProps) {
               <h2 className="text-3xl font-light text-dimas-black mb-6">Localização</h2>
               <div className="w-20 h-0.5 bg-fernanda-gold mb-8"></div>
               <p className="text-dimas-black/80 font-light mb-10">
-                O D'VERSE está localizado em uma área privilegiada da Praia Brava, com acesso direto à praia e próximo à entrada principal do bairro. Com vista panorâmica para o mar, o empreendimento oferece o melhor da tranquilidade e sofisticação.
+                {project.location.description}
               </p>
 
               <div className="aspect-video relative rounded-none overflow-hidden mb-12">
                 <Image
-                  src="/images/dverse/localização.png"
+                  src={project.location.mapImage || "/placeholder.svg"}
                   alt={`Localização do ${project.title}`}
                   fill
                   className="object-contain"
