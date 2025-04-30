@@ -1,0 +1,225 @@
+/* Landing Pages Theme - Variables Globais */
+
+:root {
+  /* Paleta de cores principal */
+  --lp-primary-color: #0F4C81; /* Azul Dimas */
+  --lp-secondary-color: #1f78b4;
+  --lp-accent-color: #FF6B35;
+  --lp-background-color: #FFFFFF;
+  --lp-text-color: #333333;
+  --lp-text-light: #FFFFFF;
+  --lp-text-muted: #6C757D;
+
+  /* Cores de empreendimentos específicos */
+  --lp-dverse-color: #1E3D59; /* Azul escuro - praia */
+  --lp-dseason-color: #00A896; /* Verde-azulado */
+  --lp-dsense-color: #5F6CAF; /* Púrpura suave */
+  --lp-dnex-color: #393E46; /* Cinza escuro */
+  --lp-dvert-color: #3A7D44; /* Verde floresta */
+
+  /* Cores funcionais */
+  --lp-success-color: #28A745;
+  --lp-warning-color: #FFC107;
+  --lp-error-color: #DC3545;
+  --lp-info-color: #17A2B8;
+
+  /* Espaçamento */
+  --lp-spacing-xs: 0.25rem;
+  --lp-spacing-sm: 0.5rem;
+  --lp-spacing-md: 1rem;
+  --lp-spacing-lg: 1.5rem;
+  --lp-spacing-xl: 2rem;
+  --lp-spacing-xxl: 3rem;
+
+  /* Tipografia */
+  --lp-font-family-primary: 'Montserrat', sans-serif;
+  --lp-font-family-secondary: 'Playfair Display', serif;
+  
+  /* Tamanhos de fonte */
+  --lp-font-size-xs: 0.75rem;
+  --lp-font-size-sm: 0.875rem;
+  --lp-font-size-md: 1rem;
+  --lp-font-size-lg: 1.25rem;
+  --lp-font-size-xl: 1.5rem;
+  --lp-font-size-xxl: 2rem;
+  --lp-font-size-display: 3rem;
+
+  /* Pesos de fonte */
+  --lp-font-weight-light: 300;
+  --lp-font-weight-regular: 400;
+  --lp-font-weight-medium: 500;
+  --lp-font-weight-bold: 700;
+
+  /* Altura da linha */
+  --lp-line-height-tight: 1.2;
+  --lp-line-height-normal: 1.5;
+  --lp-line-height-loose: 1.8;
+
+  /* Border radius */
+  --lp-border-radius-sm: 0.25rem;
+  --lp-border-radius-md: 0.5rem;
+  --lp-border-radius-lg: 1rem;
+  --lp-border-radius-full: 9999px;
+
+  /* Sombras */
+  --lp-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --lp-shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --lp-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  /* Transições */
+  --lp-transition-fast: 0.2s ease;
+  --lp-transition-normal: 0.3s ease;
+  --lp-transition-slow: 0.5s ease;
+
+  /* Breakpoints */
+  --lp-breakpoint-sm: 640px;
+  --lp-breakpoint-md: 768px;
+  --lp-breakpoint-lg: 1024px;
+  --lp-breakpoint-xl: 1280px;
+  --lp-breakpoint-xxl: 1536px;
+
+  /* Container max-widths */
+  --lp-container-sm: 540px;
+  --lp-container-md: 720px;
+  --lp-container-lg: 960px;
+  --lp-container-xl: 1140px;
+  --lp-container-xxl: 1320px;
+}
+
+/* Utilitários de Layout */
+.lp-container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--lp-spacing-md);
+  padding-left: var(--lp-spacing-md);
+}
+
+@media (min-width: 640px) {
+  .lp-container {
+    max-width: var(--lp-container-sm);
+  }
+}
+
+@media (min-width: 768px) {
+  .lp-container {
+    max-width: var(--lp-container-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lp-container {
+    max-width: var(--lp-container-lg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .lp-container {
+    max-width: var(--lp-container-xl);
+  }
+}
+
+@media (min-width: 1536px) {
+  .lp-container {
+    max-width: var(--lp-container-xxl);
+  }
+}
+
+/* Utilitários de Espaçamento */
+.lp-section {
+  padding-top: var(--lp-spacing-xl);
+  padding-bottom: var(--lp-spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .lp-section {
+    padding-top: var(--lp-spacing-xxl);
+    padding-bottom: var(--lp-spacing-xxl);
+  }
+}
+
+/* Tipografia Base */
+.lp-heading-primary {
+  font-family: var(--lp-font-family-secondary);
+  font-weight: var(--lp-font-weight-bold);
+  line-height: var(--lp-line-height-tight);
+  margin-bottom: var(--lp-spacing-md);
+}
+
+.lp-heading-secondary {
+  font-family: var(--lp-font-family-primary);
+  font-weight: var(--lp-font-weight-bold);
+  line-height: var(--lp-line-height-tight);
+  margin-bottom: var(--lp-spacing-md);
+}
+
+.lp-heading-display {
+  font-family: var(--lp-font-family-secondary);
+  font-size: var(--lp-font-size-display);
+  font-weight: var(--lp-font-weight-bold);
+  line-height: var(--lp-line-height-tight);
+  margin-bottom: var(--lp-spacing-lg);
+}
+
+.lp-text-body {
+  font-family: var(--lp-font-family-primary);
+  font-size: var(--lp-font-size-md);
+  font-weight: var(--lp-font-weight-regular);
+  line-height: var(--lp-line-height-normal);
+  color: var(--lp-text-color);
+}
+
+.lp-text-muted {
+  color: var(--lp-text-muted);
+}
+
+/* Botões */
+.lp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--lp-font-family-primary);
+  font-size: var(--lp-font-size-md);
+  font-weight: var(--lp-font-weight-medium);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--lp-border-radius-md);
+  transition: all var(--lp-transition-normal);
+  cursor: pointer;
+  border: none;
+}
+
+.lp-button-primary {
+  background-color: var(--lp-primary-color);
+  color: var(--lp-text-light);
+}
+
+.lp-button-primary:hover {
+  background-color: var(--lp-secondary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--lp-shadow-md);
+}
+
+.lp-button-secondary {
+  background-color: transparent;
+  color: var(--lp-primary-color);
+  border: 2px solid var(--lp-primary-color);
+}
+
+.lp-button-secondary:hover {
+  background-color: var(--lp-primary-color);
+  color: var(--lp-text-light);
+}
+
+.lp-button-accent {
+  background-color: var(--lp-accent-color);
+  color: var(--lp-text-light);
+}
+
+.lp-button-accent:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: var(--lp-shadow-md);
+} 
