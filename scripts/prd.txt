@@ -1,0 +1,43 @@
+# Projeto de Landing Pages para Empreendimentos Dimas/Fernanda Soares
+
+## Visão Geral
+Criação de landing pages específicas para cada empreendimento da Dimas Construções, destacando a corretora Fernanda Soares. Cada landing page terá seu próprio domínio personalizado, mas será hospedada dentro do projeto principal (fernandasoaresimoveis.com.br) usando rotas específicas.
+
+## Empreendimentos e Domínios
+- D'VERSE Beach Concept - dimaspraivabrava.com.br
+- D'SEASON Residence Club - dimasjoaopaulo.com.br
+- D'SENSE Home Design - dimasbeiramar.com.br
+- D'NEX Smart Living - dimasestreito.com.br
+- D'VERT Residence Club - dimassaojose.com.br
+
+## Abordagem Técnica
+- Criar as landing pages dentro do projeto atual usando rotas específicas (/lp/dverse, /lp/dsense, etc.)
+- Configurar mascaramento de URL para que os domínios específicos (ex: dimaspraivabrava.com.br) apontem para as rotas específicas sem mostrar redirecionamento
+- Implementar otimizações SEO para evitar problemas de conteúdo duplicado
+- Personalizar cada landing page com conteúdo específico para o empreendimento e região
+
+## Requisitos Funcionais
+1. Layout responsivo para desktop e mobile
+2. Destaque para Fernanda Soares como corretora exclusiva
+3. Características específicas de cada empreendimento
+4. Formulário de contato direto com Fernanda
+5. Galeria de imagens do empreendimento
+6. Chamadas para ação (CTA) para WhatsApp e telefone
+7. Mapa de localização
+8. Depoimentos específicos sobre a região
+9. Informações sobre condições de pagamento/financiamento
+10. Seção sobre a Dimas Construções
+
+## Requisitos Técnicos
+1. SEO otimizado com tags canônicas adequadas
+2. Performance rápida em mobile
+3. Implementação de analytics para acompanhamento
+4. Rastreamento de conversões (preenchimento de formulário, clique em WhatsApp, etc.)
+5. Integração com sistema de CRM para gerenciamento de leads
+6. Implementação de schema.org para rich snippets nos resultados de busca
+
+## Design
+- Cada landing page deve seguir a identidade visual do empreendimento
+- Inclusão da marca e identidade de Fernanda Soares
+- Design clean e focado em conversão
+- Uso de imagens de alta qualidade 

@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "generatedAt": "2025-04-30T20:18:59.823Z",
+    "tasksAnalyzed": 10,
+    "thresholdScore": 5,
+    "projectName": "Your Project Name",
+    "usedResearch": false
+  },
+  "complexityAnalysis": [
+    {
+      "taskId": 1,
+      "taskTitle": "Configurar estrutura de rotas e domínios",
+      "complexityScore": 8,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Break down the task of configuring route structure and domain masking for multiple landing pages into detailed technical subtasks, including DNS configuration, server setup, URL masking implementation, and testing steps.",
+      "reasoning": "This task involves complex server configuration, DNS setup, and URL masking which requires specialized knowledge of web servers and networking. The interdependencies between routing, DNS, and server configuration create multiple potential failure points."
+    },
+    {
+      "taskId": 2,
+      "taskTitle": "Implementar componentes base reutilizáveis",
+      "complexityScore": 7,
+      "recommendedSubtasks": 7,
+      "expansionPrompt": "Detail the development process for each reusable component (header, contact form, gallery, CTA buttons, map, testimonials, footer), including design, implementation, testing, and documentation phases.",
+      "reasoning": "Creating reusable components requires careful planning for flexibility and maintainability. Each component has its own complexity, especially the map integration with Google Maps API and the contact form which will need validation and potentially backend integration."
+    },
+    {
+      "taskId": 3,
+      "taskTitle": "Implementar otimizações SEO e tags canônicas",
+      "complexityScore": 6,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down the SEO optimization task into detailed steps covering canonical tags implementation, dynamic meta tags configuration, schema.org markup, sitemap generation, and robots.txt setup for multiple landing pages.",
+      "reasoning": "SEO optimization requires technical knowledge of search engine algorithms and best practices. The implementation of schema.org and canonical tags to prevent duplicate content issues across multiple landing pages adds complexity."
+    },
+    {
+      "taskId": 4,
+      "taskTitle": "Desenvolver landing page D'VERSE Beach Concept",
+      "complexityScore": 5,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Detail the process of creating the D'VERSE Beach Concept landing page, including design adaptation, content creation, component integration, responsive testing, and performance optimization specific to this property.",
+      "reasoning": "While this task builds on components from Task 2, it still requires significant effort to adapt the design to the specific branding, create custom content, and ensure all elements work together cohesively for this specific property."
+    },
+    {
+      "taskId": 5,
+      "taskTitle": "Desenvolver landing page D'SEASON Residence Club",
+      "complexityScore": 5,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Detail the process of creating the D'SEASON Residence Club landing page, including design adaptation, content creation, component integration, responsive testing, and performance optimization specific to this property.",
+      "reasoning": "Similar to Task 4, this requires adapting components to a specific design and creating custom content. The complexity is moderate since the base components are already developed, but customization and content creation still require significant effort."
+    },
+    {
+      "taskId": 6,
+      "taskTitle": "Desenvolver landing pages para D'SENSE, D'NEX e D'VERT",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Break down the process of simultaneously developing three distinct landing pages (D'SENSE, D'NEX, D'VERT), including parallel development strategies, shared resource management, content creation workflows, and testing procedures.",
+      "reasoning": "This task involves creating three separate landing pages simultaneously, which increases complexity through the need to manage parallel development streams. Each property has unique content and location details that must be accurately represented."
+    },
+    {
+      "taskId": 7,
+      "taskTitle": "Implementar sistema de analytics e rastreamento de conversões",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Detail the implementation of a comprehensive analytics system across multiple landing pages, including Google Analytics setup, conversion tracking, Facebook pixel integration, Tag Manager configuration, and custom reporting setup.",
+      "reasoning": "Analytics implementation requires technical knowledge of multiple platforms (Google Analytics, Facebook Pixel, Tag Manager) and careful configuration to track conversions accurately across multiple landing pages. The heatmap implementation and custom reporting add additional complexity."
+    },
+    {
+      "taskId": 8,
+      "taskTitle": "Integrar com sistema de CRM para gerenciamento de leads",
+      "complexityScore": 8,
+      "recommendedSubtasks": 7,
+      "expansionPrompt": "Break down the CRM integration process into detailed technical steps, including API integration, data mapping, webhook configuration, notification system setup, and testing procedures for lead capture across multiple landing pages.",
+      "reasoning": "CRM integration involves complex API work, data mapping, and potentially dealing with third-party systems. The webhook implementation for WhatsApp Business and automated follow-up system add significant technical challenges."
+    },
+    {
+      "taskId": 9,
+      "taskTitle": "Otimizar performance e tempo de carregamento",
+      "complexityScore": 7,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Detail the performance optimization process for multiple landing pages, including image optimization techniques, lazy loading implementation, caching strategies, CSS/JS minification, critical path rendering, and CDN configuration.",
+      "reasoning": "Performance optimization requires specialized knowledge across multiple domains (image optimization, caching, minification, CDN). Implementing these optimizations across multiple landing pages while maintaining visual quality adds complexity."
+    },
+    {
+      "taskId": 10,
+      "taskTitle": "Realizar testes finais e lançamento",
+      "complexityScore": 6,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down the final testing and launch process into detailed steps, including cross-browser testing methodology, mobile device testing, integration verification, security assessment, and phased deployment strategy.",
+      "reasoning": "Final testing requires comprehensive verification across multiple browsers, devices, and integration points. The phased launch approach adds complexity but reduces risk. Documentation and monitoring setup are critical for long-term success."
+    }
+  ]
+}
