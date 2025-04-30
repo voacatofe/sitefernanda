@@ -87,10 +87,10 @@ export const projectsData: Record<string, Project> = {
     description: "O D'SEASON Residence Club é um empreendimento de luxo concebido para ser o primeiro resort urbano da cidade. Projetado para proporcionar conforto e elegância durante todo o ano.",
     longDescription: "Localizado no bairro João Paulo, em Florianópolis, o D'SEASON harmoniza as conveniências da vida urbana com a tranquilidade e o lazer típicos de um resort de praia. Situado em um terreno elevado com vista panorâmica para o mar e para o pôr do sol mais deslumbrante da capital, o projeto foi desenhado para proporcionar uma experiência de vida equilibrada e prazerosa. Com arquitetura que privilegia a iluminação natural e a ventilação cruzada, oferece ambientes que se adaptam perfeitamente a cada estação do ano.",
     features: [
-      { title: "Apartamentos", description: "De 157 a 244m² com 3 e 4 suítes" },
-      { title: "Lazer", description: "Áreas cobertas e descobertas" },
-      { title: "Localização", description: "Vista privilegiada para o mar" },
-      { title: "Entrega", description: "Previsão para Março/2025" },
+      { title: "Apartamentos", description: "De 2, 3 e 4 dormitórios (suítes) em configurações diversas" },
+      { title: "Lazer", description: "infraestrutura de lazer completa digna dos melhores condomínios clube" },
+      { title: "Localização", description: "Poucos minutos do Centro e vista para a Baía Norte" },
+      { title: "Entrega", description: "Previsão para Outubro/2024" },
     ],
     gallery: [
       "/images/dseason/Ativo 1.png",
@@ -135,12 +135,7 @@ export const projectsData: Record<string, Project> = {
     ],
     location: {
       description: "O D'SEASON está localizado em uma área nobre, com vista privilegiada para o mar e fácil acesso às principais atrações da cidade.",
-      nearby: [
-        { time: "5min", place: "Praia", description: "Acesso direto à praia" },
-        { time: "10min", place: "Centro Gastronômico", description: "Diversos restaurantes e cafés" },
-        { time: "15min", place: "Shopping", description: "Principal centro de compras da região" },
-      ],
-      mapImage: "/placeholder.svg?height=800&width=800",
+      mapImage: "/images/dseason/localização.png",
     },
     differentials: [
       { title: "Vista para o Mar", description: "Apartamentos com vista panorâmica para a Baía Norte" },
