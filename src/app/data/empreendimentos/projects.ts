@@ -215,23 +215,18 @@ export const projectsData: Record<string, Project> = {
     floorplans: [
       {
         title: "Apartamento 90m²",
-        description: "2 suítes, living integrado e varanda gourmet.",
-        image: "/placeholder.svg?height=800&width=1000",
+        description: "4 suítes, living integrado e varanda gourmet.",
+        image: "/images/dsense/4 suites - 219,80m².png",
       },
       {
         title: "Apartamento 150m²",
-        description: "3 suítes, home office, living ampliado e varanda gourmet.",
-        image: "/placeholder.svg?height=800&width=1000",
+        description: "3 suítes, Terraço, living ampliado e Banheira.",
+        image: "/images/dsense/3 suites - 175,60m².png",
       },
     ],
     location: {
-      description: "O D'SENSE está localizado em uma região central, com fácil acesso a todos os pontos da cidade e próximo aos principais centros comerciais e de entretenimento.",
-      nearby: [
-        { time: "5min", place: "Centro Comercial", description: "Acesso rápido às principais lojas e serviços" },
-        { time: "10min", place: "Restaurantes", description: "Diversas opções gastronômicas na região" },
-        { time: "15min", place: "Parque da Cidade", description: "Área de lazer com pista de caminhada" },
-      ],
-      mapImage: "/placeholder.svg?height=800&width=800",
+      description: "O D'SENSE está localizado em uma região central, com fácil acesso a toO D/Sense está situado na Rua Felipe Schmidt, no Centro de Florianópolis, em um ponto singular que faz fronteira entre o coração urbano e um refúgio verde. Em frente ao empreendimento encontra-se o Parque da Luz, um parque arborizado com mais de 30 mil m², repleto de trilhas, bosque de árvores frutíferas, campo de futebol e playground​. Um verdadeiro respiro de ar puro dentro da cidade. Ao lado, ergue-se a histórica Ponte Hercílio Luz, cartão-postal de Florianópolis, reaberta para pedestres e ciclistas desde 2019, permitindo fácil acesso ao Continente a pé ou de bicicleta. A localização do D/Sense propicia acesso imediato à Beira-Mar Norte (avenida costeira principal da cidade) e à região central, onde encontra-se ampla oferta de comércio, serviços, restaurantes e entretenimento.dos os pontos da cidade e próximo aos principais centros comerciais e de entretenimento.",
+      mapImage: "/images/dsense/localização.png",
     },
     differentials: [
       { title: "Prêmios Internacionais", description: "Loop Design Award e World Design Award em 2024" },
@@ -269,7 +264,7 @@ export const projectsData: Record<string, Project> = {
     longDescription: "Localizado na Praia Comprida, em São José (região da Beira-Mar de São José), o D'VERT propõe uma conexão profunda entre os moradores e a natureza, seja por meio de formas orgânicas na arquitetura, da incorporação de vegetação abundante nos edifícios ou de soluções que melhoram a qualidade do ar e o conforto térmico nos ambientes. O nome D'VERT remete ao 'verde' que transborda do projeto – fachadas com jardins verticais, áreas comuns ajardinadas e um paisagismo integrado que cria um oásis natural em meio ao cenário urbano.",
     features: [
       { title: "Apartamentos", description: "De 80 a 160m² com 2 e 3 dormitórios (suítes)" },
-      { title: "Lazer", description: "18 áreas de convivência e lazer" },
+      { title: "Lazer", description: "18 áreas de convivência e lazer distribuídas pelo condomínio" },
       { title: "Localização", description: "Próximo à Beira-Mar de São José" },
       { title: "Sustentabilidade", description: "Soluções sustentáveis como energia solar e captação de água da chuva" },
     ],
@@ -296,22 +291,17 @@ export const projectsData: Record<string, Project> = {
       {
         title: "Apartamento 85m²",
         description: "2 suítes, varanda verde e living integrado.",
-        image: "/placeholder.svg?height=800&width=1000",
+        image: "/images/dvert/2 suites - 84,32m².bmp",
       },
       {
         title: "Apartamento 140m²",
         description: "3 suítes, varanda ampla com jardim vertical e living estendido.",
-        image: "/placeholder.svg?height=800&width=1000",
+        image: "/images/dvert/3 suites - 159,83m².bmp",
       },
     ],
     location: {
-      description: "O D'VERT está localizado em uma área privilegiada, cercado por parques e áreas de preservação, proporcionando qualidade de vida em meio à natureza.",
-      nearby: [
-        { time: "5min", place: "Parque Natural", description: "Área de preservação com trilhas ecológicas" },
-        { time: "10min", place: "Centro de Conveniências", description: "Mercados e serviços essenciais" },
-        { time: "15min", place: "Centro da Cidade", description: "Fácil acesso à região central" },
-      ],
-      mapImage: "/placeholder.svg?height=800&width=800",
+      description: "O D/Vert Residence Club está localizado em uma região em crescente valorização imobiliária na Grande Florianópolis. A poucos metros da Beira-Mar de São José, o empreendimento permite que os moradores aproveitem caminhadas matinais apreciando a vista para o mar ou usufruam das ciclovias e espaços de lazer ao longo da orla. O entorno imediato conta com diversas opções de comércio e serviços a distância de uma caminhada: padarias, farmácias, supermercados e restaurantes",
+      mapImage: "/images/dvert/localização.png",
     },
     differentials: [
       { title: "Boulevard Ajardinado", description: "Caminho ajardinado entre as torres com pergolados" },
@@ -346,7 +336,7 @@ export const projectsData: Record<string, Project> = {
     title: "D'YARD Home Design",
     tagline: "Você se conecta ao lugar onde vive",
     description: "O D'YARD Home Design é um empreendimento localizado no coração de Florianópolis que reflete a união entre a conveniência de uma vida urbana e a proximidade com a natureza.",
-    longDescription: "Como o mais novo lançamento da linha Home Design da Dimas Construções, o D'YARD foi desenvolvido com foco especial no design como solução. Este projeto de torre única surge em um terreno privilegiado na Rua Prefeito Coronel Antenor Mesquita, numa região central onde 'já não existiam mais jardins', e por isso traz a proposta de recriar um grande jardim vertical e horizontal dentro do ambiente urbano. Inspirado pelos conceitos de biofilia e wellness, o D'YARD incorpora abundância de verde em suas áreas comuns, terraços e até na fachada.",
+    longDescription: "Como empreendimento da linha Home Design da Dimas Construções, o D'YARD foi desenvolvido com foco especial no design como solução. Este projeto de torre única surge em um terreno privilegiado na Rua Prefeito Coronel Antenor Mesquita, numa região central onde 'já não existiam mais jardins', e por isso traz a proposta de recriar um grande jardim vertical e horizontal dentro do ambiente urbano. Inspirado pelos conceitos de biofilia e wellness, o D'YARD incorpora abundância de verde em suas áreas comuns, terraços e até na fachada.",
     features: [
       { title: "Apartamentos", description: "De 54 a 202m² com studios, 1, 2 e 3 dormitórios" },
       { title: "Conceito", description: "Jardim vertical e horizontal no ambiente urbano" },
@@ -376,7 +366,7 @@ export const projectsData: Record<string, Project> = {
       '/images/dyard/COWORKING.png',
       '/images/dyard/VISTA-ROOFTOP.png',
     ],
-    floorplans: [
+    /*floorplans: [
       {
         title: "Apartamento 95m²",
         description: "2 suítes, varanda ampla e living integrado.",
@@ -387,15 +377,10 @@ export const projectsData: Record<string, Project> = {
         description: "3 suítes, terraço jardim e espaço gourmet.",
         image: "/placeholder.svg?height=800&width=1000",
       },
-    ],
+    ],*/
     location: {
       description: "O D'YARD está localizado em uma área residencial tranquila, próximo a parques e com fácil acesso ao centro da cidade.",
-      nearby: [
-        { time: "5min", place: "Parque Municipal", description: "Área verde com equipamentos de lazer" },
-        { time: "10min", place: "Supermercado", description: "Principais redes de supermercados" },
-        { time: "15min", place: "Shopping", description: "Centro de compras e entretenimento" },
-      ],
-      mapImage: "/placeholder.svg?height=800&width=800",
+      mapImage: "/images/dyard/localização.png",
     },
     differentials: [
       { title: "Rooftop Panorâmico", description: "Concentra grande parte das áreas comuns, com vistas incríveis" },
@@ -471,23 +456,18 @@ export const projectsData: Record<string, Project> = {
     floorplans: [
       {
         title: "Apartamento 75m²",
-        description: "2 dormitórios, escritório e varanda tecnológica.",
-        image: "/placeholder.svg?height=800&width=1000",
+        description: "2 dormitórios, living integrado e opções com Sacada Gourmet.",
+        image: "/images/dnex/2 quartos - 78m².png",
       },
       {
         title: "Apartamento 130m²",
-        description: "3 dormitórios, sala multimídia e varanda gourmet.",
-        image: "/placeholder.svg?height=800&width=1000",
+        description: "studios, com opções de garden ou sacada gourmet.",
+        image: "/images/dnex/Studio - 42m².png",
       },
     ],
     location: {
       description: "O D'NEX está localizado em uma área em pleno desenvolvimento, com projetos de infraestrutura e mobilidade em andamento.",
-      nearby: [
-        { time: "5min", place: "Estação de Transporte", description: "Hub de mobilidade integrada" },
-        { time: "10min", place: "Centro Tecnológico", description: "Polo de empresas de tecnologia" },
-        { time: "15min", place: "Universidade", description: "Principal campus universitário" },
-      ],
-      mapImage: "/placeholder.svg?height=800&width=800",
+      mapImage: "/images/dnex/localização.png",
     },
     differentials: [
       { title: "Smart Market", description: "Mini mercado de conveniência self-service 24h" },
