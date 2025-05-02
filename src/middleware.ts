@@ -18,20 +18,29 @@ const domainMappings: Record<string, string> = {
   'www.dimassaojose.com.br': '/lp/dvert',
 };
 
+// Mapeamento inverso para verificar se um caminho é uma LP específica
+const pathToDomain: Record<string, string> = {
+  '/lp/dverse': 'dimaspraivabrava.com.br',
+  '/lp/dseason': 'dimasjoaopaulo.com.br',
+  '/lp/dsense': 'dimasbeiramar.com.br',
+  '/lp/dnex': 'dimasestreito.com.br',
+  '/lp/dvert': 'dimassaojose.com.br',
+};
+
 export function middleware(request: NextRequest) {
   // Obter o hostname (domínio) da solicitação
   const hostname = request.headers.get('host') || '';
+  const { pathname } = request.nextUrl;
   
   // Verificar se o domínio está em nosso mapeamento
   const path = domainMappings[hostname];
   
-  // Se o domínio for conhecido, redirecionar para a landing page correspondente
+  // Caso 1: Acessando diretamente um dos domínios mapeados (caso funcione sem redirecionamento)
   if (path) {
     // Criar uma nova URL para a landing page
     const url = new URL(path, request.url);
     
     // Se a URL já tiver um caminho adicional após o domínio, preservá-lo
-    const pathname = request.nextUrl.pathname;
     if (pathname && pathname !== '/') {
       url.pathname = `${path}${pathname}`;
     }
@@ -43,7 +52,32 @@ export function middleware(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
   
-  // Para outros domínios, continuar normalmente
+  // Caso 2: Estamos no domínio principal (fernandasoaresimoveis.com.br)
+  // e queremos verificar se o caminho corresponde a alguma LP
+  if (hostname.includes('fernandasoaresimoveis.com.br')) {
+    // Verificar se o caminho atual já corresponde a alguma LP
+    for (const [lpPath, _] of Object.entries(pathToDomain)) {
+      if (pathname.startsWith(lpPath)) {
+        // Já estamos na LP correta, não fazer nada
+        return NextResponse.next();
+      }
+    }
+    
+    // Verificar se estamos tentando acessar uma LP diretamente
+    // (por exemplo: fernandasoaresimoveis.com.br/lp/dverse)
+    const lpMatches = pathname.match(/^\/lp\/([a-zA-Z0-9]+)/);
+    if (lpMatches) {
+      const lpName = lpMatches[1];
+      // Verificar se essa LP existe
+      const lpPath = `/lp/${lpName}`;
+      if (Object.values(domainMappings).includes(lpPath)) {
+        // Já estamos na LP correta, não fazer nada
+        return NextResponse.next();
+      }
+    }
+  }
+  
+  // Para outros domínios ou caminhos, continuar normalmente
   return NextResponse.next();
 }
 
