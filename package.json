@@ -11,7 +11,8 @@
     "postinstall": "prisma generate",
     "build:static": "node scripts/prepare-hostinger.js",
     "build:v1": "node scripts/prepare-v1.js",
-    "build:lps": "node scripts/build-landing-pages.js"
+    "build:lps": "node scripts/build-landing-pages.js",
+    "export:lps": "node scripts/export-landing-pages.js"
   },
   "dependencies": {
     "@auth/core": "0.27.0",
@@ -80,6 +81,7 @@
     "@types/react": "^18.2.52",
     "@types/react-dom": "^18.2.18",
     "@types/react-scroll": "^1.8.10",
+    "archiver": "^7.0.1",
     "postcss": "^8.4.35",
     "prisma": "^5.9.1",
     "tailwindcss": "^3.4.1",
