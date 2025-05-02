@@ -21,9 +21,12 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   
-  // Desabilitar recursos que não funcionam em exportação estática
+  // Configurações experimentais
   experimental: {
     appDocumentPreloading: false,
+    // Excluir rotas da API
+    excludeDefaultMomentLocales: true,
+    serverComponentsExternalPackages: [],
   },
   
   // Limitar a construção apenas à página específica
@@ -31,6 +34,16 @@ const nextConfig = {
   
   // Desabilitar geração de source maps para produção
   productionBrowserSourceMaps: false,
+  
+  // Filtrar rotas para evitar apis
+  skipMiddlewareUrlNormalize: true,
+  skipTrailingSlashRedirect: true,
+  
+  // Página personalizada por erro 404
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
 }
 
 module.exports = nextConfig 

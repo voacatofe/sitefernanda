@@ -3,6 +3,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const archiver = require('archiver');
+const { createStaticRouteConfig } = require('./create-app-route-config');
 
 // Configurações dos domínios e landing pages
 const landingPages = [
@@ -69,6 +70,23 @@ function garantirPasta(pasta) {
   }
 }
 
+// Função para criar arquivo next.config.js temporário que ignora rotas de API
+function criarNextConfigTemporario() {
+  const configPath = path.join(__dirname, 'next.config.static.js');
+  const originalConfigPath = path.join(__dirname, '../next.config.js');
+  const tempConfigPath = path.join(__dirname, '../next.config.js.bak');
+  
+  // Backup da configuração original
+  if (fs.existsSync(originalConfigPath)) {
+    fs.copyFileSync(originalConfigPath, tempConfigPath);
+  }
+  
+  // Copiar a configuração estática diretamente
+  fs.copyFileSync(configPath, originalConfigPath);
+  
+  return tempConfigPath;
+}
+
 // Função principal para construir todas as landing pages
 async function buildLandingPages() {
   console.log('🚀 Iniciando a geração de builds das landing pages...');
@@ -81,24 +99,36 @@ async function buildLandingPages() {
     execSync('npm install --save-dev archiver', { stdio: 'inherit' });
   }
 
-  // Configuração estática temporária
-  const configPath = path.join(__dirname, 'next.config.static.js');
-  const originalConfigPath = path.join(__dirname, '../next.config.js');
-  const tempConfigPath = path.join(__dirname, '../next.config.js.bak');
-  
-  // Backup da configuração original
-  if (fs.existsSync(originalConfigPath)) {
-    fs.copyFileSync(originalConfigPath, tempConfigPath);
-  }
-  
-  // Copiar configuração estática para o lugar da original
-  fs.copyFileSync(configPath, originalConfigPath);
+  // Criar temporariamente o arquivo que ignora rotas de API
+  const tempConfigPath = criarNextConfigTemporario();
+
+  // Backup dos arquivos de configuração de rotas existentes
+  const routeConfigBackups = new Map();
 
   try {
+    // Verificar se há arquivo .env para backup
+    const envPath = path.join(__dirname, '../.env');
+    const envBackupPath = path.join(__dirname, '../.env.bak');
+    let envBackupCreated = false;
+    
+    if (fs.existsSync(envPath)) {
+      fs.copyFileSync(envPath, envBackupPath);
+      envBackupCreated = true;
+    }
+    
+    // Criar .env global com algumas configurações para evitar problemas com APIs
+    fs.writeFileSync(envPath, `NEXT_PUBLIC_STATIC_EXPORT=true
+SKIP_API_ROUTES=true
+DISABLE_PRISMA=true
+`);
+
     // Processar cada landing page
     for (const page of landingPages) {
       try {
         console.log(`\n🏗️ Gerando build para ${page.dominio} (${page.landingPage.toUpperCase()})...`);
+        
+        // Criar configuração de rota estática para esta landing page
+        createStaticRouteConfig(page.landingPage);
         
         // Criar pasta para o build deste domínio
         const buildDir = path.join(outputDir, page.dominio);
@@ -109,6 +139,8 @@ async function buildLandingPages() {
 NEXT_PUBLIC_SITE_TITLE="${page.titulo}"
 NEXT_PUBLIC_LANDING_PAGE="${page.landingPage}"
 NEXT_PUBLIC_STATIC_EXPORT=true
+SKIP_API_ROUTES=true
+DISABLE_PRISMA=true
         `.trim();
         
         fs.writeFileSync('.env.production.local', envContent);
@@ -117,9 +149,12 @@ NEXT_PUBLIC_STATIC_EXPORT=true
         if (fs.existsSync('out')) {
           fs.rmSync('out', { recursive: true, force: true });
         }
+        if (fs.existsSync('.next')) {
+          fs.rmSync('.next', { recursive: true, force: true });
+        }
         
         // Executar o build apenas para a página específica
-        const buildCommand = `npx next build && npx next export`;
+        const buildCommand = `npx next build --no-lint`;
         console.log(`Executando: ${buildCommand}`);
         
         execSync(buildCommand, {
@@ -128,6 +163,9 @@ NEXT_PUBLIC_STATIC_EXPORT=true
             ...process.env,
             NODE_ENV: 'production',
             NEXT_PUBLIC_LANDING_PAGE: page.landingPage,
+            NEXT_PUBLIC_STATIC_EXPORT: 'true',
+            SKIP_API_ROUTES: 'true',
+            DISABLE_PRISMA: 'true',
             __NEXT_EXPORT_TRAILING_SLASH: '1',
           }
         });
@@ -154,14 +192,45 @@ NEXT_PUBLIC_STATIC_EXPORT=true
           throw new Error('Pasta "out" não foi gerada pelo build');
         }
         
+        // Limpar configuração de rota temporária
+        const routeConfigPath = path.join(__dirname, '../src/app/lp', page.landingPage, 'route-config.js');
+        if (fs.existsSync(routeConfigPath)) {
+          fs.unlinkSync(routeConfigPath);
+        }
+        
       } catch (error) {
         console.error(`❌ Erro ao gerar build para ${page.dominio}:`, error);
       }
     }
+    
+    // Remover arquivos de configuração estática de API
+    const apiDir = path.join(__dirname, '../src/app/api');
+    if (fs.existsSync(apiDir)) {
+      const apiRoutes = fs.readdirSync(apiDir, { withFileTypes: true })
+        .filter(dirent => dirent.isDirectory())
+        .map(dirent => dirent.name);
+        
+      for (const route of apiRoutes) {
+        const staticConfigPath = path.join(apiDir, route, 'static-config.js');
+        if (fs.existsSync(staticConfigPath)) {
+          fs.unlinkSync(staticConfigPath);
+        }
+      }
+    }
+    
+    // Restaurar arquivo .env original
+    if (envBackupCreated) {
+      fs.copyFileSync(envBackupPath, envPath);
+      fs.unlinkSync(envBackupPath);
+    } else {
+      // Se não havia .env original, remover o criado
+      fs.unlinkSync(envPath);
+    }
+    
   } finally {
     // Restaurar configuração original
     if (fs.existsSync(tempConfigPath)) {
-      fs.copyFileSync(tempConfigPath, originalConfigPath);
+      fs.copyFileSync(tempConfigPath, path.join(__dirname, '../next.config.js'));
       fs.unlinkSync(tempConfigPath);
     }
     
@@ -170,9 +239,12 @@ NEXT_PUBLIC_STATIC_EXPORT=true
       fs.unlinkSync('.env.production.local');
     }
     
-    // Limpar pasta out
+    // Limpar pasta out e .next
     if (fs.existsSync('out')) {
       fs.rmSync('out', { recursive: true, force: true });
+    }
+    if (fs.existsSync('.next')) {
+      fs.rmSync('.next', { recursive: true, force: true });
     }
   }
   
