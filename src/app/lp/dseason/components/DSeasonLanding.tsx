@@ -306,7 +306,7 @@ export function DSeasonLanding({
           <FadeInSection>
             <div className="relative aspect-video rounded-lg overflow-hidden">
               <Image
-                src="/images/dseason/ativo 13.png"
+                src="/images/dseason/ativo13.png"
                 alt="Fachada D'SEASON"
                 fill
                 className="object-cover"
