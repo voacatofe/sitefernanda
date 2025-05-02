@@ -10,7 +10,8 @@
     "seed": "node prisma/seed.js",
     "postinstall": "prisma generate",
     "build:static": "node scripts/prepare-hostinger.js",
-    "build:v1": "node scripts/prepare-v1.js"
+    "build:v1": "node scripts/prepare-v1.js",
+    "build:lps": "node scripts/build-landing-pages.js"
   },
   "dependencies": {
     "@auth/core": "0.27.0",
