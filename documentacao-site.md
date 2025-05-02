@@ -340,6 +340,26 @@ O site utiliza marcação HTML semântica para melhorar a acessibilidade e o SEO
 - Hierarquia de títulos adequada
 - Texto alternativo para imagens
 
+## Variáveis de Ambiente
+
+O projeto requer as seguintes variáveis de ambiente:
+
+### Google Maps API
+
+Para o funcionamento do componente de mapa de localização, é necessário criar um arquivo `.env.local` na raiz do projeto com a seguinte variável:
+
+```env
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+```
+
+Para obter uma chave da API do Google Maps:
+
+1. Acesse o [Google Cloud Console](https://console.cloud.google.com/)
+2. Crie um novo projeto ou selecione um existente
+3. Ative a API do Maps JavaScript
+4. Crie uma chave de API em "Credenciais"
+5. Copie a chave e adicione ao arquivo `.env.local`
+
 ---
 
 Esta documentação fornece uma visão detalhada do site da Fernanda, abrangendo sua estrutura, tecnologias, configurações e funcionalidades principais. O site é desenvolvido como uma solução estática otimizada para hospedagem compartilhada na Hostinger, atendendo às necessidades específicas do negócio imobiliário de alto padrão. 

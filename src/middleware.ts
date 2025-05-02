@@ -4,8 +4,8 @@ import { getToken } from "next-auth/jwt"
 // Só aplicar o middleware em ambiente de desenvolvimento ou produção com backend
 const isStaticExport = process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true';
 
-// Mapeamento de domínios para rotas de landing pages
-const DOMAIN_MAPPING: Record<string, string> = {
+// Mapeamento de domínios para landing pages
+const domainMappings: Record<string, string> = {
   'dimaspraivabrava.com.br': '/lp/dverse',
   'www.dimaspraivabrava.com.br': '/lp/dverse',
   'dimasjoaopaulo.com.br': '/lp/dseason',
@@ -19,45 +19,46 @@ const DOMAIN_MAPPING: Record<string, string> = {
 };
 
 export function middleware(request: NextRequest) {
-  const { pathname, search, hash } = request.nextUrl;
+  // Obter o hostname (domínio) da solicitação
   const hostname = request.headers.get('host') || '';
   
-  // Verifica se o hostname atual está no mapeamento de domínios
-  const targetPath = DOMAIN_MAPPING[hostname];
+  // Verificar se o domínio está em nosso mapeamento
+  const path = domainMappings[hostname];
   
-  // Se for um domínio específico de empreendimento
-  if (targetPath) {
-    // Para a raiz do domínio, redireciona para a landing page específica
-    if (pathname === '/') {
-      const url = new URL(targetPath, request.url);
-      url.search = search;
-      url.hash = hash;
-      return NextResponse.rewrite(url);
+  // Se o domínio for conhecido, redirecionar para a landing page correspondente
+  if (path) {
+    // Criar uma nova URL para a landing page
+    const url = new URL(path, request.url);
+    
+    // Se a URL já tiver um caminho adicional após o domínio, preservá-lo
+    const pathname = request.nextUrl.pathname;
+    if (pathname && pathname !== '/') {
+      url.pathname = `${path}${pathname}`;
     }
     
-    // Para outros caminhos, verifica se já está acessando a LP correta
-    if (!pathname.startsWith(targetPath)) {
-      // Se estiver tentando acessar qualquer outra rota, redireciona para a LP deste domínio
-      const url = new URL(targetPath, request.url);
-      url.search = search;
-      url.hash = hash;
-      return NextResponse.rewrite(url);
-    }
+    // Manter parâmetros de consulta, se houver
+    url.search = request.nextUrl.search;
+    
+    // Redirecionar para a landing page
+    return NextResponse.rewrite(url);
   }
   
-  // Se não for um domínio específico ou já estiver na rota correta, continua normalmente
+  // Para outros domínios, continuar normalmente
   return NextResponse.next();
 }
 
-// Configura o middleware para executar em todos os caminhos
+// Configuração para que o middleware seja executado em todas as rotas
 export const config = {
   matcher: [
     /*
-     * Corresponde a todas as requisições exceto:
-     * 1. Requisições para arquivos estáticos (imagens, fontes, etc.)
-     * 2. Requisições para API routes (/api/*)
+     * Match all request paths except:
+     * 1. /api routes
+     * 2. /_next (Next.js internals)
+     * 3. /fonts (inside public)
+     * 4. /images (inside public)
+     * 5. all root files inside public (e.g. /favicon.ico)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|images|fonts).*)',
+    '/((?!api|_next|fonts|images|[\\w-]+\\.\\w+).*)',
   ],
 };
 

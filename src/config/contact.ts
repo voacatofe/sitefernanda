@@ -1,0 +1,1 @@
+export const WHATSAPP_NUMBER = "554892102930"; // Substitua pelo número real da Fernanda 

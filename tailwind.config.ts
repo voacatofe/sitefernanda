@@ -67,7 +67,7 @@ const config = {
           sage: "#8a9a5b",
           taupe: "#b39f8f",
         },
-        'fernanda-gold': '#D4AF37',
+        'fernanda-gold': '#C4A44D',
         'dimas-black': '#1A1A1A',
         'dimas-gray': '#4A4A4A',
         'dimas-beige': '#F5F5F5',
