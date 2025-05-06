@@ -12,11 +12,12 @@ export default function SiteLayout({
 }) {
   // Inicializa o rastreamento GTM apenas uma vez usando um ref
   const initialized = useRef(false);
+  const gtmHook = useGTM(); // Chamar o hook diretamente, mesmo sem usar o valor de retorno
   
   useEffect(() => {
     if (!initialized.current) {
-      const { pushEvent } = useGTM();
       initialized.current = true;
+      // O rastreamento de página já ocorre automaticamente dentro do hook useGTM
     }
   }, []);
   

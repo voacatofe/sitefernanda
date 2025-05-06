@@ -22,10 +22,14 @@ export default function Header() {
 
   // Função para rastrear cliques em links de navegação
   const handleNavClick = (linkName: string) => {
-    pushEvent('navigationClick', { 
-      linkName: linkName,
-      linkCategory: 'mainNavigation'
-    })
+    try {
+      pushEvent('navigationClick', { 
+        linkName: linkName,
+        linkCategory: 'mainNavigation'
+      })
+    } catch (error) {
+      console.error("Erro ao registrar evento de navegação:", error)
+    }
   }
 
   return (

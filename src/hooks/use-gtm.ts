@@ -9,6 +9,9 @@ declare global {
   }
 }
 
+// Verificação de ambiente do lado do cliente
+const isClient = typeof window !== 'undefined';
+
 /**
  * Hook para gerenciar operações do GTM (Google Tag Manager)
  * 
@@ -21,23 +24,27 @@ export const useGTM = () => {
 
   // Rastrear mudanças de página automaticamente
   useEffect(() => {
-    if (pathname && pathname !== lastPathRef.current) {
+    // Verifica se estamos executando no navegador e se o caminho mudou
+    if (isClient && pathname && pathname !== lastPathRef.current) {
       lastPathRef.current = pathname;
       
+      // Garante que o dataLayer esteja inicializado
       window.dataLayer = window.dataLayer || [];
       
-      // Enviar evento de visualização de página virtual
-      window.dataLayer.push({
-        'event': 'virtualPageview',
-        'pagePath': pathname,
-        'pageTitle': document.title
-      });
+      // Pequeno timeout para garantir que o título da página foi atualizado
+      setTimeout(() => {
+        window.dataLayer.push({
+          'event': 'virtualPageview',
+          'pagePath': pathname,
+          'pageTitle': document.title
+        });
+      }, 0);
     }
   }, [pathname]);
 
   // Função para enviar eventos personalizados para o dataLayer
   const pushEvent = (eventName: string, eventParams?: Record<string, any>) => {
-    if (typeof window !== 'undefined') {
+    if (isClient) {
       window.dataLayer = window.dataLayer || [];
       
       window.dataLayer.push({
