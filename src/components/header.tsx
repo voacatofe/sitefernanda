@@ -4,10 +4,12 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
+import { useGTM } from "@/hooks/use-gtm"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { pushEvent } = useGTM()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,12 +20,24 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Função para rastrear cliques em links de navegação
+  const handleNavClick = (linkName: string) => {
+    pushEvent('navigationClick', { 
+      linkName: linkName,
+      linkCategory: 'mainNavigation'
+    })
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-dimas-black py-4" : "bg-dimas-black/80 py-6"}`}
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <Link href="/" className="relative z-10 flex items-center">
+        <Link 
+          href="/" 
+          className="relative z-10 flex items-center"
+          onClick={() => handleNavClick('Home-Logo')}
+        >
           <div className="relative h-12 w-12 mr-3">
             <Image
               src="/images/Logo SF.png"
@@ -51,6 +65,7 @@ export default function Header() {
               key={item.name}
               href={item.href}
               className="text-white text-sm uppercase tracking-wider hover:text-fernanda-gold transition-colors"
+              onClick={() => handleNavClick(item.name)}
             >
               {item.name}
             </Link>
@@ -66,7 +81,14 @@ export default function Header() {
       {menuOpen && (
         <div className="fixed inset-0 bg-dimas-black z-50 flex flex-col">
           <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-            <Link href="/" className="relative z-10 flex items-center">
+            <Link 
+              href="/" 
+              className="relative z-10 flex items-center"
+              onClick={() => {
+                handleNavClick('Home-Logo-Mobile')
+                setMenuOpen(false)
+              }}
+            >
               <div className="relative h-12 w-12 mr-3">
                 <Image
                   src="/images/Logo SF.png"
@@ -99,7 +121,10 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className="text-white text-2xl uppercase tracking-wider"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  handleNavClick(`${item.name}-Mobile`)
+                  setMenuOpen(false)
+                }}
               >
                 {item.name}
               </Link>

@@ -192,7 +192,6 @@ export default function ContactPage() {
                       <option value="other">Outros</option>
                     </select>
                   </div>
-
                   <div>
                     <label htmlFor="message" className="block text-sm font-light text-dimas-black/80 mb-1">
                       Mensagem
@@ -205,7 +204,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="pt-4">
-                    <Button className="w-full bg-dimas-black text-white hover:bg-fernanda-gold hover:text-dimas-black rounded-none uppercase text-xs tracking-wider py-6 transition-colors duration-300 group">
+                    <Button type="submit" className="w-full bg-dimas-black text-white hover:bg-fernanda-gold hover:text-dimas-black rounded-none uppercase text-xs tracking-wider py-6 transition-colors duration-300 group">
                       <span>Enviar mensagem</span>
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>

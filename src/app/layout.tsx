@@ -20,6 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
+      {/* Inicializar dataLayer */}
+      <Script id="init-datalayer" strategy="beforeInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+        `}
+      </Script>
       {/* Google Tag Manager Script */}
       <Script id="google-tag-manager" strategy="afterInteractive">
         {`
