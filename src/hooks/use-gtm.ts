@@ -1,5 +1,5 @@
 // Hook para gerenciar operações do Google Tag Manager (DataLayer)
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 // Tipagem para o DataLayer
@@ -17,10 +17,13 @@ declare global {
  */
 export const useGTM = () => {
   const pathname = usePathname();
+  const lastPathRef = useRef<string | null>(null);
 
   // Rastrear mudanças de página automaticamente
   useEffect(() => {
-    if (pathname) {
+    if (pathname && pathname !== lastPathRef.current) {
+      lastPathRef.current = pathname;
+      
       window.dataLayer = window.dataLayer || [];
       
       // Enviar evento de visualização de página virtual
