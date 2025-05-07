@@ -30,6 +30,8 @@ jobs:
         run: pnpm install --no-frozen-lockfile
       
       - name: Generate V1 static files
+        env:
+          NEXT_PUBLIC_RDSTATION_API_KEY: ${{ secrets.NEXT_PUBLIC_RDSTATION_API_KEY }}
         run: pnpm build:v1
       
       - name: FTP Deploy

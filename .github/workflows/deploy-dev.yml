@@ -1,11 +1,11 @@
-name: Deploy to Production
+name: Deploy to Development
 
-# Workflow para deploy em produção via FTP
+# Workflow para deploy em desenvolvimento via FTP
 
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   deploy:
@@ -30,29 +30,16 @@ jobs:
         run: pnpm install --no-frozen-lockfile
       
       - name: Build project
+        env:
+          NEXT_PUBLIC_RDSTATION_API_KEY: ${{ secrets.NEXT_PUBLIC_RDSTATION_API_KEY }}
         run: pnpm build
       
       - name: Prepare for deployment
         run: |
-          # Usando diretamente o build estático gerado pelo Next.js
           mkdir -p .deploy
-          cp -r out/* .deploy/
+          cp -r .next .deploy/
+          cp -r public .deploy/
           
-          # Adicionar arquivo .htaccess para configurar as regras de navegação
-          echo "# Enable URL rewriting" > .deploy/.htaccess
-          echo "RewriteEngine On" >> .deploy/.htaccess
-          echo "" >> .deploy/.htaccess
-          echo "# Redirect all requests to the index.html file for client-side routing" >> .deploy/.htaccess
-          echo "RewriteCond %{REQUEST_FILENAME} !-f" >> .deploy/.htaccess
-          echo "RewriteCond %{REQUEST_FILENAME} !-d" >> .deploy/.htaccess
-          echo "RewriteRule ^ index.html [L]" >> .deploy/.htaccess
-          echo "" >> .deploy/.htaccess
-          echo "# Disable directory listing" >> .deploy/.htaccess
-          echo "Options -Indexes" >> .deploy/.htaccess
-          echo "" >> .deploy/.htaccess
-          echo "# Set default index file" >> .deploy/.htaccess
-          echo "DirectoryIndex index.html" >> .deploy/.htaccess
-      
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
@@ -60,9 +47,9 @@ jobs:
           username: u491560244.darlan
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./.deploy/
-          server-dir: /
+          server-dir: /dev/
           dangerous-clean-slate: false
-          state-name: .ftp-deploy-sync-state-prod.json
+          state-name: .ftp-deploy-sync-state-dev.json
           dry-run: false
           exclude: |
             **/.git*
