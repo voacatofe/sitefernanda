@@ -10,6 +10,14 @@ export const useGTMPageview = () => {
       lastPathRef.current = pathname;
       window.dataLayer = window.dataLayer || [];
       setTimeout(() => {
+        // Evento tradicional de pageview
+        window.dataLayer.push({
+          'event': 'pageview',
+          'page_path': pathname,
+          'page_title': document.title
+        });
+        
+        // Evento de virtualPageview para SPAs
         window.dataLayer.push({
           'event': 'virtualPageview',
           'pagePath': pathname,
