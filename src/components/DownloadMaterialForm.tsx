@@ -14,6 +14,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ArrowDown, FileText } from "lucide-react"
+import { sendRDStationConversion } from "@/services/rdstation"
+import { useGTM } from "@/hooks/use-gtm"
 
 interface DownloadMaterialFormProps {
   title: string
@@ -32,25 +34,60 @@ export function DownloadMaterialForm({
 }: DownloadMaterialFormProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
   })
+  const { pushEvent } = useGTM()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
     
-    // Aqui você poderia implementar lógica para enviar os dados para um servidor
-    // Por exemplo, com fetch ou axios
-    
-    // Simular sucesso no envio
-    setFormSubmitted(true)
+    try {
+      // Enviar dados para o RD Station
+      const result = await sendRDStationConversion(
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone, 
+          cf_interesse: `Material: ${title}`,
+          tags: ["download", "material", title.toLowerCase().replace(/\s+/g, '-')],
+          traffic_source: window.location.href
+        }, 
+        "formulario-download-material"
+      )
+
+      // Enviar evento para o Google Tag Manager
+      pushEvent('conversion', {
+        formName: 'download-material',
+        formTitle: title,
+        leadEmail: formData.email,
+        leadPhone: formData.phone,
+        rdStationStatus: result.success ? 'success' : 'error'
+      })
+      
+      console.log("Resultado RD Station:", result)
+
+      // Mostrar formulário de sucesso mesmo se houver erro no RD Station
+      setFormSubmitted(true)
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error)
+      // Enviar evento de erro para o GTM
+      pushEvent('conversion_error', {
+        formName: 'download-material',
+        errorDetail: String(error)
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const resetForm = () => {
@@ -128,8 +165,9 @@ export function DownloadMaterialForm({
               <Button 
                 type="submit" 
                 className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90"
+                disabled={isSubmitting}
               >
-                Quero receber o material
+                {isSubmitting ? "Enviando..." : "Quero receber o material"}
               </Button>
             </DialogFooter>
           </form>
@@ -144,6 +182,12 @@ export function DownloadMaterialForm({
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center"
+              onClick={() => {
+                pushEvent('material_download', {
+                  materialTitle: title,
+                  materialUrl: fileUrl
+                })
+              }}
             >
               <Button 
                 className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90"

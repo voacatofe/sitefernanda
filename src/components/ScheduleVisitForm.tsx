@@ -16,6 +16,8 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { sendRDStationConversion } from "@/services/rdstation"
+import { useGTM } from "@/hooks/use-gtm"
 
 interface ScheduleVisitFormProps {
   projectTitle?: string
@@ -30,6 +32,7 @@ export function ScheduleVisitForm({
 }: ScheduleVisitFormProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,24 +40,55 @@ export function ScheduleVisitForm({
     message: "",
     interest: projectTitle || "Não especificado"
   })
+  const { pushEvent } = useGTM()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
     
-    // Aqui você implementaria a lógica para enviar os dados para um servidor
-    // Por exemplo, com fetch ou axios
-    console.log({
-      ...formData,
-      projectTitle,
-    })
-    
-    // Simular sucesso no envio
-    setFormSubmitted(true)
+    try {
+      // Enviar dados para o RD Station
+      const result = await sendRDStationConversion(
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          cf_interesse: `Agendamento: ${formData.interest}`,
+          cf_mensagem: formData.message,
+          tags: ["agendamento", "visita", formData.interest.toLowerCase().replace(/\s+/g, '-')],
+          traffic_source: window.location.href
+        },
+        "formulario-agendamento-visita"
+      )
+
+      // Enviar evento para o Google Tag Manager
+      pushEvent('conversion', {
+        formName: 'agendamento-visita',
+        empreendimento: formData.interest,
+        leadEmail: formData.email,
+        leadPhone: formData.phone,
+        rdStationStatus: result.success ? 'success' : 'error'
+      })
+      
+      console.log("Resultado RD Station:", result)
+      
+      // Mostrar formulário de sucesso mesmo se houver erro no RD Station
+      setFormSubmitted(true)
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error)
+      // Enviar evento de erro para o GTM
+      pushEvent('conversion_error', {
+        formName: 'agendamento-visita',
+        errorDetail: String(error)
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const resetForm = () => {
@@ -156,8 +190,9 @@ export function ScheduleVisitForm({
               <Button 
                 type="submit" 
                 className="bg-fernanda-gold text-dimas-black hover:bg-fernanda-gold/90"
+                disabled={isSubmitting}
               >
-                Enviar solicitação
+                {isSubmitting ? "Enviando..." : "Enviar solicitação"}
               </Button>
             </DialogFooter>
           </form>
