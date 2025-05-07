@@ -31,6 +31,21 @@ export async function sendRDStationConversion(
   }
 
   try {
+    // Criar um objeto para campos personalizados
+    const customFields: Record<string, any> = {};
+    
+    // Adicionar campos personalizados com o formato correto
+    if (conversion.cf_interesse) {
+      customFields["cf_interesse"] = conversion.cf_interesse;
+    }
+    
+    if (conversion.cf_mensagem) {
+      customFields["cf_mensagem"] = conversion.cf_mensagem;
+      // Adicionar também como "mensagem" e "message" para aumentar as chances de captura
+      customFields["cf_mensagem_cliente"] = conversion.cf_mensagem;
+      customFields["cf_message"] = conversion.cf_mensagem;
+    }
+
     // Preparar os dados da conversão no formato esperado
     // A API requer event_type, event_family e payload como campos obrigatórios
     const payload = {
@@ -41,8 +56,10 @@ export async function sendRDStationConversion(
         name: conversion.name || "",
         email: conversion.email,
         personal_phone: conversion.phone || "",
-        cf_interesse: conversion.cf_interesse || "",
-        cf_mensagem: conversion.cf_mensagem || "",
+        // Incluir todos os campos personalizados
+        ...customFields,
+        // Adicionar como campo normal também, para compatibilidade
+        message: conversion.cf_mensagem || "",
         traffic_source: conversion.traffic_source || window.location.href,
         tags: conversion.tags || [],
         // Adicionando campos de geolocalização
@@ -57,6 +74,8 @@ export async function sendRDStationConversion(
         ]
       }
     };
+
+    console.log("Enviando payload para RD Station:", JSON.stringify(payload, null, 2));
 
     // Enviar a conversão para o RD Station
     const response = await fetch(
