@@ -10,6 +10,7 @@ import { Project, Feature, Floorplan, Location, NearbyLocation, Differential } f
 import { ImageGallery } from "@/components/ImageGallery"
 import { DownloadMaterialForm } from "@/components/DownloadMaterialForm"
 import { ScheduleVisitForm } from "@/components/ScheduleVisitForm"
+import { useGTM } from "@/hooks/use-gtm"
 
 interface ProjectContentProps {
   project: Project
@@ -18,6 +19,18 @@ interface ProjectContentProps {
 export default function ProjectContent({ project }: ProjectContentProps) {
   const [activeTab, setActiveTab] = useState("visao-geral")
   const [isLoaded, setIsLoaded] = useState(false)
+  const { pushEvent } = useGTM()
+  
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId)
+    
+    pushEvent('abaTrocada', {
+      empreendimento: project.title,
+      abaNome: tabId,
+      pagePath: `/empreendimentos/${project.title.toLowerCase()}/${tabId}`,
+      pageTitle: `${project.title} | ${tabId.charAt(0).toUpperCase() + tabId.slice(1)} | Fernanda Soares`
+    })
+  }
 
   useEffect(() => {
     setIsLoaded(true)
@@ -77,7 +90,7 @@ export default function ProjectContent({ project }: ProjectContentProps) {
               return (
                 <button
                   key={tab}
-                  onClick={() => setActiveTab(tabId)}
+                  onClick={() => handleTabChange(tabId)}
                   className={`px-6 py-4 text-sm uppercase tracking-wider whitespace-nowrap ${
                     activeTab === tabId
                       ? "text-fernanda-gold border-b-2 border-fernanda-gold"
