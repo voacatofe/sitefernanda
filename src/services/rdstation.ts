@@ -31,10 +31,31 @@ export async function sendRDStationConversion(
   }
 
   try {
-    // Preparar os dados da conversão com dados adicionais do analytics
+    // Preparar os dados da conversão no formato esperado
+    // A API requer event_type, event_family e payload como campos obrigatórios
     const payload = {
-      conversion_identifier: identifier,
-      ...conversion,
+      event_type: "CONVERSION",
+      event_family: "CDP",
+      payload: {
+        conversion_identifier: identifier,
+        name: conversion.name || "",
+        email: conversion.email,
+        personal_phone: conversion.phone || "",
+        cf_interesse: conversion.cf_interesse || "",
+        cf_mensagem: conversion.cf_mensagem || "",
+        traffic_source: conversion.traffic_source || window.location.href,
+        tags: conversion.tags || [],
+        // Adicionando campos de geolocalização
+        client_tracking_id: "",
+        available_for_mailing: true,
+        legal_bases: [
+          {
+            category: "communications",
+            type: "consent",
+            status: "granted"
+          }
+        ]
+      }
     };
 
     // Enviar a conversão para o RD Station
@@ -49,13 +70,13 @@ export async function sendRDStationConversion(
       }
     );
 
+    const data = await response.json();
+    
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Erro ao enviar conversão para RD Station:", errorData);
-      return { success: false, error: errorData };
+      console.error("Erro ao enviar conversão para RD Station:", data);
+      return { success: false, error: data };
     }
 
-    const data = await response.json();
     return { success: true, data };
   } catch (error) {
     console.error("Falha ao enviar conversão para RD Station:", error);
