@@ -40,10 +40,8 @@ export async function sendRDStationConversion(
     }
     
     if (conversion.cf_mensagem) {
+      // Usar o campo personalizado específico criado no RD Station
       customFields["cf_mensagem"] = conversion.cf_mensagem;
-      // Adicionar também como "mensagem" e "message" para aumentar as chances de captura
-      customFields["cf_mensagem_cliente"] = conversion.cf_mensagem;
-      customFields["cf_message"] = conversion.cf_mensagem;
     }
 
     // Preparar os dados da conversão no formato esperado
@@ -58,8 +56,6 @@ export async function sendRDStationConversion(
         personal_phone: conversion.phone || "",
         // Incluir todos os campos personalizados
         ...customFields,
-        // Adicionar como campo normal também, para compatibilidade
-        message: conversion.cf_mensagem || "",
         traffic_source: conversion.traffic_source || window.location.href,
         tags: conversion.tags || [],
         // Adicionando campos de geolocalização
