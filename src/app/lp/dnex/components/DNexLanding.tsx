@@ -228,7 +228,7 @@ export function DNexLanding({
               asChild
             >
               <Link
-                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D'NEX.`}
+                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D/NEX.`}
                 target="_blank"
               >
                 Agende uma visita
@@ -251,7 +251,7 @@ export function DNexLanding({
       <div className="min-h-[20vh] bg-white py-4">
         <div className="container mx-auto px-6 h-full">
           <FadeInSection className="w-full h-full">
-            <AboutFernanda empreendimento="D'NEX" />
+            <AboutFernanda empreendimento="D/NEX" />
           </FadeInSection>
         </div>
       </div>
@@ -271,12 +271,14 @@ export function DNexLanding({
                 Lançamento
               </Badge>
               <h2 className="text-3xl font-bold mb-4">
-                Bem-vindo ao D'NEX
+                Bem-vindo ao D/NEX
               </h2>
               <p className="text-gray-600 mb-6">
-                Estrategicamente localizado em uma das áreas mais promissoras da cidade, o D'NEX é um projeto inovador que combina design moderno, funcionalidade e qualidade de vida.
-                <br/><br/>
-                Com um conceito inteligente de aproveitamento de espaços, este empreendimento oferece o equilíbrio perfeito entre conforto e praticidade para famílias contemporâneas.
+                O D/NEX Smart Living é um empreendimento inovador que redefine o conceito de morar bem, 
+                combinando praticidade, tecnologia e espaços compartilhados em um só lugar.
+                <br /><br />
+                Projetado para a vida moderna, o D/NEX oferece ambientes inteligentes que se adaptam 
+                ao seu estilo de vida, com uma infraestrutura completa de lazer e serviços que tornam o dia a dia mais prático e agradável.
               </p>
               <ul className="space-y-4 text-gray-600">
                 <li className="flex items-center gap-2">
@@ -386,9 +388,9 @@ export function DNexLanding({
                   Localização Estratégica
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  O D'NEX está localizado em uma região privilegiada, com fácil acesso a
-                  comércio, escolas, parques e principais avenidas. Um bairro em
-                  constante valorização que combina tranquilidade e praticidade.
+                  O D/NEX está estrategicamente localizado em uma área em desenvolvimento, próximo a 
+                  comércios, serviços e com fácil acesso às principais vias da cidade, proporcionando 
+                  mobilidade e praticidade.
                 </p>
                 <ul className="space-y-4 text-gray-600">
                   <li className="flex items-center gap-2">
@@ -457,7 +459,7 @@ export function DNexLanding({
         </FadeInSection>
 
         <FadeInSection>
-          <FormContact empreendimento="D'NEX" whatsappNumber={whatsappNumber} />
+          <FormContact empreendimento="D/NEX" whatsappNumber={whatsappNumber} />
         </FadeInSection>
       </div>
 

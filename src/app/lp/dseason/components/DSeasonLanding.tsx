@@ -233,7 +233,7 @@ export function DSeasonLanding({
               asChild
             >
               <Link
-                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D'SEASON.`}
+                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D/SEASON.`}
                 target="_blank"
               >
                 Agende uma visita
@@ -256,7 +256,7 @@ export function DSeasonLanding({
       <div className="min-h-[20vh] bg-white py-4">
         <div className="container mx-auto px-6 h-full">
           <FadeInSection className="w-full h-full">
-            <AboutFernanda empreendimento="D'SEASON" />
+            <AboutFernanda empreendimento="D/SEASON" />
           </FadeInSection>
         </div>
       </div>
@@ -276,12 +276,15 @@ export function DSeasonLanding({
                 Lançamento
               </Badge>
               <h2 className="text-3xl font-bold mb-4">
-                Bem-vindo ao D'SEASON
+                Bem-vindo ao D/SEASON
               </h2>
               <p className="text-gray-600 mb-6">
-                O D'SEASON é um empreendimento exclusivo que combina design contemporâneo, tecnologia e infraestrutura completa de lazer para todas as estações do ano.
-                <br/><br/>
-                Projetado para proporcionar bem-estar em cada detalhe, o D'SEASON oferece apartamentos com layouts inteligentes e acabamento de alto padrão.
+                O D/SEASON Residence Club é um empreendimento inovador projetado para 
+                oferecer o melhor do estilo de vida resort com a praticidade da vida urbana.
+                <br></br><br></br>
+                Com uma localização privilegiada e vista para o mar, o D/SEASON 
+                proporciona uma experiência única de moradia, combinando sofisticação, 
+                conforto e lazer em um só lugar.
               </p>
               <ul className="space-y-4 text-gray-600">
                 <li className="flex items-center gap-2">
@@ -391,9 +394,8 @@ export function DSeasonLanding({
                   Localização Privilegiada
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  O D'SEASON está situado em uma localização privilegiada, com fácil acesso a 
-                  todos os serviços essenciais, áreas de lazer e principais vias da cidade. 
-                  Um bairro em ascensão que oferece tranquilidade e praticidade ao mesmo tempo.
+                  O D/SEASON está localizado em uma área privilegiada, 
+                  com vista para o mar e fácil acesso às principais atrações da cidade.
                 </p>
                 <ul className="space-y-4 text-gray-600">
                   <li className="flex items-center gap-2">
@@ -462,7 +464,7 @@ export function DSeasonLanding({
         </FadeInSection>
 
         <FadeInSection>
-          <FormContact empreendimento="D'SEASON" whatsappNumber={whatsappNumber} />
+          <FormContact empreendimento="D/SEASON" whatsappNumber={whatsappNumber} />
         </FadeInSection>
       </div>
 

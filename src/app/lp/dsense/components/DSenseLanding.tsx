@@ -229,7 +229,7 @@ export function DSenseLanding({
               asChild
             >
               <Link
-                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D'SENSE.`}
+                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D/SENSE.`}
                 target="_blank"
               >
                 Agende uma visita
@@ -252,7 +252,7 @@ export function DSenseLanding({
       <div className="min-h-[20vh] bg-white py-4">
         <div className="container mx-auto px-6 h-full">
           <FadeInSection className="w-full h-full">
-            <AboutFernanda empreendimento="D'SENSE" />
+            <AboutFernanda empreendimento="D/SENSE" />
           </FadeInSection>
         </div>
       </div>
@@ -272,12 +272,12 @@ export function DSenseLanding({
                 Lançamento
               </Badge>
               <h2 className="text-3xl font-bold mb-4">
-                Bem-vindo ao D'SENSE
+                Bem-vindo ao D/SENSE
               </h2>
               <p className="text-gray-600 mb-6">
-                O D'SENSE é um empreendimento inovador que redefine o conceito de morar bem, unindo estética contemporânea, praticidade e conforto em um único lugar.
+                O D/SENSE é um empreendimento inovador que redefine o conceito de morar bem, unindo estética contemporânea, praticidade e conforto em um único lugar.
                 <br/><br/>
-                Com infraestrutura completa e apartamentos projetados com atenção aos mínimos detalhes, o D'SENSE foi concebido para proporcionar uma experiência única de moradia.
+                Com infraestrutura completa e apartamentos projetados com atenção aos mínimos detalhes, o D/SENSE foi concebido para proporcionar uma experiência única de moradia.
               </p>
               <ul className="space-y-4 text-gray-600">
                 <li className="flex items-center gap-2">
@@ -387,7 +387,7 @@ export function DSenseLanding({
                   Localização Estratégica
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  O D'SENSE está localizado em uma área estratégica, combinando praticidade 
+                  O D/SENSE está localizado em uma área estratégica, combinando praticidade 
                   e tranquilidade. Com fácil acesso às principais vias da cidade e 
                   próximo a diversas opções de comércio, lazer e serviços.
                 </p>
@@ -458,7 +458,7 @@ export function DSenseLanding({
         </FadeInSection>
 
         <FadeInSection>
-          <FormContact empreendimento="D'SENSE" whatsappNumber={whatsappNumber} />
+          <FormContact empreendimento="D/SENSE" whatsappNumber={whatsappNumber} />
         </FadeInSection>
       </div>
 

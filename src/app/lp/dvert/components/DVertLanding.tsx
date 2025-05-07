@@ -226,7 +226,7 @@ export function DVertLanding({
               asChild
             >
               <Link
-                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D'VERT.`}
+                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D/VERT.`}
                 target="_blank"
               >
                 Agende uma visita
@@ -249,7 +249,7 @@ export function DVertLanding({
       <div className="min-h-[20vh] bg-white py-4">
         <div className="container mx-auto px-6 h-full">
           <FadeInSection className="w-full h-full">
-            <AboutFernanda empreendimento="D'VERT" />
+            <AboutFernanda empreendimento="D/VERT" />
           </FadeInSection>
         </div>
       </div>
@@ -269,12 +269,15 @@ export function DVertLanding({
                 Lançamento
               </Badge>
               <h2 className="text-3xl font-bold mb-4">
-                Bem-vindo ao D'VERT
+                Bem-vindo ao D/VERT
               </h2>
               <p className="text-gray-600 mb-6">
-                O D'VERT é um empreendimento sustentável que une natureza e conforto, oferecendo uma experiência única de moradia em harmonia com o meio ambiente.
-                <br/><br/>
-                Com espaços amplos e áreas verdes integradas, o D'VERT proporciona qualidade de vida e bem-estar para você e sua família.
+                O D/VERT é um empreendimento inovador que redefine o conceito de morar bem, 
+                unindo sustentabilidade, design biofílico e conforto em um só lugar.
+                <br /><br />
+                Projetado para proporcionar uma conexão profunda com a natureza, o D/VERT 
+                oferece jardins verticais, áreas verdes integradas e soluções ambientalmente 
+                responsáveis que transformam o dia a dia dos moradores.
               </p>
               <ul className="space-y-4 text-gray-600">
                 <li className="flex items-center gap-2">
@@ -384,9 +387,9 @@ export function DVertLanding({
                   Localização Integrada à Natureza
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  O D'VERT está localizado em uma área que combina o melhor da natureza com a praticidade urbana. 
-                  Próximo a parques e áreas verdes, oferece um ambiente tranquilo sem abrir mão da facilidade de acesso 
-                  aos serviços essenciais da cidade.
+                  O D/VERT está localizado em uma área privilegiada, 
+                  próximo à Beira-Mar de São José, com fácil acesso a todos os 
+                  serviços essenciais e principais vias da região.
                 </p>
                 <ul className="space-y-4 text-gray-600">
                   <li className="flex items-center gap-2">
@@ -455,7 +458,7 @@ export function DVertLanding({
         </FadeInSection>
 
         <FadeInSection>
-          <FormContact empreendimento="D'VERT" whatsappNumber={whatsappNumber} />
+          <FormContact empreendimento="D/VERT" whatsappNumber={whatsappNumber} />
         </FadeInSection>
       </div>
 

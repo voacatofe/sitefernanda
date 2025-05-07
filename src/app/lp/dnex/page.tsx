@@ -3,18 +3,18 @@ import { Building2, Home, Waves, Sun, Dumbbell, Coffee, Car, Lock } from 'lucide
 import { WHATSAPP_NUMBER } from '@/config/contact';
 
 const galleryImages = [
-  { src: "/images/dnex/fachada1.jpg", alt: "Fachada D'NEX" },
-  { src: "/images/dnex/17_DIMAS_DNEX_PISCINA.jpg", alt: "Piscina D'NEX" },
-  { src: "/images/dnex/25_DIMAS_DNEX_HALL.jpg", alt: "Hall de Entrada D'NEX" },
-  { src: "/images/dnex/08_DIMAS_DNEX_TERRACO.jpg", alt: "Terraço D'NEX" },
-  { src: "/images/dnex/14_DIMAS_DNEX_ACADEMIA.jpg", alt: "Academia D'NEX" },
-  { src: "/images/dnex/06_DIMAS_DNEX_FESTAS.jpg", alt: "Salão de Festas D'NEX" },
-  { src: "/images/dnex/07_DIMAS_DNEX_GOURMET.jpg", alt: "Espaço Gourmet D'NEX" },
-  { src: "/images/dnex/11_DIMAS_DNEX_KIDS.jpg", alt: "Espaço Kids D'NEX" },
-  { src: "/images/dnex/20_DIMAS_DNEX_COWORKING.jpg", alt: "Coworking D'NEX" },
-  { src: "/images/dnex/18_DIMAS_DNEX_GRILL.jpg", alt: "Espaço Grill D'NEX" },
-  { src: "/images/dnex/16_DIMAS_DNEX_QUADRA_AREIA.jpg", alt: "Quadra de Areia D'NEX" },
-  { src: "/images/dnex/10_DIMAS_DNEX_ESPACO_PET.jpg", alt: "Espaço Pet D'NEX" },
+  { src: "/images/dnex/fachada1.jpg", alt: "Fachada D/NEX" },
+  { src: "/images/dnex/17_DIMAS_DNEX_PISCINA.jpg", alt: "Piscina D/NEX" },
+  { src: "/images/dnex/25_DIMAS_DNEX_HALL.jpg", alt: "Hall de Entrada D/NEX" },
+  { src: "/images/dnex/08_DIMAS_DNEX_TERRACO.jpg", alt: "Terraço D/NEX" },
+  { src: "/images/dnex/14_DIMAS_DNEX_ACADEMIA.jpg", alt: "Academia D/NEX" },
+  { src: "/images/dnex/06_DIMAS_DNEX_FESTAS.jpg", alt: "Salão de Festas D/NEX" },
+  { src: "/images/dnex/07_DIMAS_DNEX_GOURMET.jpg", alt: "Espaço Gourmet D/NEX" },
+  { src: "/images/dnex/11_DIMAS_DNEX_KIDS.jpg", alt: "Espaço Kids D/NEX" },
+  { src: "/images/dnex/20_DIMAS_DNEX_COWORKING.jpg", alt: "Coworking D/NEX" },
+  { src: "/images/dnex/18_DIMAS_DNEX_GRILL.jpg", alt: "Espaço Grill D/NEX" },
+  { src: "/images/dnex/16_DIMAS_DNEX_QUADRA_AREIA.jpg", alt: "Quadra de Areia D/NEX" },
+  { src: "/images/dnex/10_DIMAS_DNEX_ESPACO_PET.jpg", alt: "Espaço Pet D/NEX" },
 ];
 
 const floorPlans = [

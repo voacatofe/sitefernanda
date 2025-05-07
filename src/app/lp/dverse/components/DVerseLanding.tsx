@@ -211,7 +211,7 @@ export function DVerseLanding({
           >
             <Image
               src="/images/dverse/logo-dverse.41ce4709.svg"
-              alt="D'VERSE"
+              alt="DVERSE"
               width={300}
               height={100}
               className="mx-auto mb-8"
@@ -229,7 +229,7 @@ export function DVerseLanding({
               asChild
             >
               <Link
-                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D'VERSE.`}
+                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D/VERSE.`}
                 target="_blank"
               >
                 Agende uma visita
@@ -252,7 +252,7 @@ export function DVerseLanding({
       <div className="min-h-[20vh] bg-white py-4">
         <div className="container mx-auto px-6 h-full">
           <FadeInSection className="w-full h-full">
-            <AboutFernanda empreendimento="D'VERSE" />
+            <AboutFernanda empreendimento="D/VERSE" />
           </FadeInSection>
         </div>
       </div>
@@ -272,7 +272,7 @@ export function DVerseLanding({
                 Lançamento
               </Badge>
               <h2 className="text-3xl font-bold mb-4">
-                Bem-vindo ao D'VERSE
+                Bem-vindo ao D/VERSE
               </h2>
               <p className="text-gray-600 mb-6">
                 Localizado em uma das praias mais reservadas
@@ -292,7 +292,7 @@ tranquilidade de uma segunda moradia perfeita.
               <ul className="space-y-4 text-gray-600">
                 <li className="flex items-center gap-2">
                   <Check className="text-fernanda-gold" />
-                  <span>Apartamentos de 2 e 3 suítes</span>
+                  <span>2 a 4 suítes</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="text-fernanda-gold" />
@@ -304,7 +304,7 @@ tranquilidade de uma segunda moradia perfeita.
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="text-fernanda-gold" />
-                  <span>Acabamento premium</span>
+                  <span>Acabamento alto padrão</span>
                 </li>
               </ul>
             </div>
@@ -313,7 +313,7 @@ tranquilidade de uma segunda moradia perfeita.
             <div className="relative aspect-video rounded-lg overflow-hidden">
               <Image
                 src="/images/dverse/dverse.jpg"
-                alt="Fachada D'VERSE"
+                alt="Fachada D/VERSE"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -338,7 +338,7 @@ tranquilidade de uma segunda moradia perfeita.
                 <div className="relative aspect-video rounded-lg overflow-hidden group h-full shadow-md">
                   <Image
                     src={image.src}
-                    alt="dverse - Praia Brava"
+                    alt={image.alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -397,7 +397,7 @@ tranquilidade de uma segunda moradia perfeita.
                   Localização Privilegiada
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  O D'VERSE está localizado a apenas 65 metros da Praia Brava,
+                  O D/VERSE está localizado a apenas 65 metros da Praia Brava,
                   uma das mais belas praias de Itajaí. A região oferece completa
                   infraestrutura com restaurantes, comércio e lazer.
                 </p>
@@ -425,7 +425,7 @@ tranquilidade de uma segunda moradia perfeita.
               <div className="relative h-[400px] w-full overflow-hidden mb-6 rounded-lg shadow-md">
                 <Image
                   src="/images/dverse/localização.png"
-                  alt="Localização D'VERSE"
+                  alt="Localização D/VERSE"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -468,7 +468,7 @@ tranquilidade de uma segunda moradia perfeita.
         </FadeInSection>
 
         <FadeInSection>
-          <FormContact empreendimento="D'VERSE" whatsappNumber={whatsappNumber} />
+          <FormContact empreendimento="D/VERSE" whatsappNumber={whatsappNumber} />
         </FadeInSection>
       </div>
 

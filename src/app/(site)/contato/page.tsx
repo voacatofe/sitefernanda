@@ -14,21 +14,84 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+import { sendRDStationConversion } from "@/services/rdstation"
+import { useGTM } from "@/hooks/use-gtm"
 
 export default function ContactPage() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    interest: "",
+    message: ""
+  })
+  
+  const { pushEvent } = useGTM()
 
   useEffect(() => {
     setIsLoaded(true)
   }, [])
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { id, value } = e.target
+    setFormData((prev) => ({ ...prev, [id]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setShowSuccessModal(true)
-    // Limpa o formulário
-    const form = e.target as HTMLFormElement
-    form.reset()
+    setIsSubmitting(true)
+    
+    try {
+      // Enviar dados para o RD Station
+      const result = await sendRDStationConversion(
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          cf_interesse: `Contato: ${formData.interest || "Não especificado"}`,
+          cf_mensagem: formData.message,
+          tags: ["contato", "site", formData.interest.toLowerCase().replace(/\s+/g, '-')],
+          traffic_source: window.location.href
+        },
+        "formulario-contato-site"
+      )
+
+      // Enviar evento para o Google Tag Manager
+      pushEvent('conversion', {
+        formName: 'contato-site',
+        formTitle: 'Formulário de Contato',
+        empreendimento: formData.interest,
+        leadEmail: formData.email,
+        leadPhone: formData.phone,
+        rdStationStatus: result.success ? 'success' : 'error'
+      })
+      
+      console.log("Resultado RD Station:", result)
+      
+      // Mostrar modal de sucesso mesmo se houver erro no RD Station
+      setShowSuccessModal(true)
+      
+      // Limpa o formulário
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        interest: "",
+        message: ""
+      })
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error)
+      // Enviar evento de erro para o GTM
+      pushEvent('conversion_error', {
+        formName: 'contato-site',
+        errorDetail: String(error)
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -149,6 +212,9 @@ export default function ContactPage() {
                         type="text"
                         id="name"
                         className="w-full px-4 py-3 border border-dimas-beige focus:border-fernanda-gold focus:ring-0 outline-none"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
                       />
                     </div>
                     <div>
@@ -159,6 +225,9 @@ export default function ContactPage() {
                         type="tel"
                         id="phone"
                         className="w-full px-4 py-3 border border-dimas-beige focus:border-fernanda-gold focus:ring-0 outline-none"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
                       />
                     </div>
                   </div>
@@ -171,6 +240,9 @@ export default function ContactPage() {
                       type="email"
                       id="email"
                       className="w-full px-4 py-3 border border-dimas-beige focus:border-fernanda-gold focus:ring-0 outline-none"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
 
@@ -181,6 +253,8 @@ export default function ContactPage() {
                     <select
                       id="interest"
                       className="w-full px-4 py-3 border border-dimas-beige focus:border-fernanda-gold focus:ring-0 outline-none"
+                      value={formData.interest}
+                      onChange={handleChange}
                     >
                       <option value="">Selecione um empreendimento</option>
                       <option value="dverse">D'VERSE</option>
@@ -200,12 +274,18 @@ export default function ContactPage() {
                       id="message"
                       rows={4}
                       className="w-full px-4 py-3 border border-dimas-beige focus:border-fernanda-gold focus:ring-0 outline-none"
+                      value={formData.message}
+                      onChange={handleChange}
                     ></textarea>
                   </div>
 
                   <div className="pt-4">
-                    <Button type="submit" className="w-full bg-dimas-black text-white hover:bg-fernanda-gold hover:text-dimas-black rounded-none uppercase text-xs tracking-wider py-6 transition-colors duration-300 group">
-                      <span>Enviar mensagem</span>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-dimas-black text-white hover:bg-fernanda-gold hover:text-dimas-black rounded-none uppercase text-xs tracking-wider py-6 transition-colors duration-300 group"
+                      disabled={isSubmitting}
+                    >
+                      <span>{isSubmitting ? "Enviando..." : "Enviar mensagem"}</span>
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                   </div>

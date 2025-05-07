@@ -2,10 +2,10 @@ import { Project } from "./types"
 
 export const projectsData: Record<string, Project> = {
   dverse: {
-    title: "D'VERSE Beach Concept",
+    title: "D/VERSE Beach Concept",
     tagline: "Viva a sofisticação e a beleza natural da Praia Brava",
-    description: "O D'VERSE Beach Concept é o primeiro empreendimento de alto padrão da Dimas Construções na exclusiva Praia Brava. Com acesso limitado e poucos terrenos disponíveis ao redor, o condomínio oferece privacidade e tranquilidade à beira-mar.",
-    longDescription: "Localizado na Praia Brava em Florianópolis, o D'VERSE combina sofisticação, tecnologia e sustentabilidade. Cada detalhe das áreas comuns foi projetado pelo renomado escritório Anastassiadis Arquitetura, garantindo ambientes sofisticados e acolhedores pensados para o bem-estar dos futuros moradores. Além disso, o empreendimento inclui um espaço gastronômico integrado ao nível da rua (acessível pela Av. Tom Traugott Wildi) que traz conveniência tanto para os residentes quanto para a comunidade local.",
+    description: "O D/VERSE Beach Concept é o primeiro empreendimento de alto padrão da Dimas Construções na exclusiva Praia Brava. Com acesso limitado e poucos terrenos disponíveis ao redor, o condomínio oferece privacidade e tranquilidade à beira-mar.",
+    longDescription: "Localizado na Praia Brava em Florianópolis, o D/VERSE combina sofisticação, tecnologia e sustentabilidade. Cada detalhe das áreas comuns foi projetado pelo renomado escritório Anastassiadis Arquitetura, garantindo ambientes sofisticados e acolhedores pensados para o bem-estar dos futuros moradores. Além disso, o empreendimento inclui um espaço gastronômico integrado ao nível da rua (acessível pela Av. Tom Traugott Wildi) que traz conveniência tanto para os residentes quanto para a comunidade local.",
     features: [
       { title: "Apartamentos", description: "De 2, 3 e 4 suítes, com metragens que variam de aproximadamente 102 m² a 366 m² de área privativa." },
       { title: "Lazer", description: "Completo, cobertura que inclui uma piscina com vista panorâmica do oceano, solário e sky lounge" },
@@ -49,7 +49,7 @@ export const projectsData: Record<string, Project> = {
       },
     ],
     location: {
-      description: "O D'VERSE está localizado em uma área privilegiada, com fácil acesso às principais vias da cidade e próximo a diversos serviços e conveniências.",
+      description: "O D/VERSE está localizado em uma área privilegiada, com fácil acesso às principais vias da cidade e próximo a diversos serviços e conveniências.",
       mapImage: "/images/dverse/localização.png",
     },
     differentials: [
@@ -60,7 +60,7 @@ export const projectsData: Record<string, Project> = {
       { title: "Espaço Gastronômico", description: "Espaço gastronômico aberto ao público no térreo" },
       { title: "Sustentabilidade", description: "Reaproveitamento de água da chuva e energia fotovoltaica" },
     ],
-    fernandasNotes: "O D'VERSE Beach Concept é perfeito para quem busca exclusividade e sofisticação à beira-mar. A localização privilegiada na Praia Brava e os acabamentos de alto padrão fazem deste empreendimento uma excelente opção para investimento ou segunda residência com atmosfera de refúgio.",
+    fernandasNotes: "O D/VERSE Beach Concept é perfeito para quem busca exclusividade e sofisticação à beira-mar. A localização privilegiada na Praia Brava e os acabamentos de alto padrão fazem deste empreendimento uma excelente opção para investimento ou segunda residência com atmosfera de refúgio.",
     status: "lancamento",
     type: "residencial",
     address: {
@@ -76,16 +76,16 @@ export const projectsData: Record<string, Project> = {
       }
     },
     salesMaterial: {
-      title: "Catálogo Exclusivo D'VERSE",
+      title: "Catálogo Exclusivo D/VERSE",
       description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
-      fileUrl: "/materiais/DVerse.pdf"
+      fileUrl: "/materiais/Material de Introdução  -  Dverse.pdf"
     }
   },
   dseason: {
-    title: "D'SEASON Residence Club",
+    title: "D/SEASON Residence Club",
     tagline: "O primeiro resort urbano de Florianópolis",
-    description: "O D'SEASON Residence Club é um empreendimento de luxo concebido para ser o primeiro resort urbano da cidade. Projetado para proporcionar conforto e elegância durante todo o ano.",
-    longDescription: "Localizado no bairro João Paulo, em Florianópolis, o D'SEASON harmoniza as conveniências da vida urbana com a tranquilidade e o lazer típicos de um resort de praia. Situado em um terreno elevado com vista panorâmica para o mar e para o pôr do sol mais deslumbrante da capital, o projeto foi desenhado para proporcionar uma experiência de vida equilibrada e prazerosa. Com arquitetura que privilegia a iluminação natural e a ventilação cruzada, oferece ambientes que se adaptam perfeitamente a cada estação do ano.",
+    description: "O D/SEASON Residence Club é um empreendimento de luxo concebido para ser o primeiro resort urbano da cidade. Projetado para proporcionar conforto e elegância durante todo o ano.",
+    longDescription: "Localizado no bairro João Paulo, em Florianópolis, o D/SEASON harmoniza as conveniências da vida urbana com a tranquilidade e o lazer típicos de um resort de praia. Situado em um terreno elevado com vista panorâmica para o mar e para o pôr do sol mais deslumbrante da capital, o projeto foi desenhado para proporcionar uma experiência de vida equilibrada e prazerosa. Com arquitetura que privilegia a iluminação natural e a ventilação cruzada, oferece ambientes que se adaptam perfeitamente a cada estação do ano.",
     features: [
       { title: "Apartamentos", description: "De 2, 3 e 4 dormitórios (suítes) em configurações diversas" },
       { title: "Lazer", description: "infraestrutura de lazer completa digna dos melhores condomínios clube" },
@@ -134,7 +134,7 @@ export const projectsData: Record<string, Project> = {
       },
     ],
     location: {
-      description: "O D'SEASON está localizado em uma área nobre, com vista privilegiada para o mar e fácil acesso às principais atrações da cidade.",
+      description: "O D/SEASON está localizado em uma área nobre, com vista privilegiada para o mar e fácil acesso às principais atrações da cidade.",
       mapImage: "/images/dseason/localização.png",
     },
     differentials: [
@@ -145,7 +145,7 @@ export const projectsData: Record<string, Project> = {
       { title: "Praia Privativa", description: "Acesso exclusivo à baía com praia privativa e trapiche" },
       { title: "Equipamentos Náuticos", description: "Caiaques e pranchas de stand-up paddle disponíveis para os moradores" },
     ],
-    fernandasNotes: "O D'SEASON Residence Club é ideal para quem valoriza qualidade de vida em um verdadeiro resort urbano. A vista privilegiada para a Baía Norte e a incrível infraestrutura de lazer fazem deste empreendimento uma experiência única, onde cada dia pode ser vivido como se estivesse em férias.",
+    fernandasNotes: "O D/SEASON Residence Club é ideal para quem valoriza qualidade de vida em um verdadeiro resort urbano. A vista privilegiada para a Baía Norte e a incrível infraestrutura de lazer fazem deste empreendimento uma experiência única, onde cada dia pode ser vivido como se estivesse em férias.",
     status: "construcao",
     type: "residencial",
     address: {
@@ -161,16 +161,16 @@ export const projectsData: Record<string, Project> = {
       }
     },
     salesMaterial: {
-      title: "Catálogo Exclusivo D'SEASON",
+      title: "Catálogo Exclusivo D/SEASON",
       description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
-      fileUrl: "/materiais/DSeason Residence.pdf"
+      fileUrl: "/materiais/Material de Introdução  - Dseason.pdf"
     }
   },
   dsense: {
-    title: "D'SENSE Home Design",
+    title: "D/SENSE Home Design",
     tagline: "Uma experiência única em Florianópolis",
-    description: "O D'SENSE Home Design destaca-se como um empreendimento ícone no centro de Florianópolis, concebido para quem valoriza design, tecnologia e localização excepcional.",
-    longDescription: "Localizado em frente ao Parque da Luz, uma extensa área verde ao lado da Ponte Hercílio Luz, o D'SENSE oferece a rara combinação de estar imerso na natureza e, ao mesmo tempo, conectado ao ritmo urbano. Com arquitetura contemporânea assinada por renomados profissionais (incluindo o escritório internacional Triptyque Architecture para o projeto arquitetônico e o paisagismo de Ricardo Cardim), o D'SENSE traz uma proposta de morar inovadora, pautada pelos princípios do design atemporal e da integração com a cidade. O D'SENSE já nasceu premiado: foi reconhecido internacionalmente em 2024 por harmonizar arquitetura moderna com a natureza local, recebendo honrarias como o Loop Design Award e o World Design Award.",
+    description: "O D/SENSE Home Design destaca-se como um empreendimento ícone no centro de Florianópolis, concebido para quem valoriza design, tecnologia e localização excepcional.",
+    longDescription: "Localizado em frente ao Parque da Luz, uma extensa área verde ao lado da Ponte Hercílio Luz, o D/SENSE oferece a rara combinação de estar imerso na natureza e, ao mesmo tempo, conectado ao ritmo urbano. Com arquitetura contemporânea assinada por renomados profissionais (incluindo o escritório internacional Triptyque Architecture para o projeto arquitetônico e o paisagismo de Ricardo Cardim), o D/SENSE traz uma proposta de morar inovadora, pautada pelos princípios do design atemporal e da integração com a cidade. O D/SENSE já nasceu premiado: foi reconhecido internacionalmente em 2024 por harmonizar arquitetura moderna com a natureza local, recebendo honrarias como o Loop Design Award e o World Design Award.",
     features: [
       { title: "Apartamentos", description: "De 178 a 398m² com 3 e 4 suítes" },
       { title: "Torres", description: "Torre Parque e Torre Mar" },
@@ -225,7 +225,7 @@ export const projectsData: Record<string, Project> = {
       },
     ],
     location: {
-      description: "O D'SENSE está localizado em uma região central, com fácil acesso a toO D/Sense está situado na Rua Felipe Schmidt, no Centro de Florianópolis, em um ponto singular que faz fronteira entre o coração urbano e um refúgio verde. Em frente ao empreendimento encontra-se o Parque da Luz, um parque arborizado com mais de 30 mil m², repleto de trilhas, bosque de árvores frutíferas, campo de futebol e playground​. Um verdadeiro respiro de ar puro dentro da cidade. Ao lado, ergue-se a histórica Ponte Hercílio Luz, cartão-postal de Florianópolis, reaberta para pedestres e ciclistas desde 2019, permitindo fácil acesso ao Continente a pé ou de bicicleta. A localização do D/Sense propicia acesso imediato à Beira-Mar Norte (avenida costeira principal da cidade) e à região central, onde encontra-se ampla oferta de comércio, serviços, restaurantes e entretenimento.dos os pontos da cidade e próximo aos principais centros comerciais e de entretenimento.",
+      description: "O D/SENSE está localizado em uma região central, com fácil acesso a toO D/Sense está situado na Rua Felipe Schmidt, no Centro de Florianópolis, em um ponto singular que faz fronteira entre o coração urbano e um refúgio verde. Em frente ao empreendimento encontra-se o Parque da Luz, um parque arborizado com mais de 30 mil m², repleto de trilhas, bosque de árvores frutíferas, campo de futebol e playground​. Um verdadeiro respiro de ar puro dentro da cidade. Ao lado, ergue-se a histórica Ponte Hercílio Luz, cartão-postal de Florianópolis, reaberta para pedestres e ciclistas desde 2019, permitindo fácil acesso ao Continente a pé ou de bicicleta. A localização do D/Sense propicia acesso imediato à Beira-Mar Norte (avenida costeira principal da cidade) e à região central, onde encontra-se ampla oferta de comércio, serviços, restaurantes e entretenimento.dos os pontos da cidade e próximo aos principais centros comerciais e de entretenimento.",
       mapImage: "/images/dsense/localização.png",
     },
     differentials: [
@@ -236,7 +236,7 @@ export const projectsData: Record<string, Project> = {
       { title: "Guest House", description: "Suíte para hóspedes independente na área comum" },
       { title: "Certificação Fitwel", description: "Comprometimento com saúde e bem-estar nos ambientes" },
     ],
-    fernandasNotes: "O D'SENSE Home Design é perfeito para quem busca viver em um endereço central icônico, mas com qualidade de vida excepcional. A vista para o Parque da Luz, os prêmios internacionais e o conceito inovador fazem deste empreendimento uma escolha única em Florianópolis.",
+    fernandasNotes: "O D/SENSE Home Design é perfeito para quem busca viver em um endereço central icônico, mas com qualidade de vida excepcional. A vista para o Parque da Luz, os prêmios internacionais e o conceito inovador fazem deste empreendimento uma escolha única em Florianópolis.",
     status: "construcao",
     type: "residencial",
     address: {
@@ -252,16 +252,16 @@ export const projectsData: Record<string, Project> = {
       }
     },
     salesMaterial: {
-      title: "Catálogo Exclusivo D'SENSE",
+      title: "Catálogo Exclusivo D/SENSE",
       description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
-      fileUrl: "/materiais/DSense.pdf"
+      fileUrl: "/materiais/Material de Introdução  - Dsense.pdf"
     }
   },
   dvert: {
-    title: "D'VERT Residence Club",
+    title: "D/VERT Residence Club",
     tagline: "Conexão profunda entre moradores e natureza",
-    description: "O D'VERT Residence Club traz o conceito de design biofílico e sustentabilidade para a vida cotidiana. Com três torres, propõe uma conexão profunda entre os moradores e a natureza.",
-    longDescription: "Localizado na Praia Comprida, em São José (região da Beira-Mar de São José), o D'VERT propõe uma conexão profunda entre os moradores e a natureza, seja por meio de formas orgânicas na arquitetura, da incorporação de vegetação abundante nos edifícios ou de soluções que melhoram a qualidade do ar e o conforto térmico nos ambientes. O nome D'VERT remete ao 'verde' que transborda do projeto – fachadas com jardins verticais, áreas comuns ajardinadas e um paisagismo integrado que cria um oásis natural em meio ao cenário urbano.",
+    description: "O D/VERT Residence Club traz o conceito de design biofílico e sustentabilidade para a vida cotidiana. Com três torres, propõe uma conexão profunda entre os moradores e a natureza.",
+    longDescription: "Localizado na Praia Comprida, em São José (região da Beira-Mar de São José), o D/VERT propõe uma conexão profunda entre os moradores e a natureza, seja por meio de formas orgânicas na arquitetura, da incorporação de vegetação abundante nos edifícios ou de soluções que melhoram a qualidade do ar e o conforto térmico nos ambientes. O nome D/VERT remete ao 'verde' que transborda do projeto – fachadas com jardins verticais, áreas comuns ajardinadas e um paisagismo integrado que cria um oásis natural em meio ao cenário urbano.",
     features: [
       { title: "Apartamentos", description: "De 80 a 160m² com 2 e 3 dormitórios (suítes)" },
       { title: "Lazer", description: "18 áreas de convivência e lazer distribuídas pelo condomínio" },
@@ -311,7 +311,7 @@ export const projectsData: Record<string, Project> = {
       { title: "Bike Sharing", description: "Estação com bicicletas compartilhadas para os moradores" },
       { title: "Oficina Workshop", description: "Equipada com ferramentas para pequenos reparos e projetos" },
     ],
-    fernandasNotes: "O D'VERT Residence Club é perfeito para quem busca uma conexão com a natureza sem abrir mão do conforto urbano. Com três torres, ampla infraestrutura de lazer e soluções sustentáveis, este empreendimento proporciona uma experiência única de moradia na Grande Florianópolis.",
+    fernandasNotes: "O D/VERT Residence Club é perfeito para quem busca uma conexão com a natureza sem abrir mão do conforto urbano. Com três torres, ampla infraestrutura de lazer e soluções sustentáveis, este empreendimento proporciona uma experiência única de moradia na Grande Florianópolis.",
     status: "construcao",
     type: "residencial",
     address: {
@@ -327,16 +327,16 @@ export const projectsData: Record<string, Project> = {
       }
     },
     salesMaterial: {
-      title: "Catálogo Exclusivo D'VERT",
+      title: "Catálogo Exclusivo D/VERT",
       description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
-      fileUrl: "/materiais/DVert Residence Club.pdf"
+      fileUrl: "/materiais/Material de Introdução  - DVert.pdf"
     }
   },
   dyard: {
-    title: "D'YARD Home Design",
+    title: "D/YARD Home Design",
     tagline: "Você se conecta ao lugar onde vive",
-    description: "O D'YARD Home Design é um empreendimento localizado no coração de Florianópolis que reflete a união entre a conveniência de uma vida urbana e a proximidade com a natureza.",
-    longDescription: "Como empreendimento da linha Home Design da Dimas Construções, o D'YARD foi desenvolvido com foco especial no design como solução. Este projeto de torre única surge em um terreno privilegiado na Rua Prefeito Coronel Antenor Mesquita, numa região central onde 'já não existiam mais jardins', e por isso traz a proposta de recriar um grande jardim vertical e horizontal dentro do ambiente urbano. Inspirado pelos conceitos de biofilia e wellness, o D'YARD incorpora abundância de verde em suas áreas comuns, terraços e até na fachada.",
+    description: "O D/YARD Home Design é um empreendimento localizado no coração de Florianópolis que reflete a união entre a conveniência de uma vida urbana e a proximidade com a natureza.",
+    longDescription: "Como empreendimento da linha Home Design da Dimas Construções, o D/YARD foi desenvolvido com foco especial no design como solução. Este projeto de torre única surge em um terreno privilegiado na Rua Prefeito Coronel Antenor Mesquita, numa região central onde 'já não existiam mais jardins', e por isso traz a proposta de recriar um grande jardim vertical e horizontal dentro do ambiente urbano. Inspirado pelos conceitos de biofilia e wellness, o D/YARD incorpora abundância de verde em suas áreas comuns, terraços e até na fachada.",
     features: [
       { title: "Apartamentos", description: "De 54 a 202m² com studios, 1, 2 e 3 dormitórios" },
       { title: "Conceito", description: "Jardim vertical e horizontal no ambiente urbano" },
@@ -379,7 +379,7 @@ export const projectsData: Record<string, Project> = {
       },
     ],*/
     location: {
-      description: "O D'YARD está localizado em uma área residencial tranquila, próximo a parques e com fácil acesso ao centro da cidade.",
+      description: "O D/YARD está localizado em uma área residencial tranquila, próximo a parques e com fácil acesso ao centro da cidade.",
       mapImage: "/images/dyard/localização.png",
     },
     differentials: [
@@ -390,7 +390,7 @@ export const projectsData: Record<string, Project> = {
       { title: "Sala de Jogos/PUB", description: "Ambiente com mesa de sinuca, jogos e bar interno" },
       { title: "Bike Sharing", description: "Sistema de compartilhamento de bicicletas" },
     ],
-    fernandasNotes: "O D'YARD Home Design é perfeito para quem busca a combinação de vida urbana com conexão com a natureza. Este empreendimento no centro de Florianópolis oferece um refúgio verde, seguro e dotado de design contemporâneo exclusivo, onde cada detalhe foi pensado para proporcionar bem-estar e qualidade de vida.",
+    fernandasNotes: "O D/YARD Home Design é perfeito para quem busca a combinação de vida urbana com conexão com a natureza. Este empreendimento no centro de Florianópolis oferece um refúgio verde, seguro e dotado de design contemporâneo exclusivo, onde cada detalhe foi pensado para proporcionar bem-estar e qualidade de vida.",
     status: "breve-lancamento",
     type: "residencial",
     address: {
@@ -406,16 +406,16 @@ export const projectsData: Record<string, Project> = {
       }
     },
     salesMaterial: {
-      title: "Catálogo Exclusivo D'YARD",
+      title: "Catálogo Exclusivo D/YARD",
       description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
       fileUrl: "/materiais/DYard.pdf"
     }
   },
   dnex: {
-    title: "D'NEX Smart Living",
+    title: "D/NEX Smart Living",
     tagline: "Viver no futuro, só que agora",
-    description: "O D'NEX Smart Living marca a chegada de um conceito de moradia inovador ao bairro Estreito, em Florianópolis. Apresentado como o primeiro 'Smart Living' do Estreito, este empreendimento redefine a forma de viver unindo tecnologia, convivência e otimização de espaço.",
-    longDescription: "Com duas torres residenciais e um total de 122 unidades, o D'NEX foi planejado para proporcionar experiências que vão além do apartamento em si, transformando as áreas comuns em extensões do lar – perfeitas para trabalho, lazer e interação comunitária. Localizado em um dos principais eixos do continente (Av. Marinheiro Max Schramm), o projeto acompanha o momento de renovação do Estreito: um bairro historicamente residencial que nos últimos anos se reinventou com novos empreendimentos, serviços e uma atmosfera mais cosmopolita.",
+    description: "O D/NEX Smart Living marca a chegada de um conceito de moradia inovador ao bairro Estreito, em Florianópolis. Apresentado como o primeiro 'Smart Living' do Estreito, este empreendimento redefine a forma de viver unindo tecnologia, convivência e otimização de espaço.",
+    longDescription: "Com duas torres residenciais e um total de 122 unidades, o D/NEX foi planejado para proporcionar experiências que vão além do apartamento em si, transformando as áreas comuns em extensões do lar – perfeitas para trabalho, lazer e interação comunitária. Localizado em um dos principais eixos do continente (Av. Marinheiro Max Schramm), o projeto acompanha o momento de renovação do Estreito: um bairro historicamente residencial que nos últimos anos se reinventou com novos empreendimentos, serviços e uma atmosfera mais cosmopolita.",
     features: [
       { title: "Apartamentos", description: "De 30 a 75m² com studios até 2 dormitórios" },
       { title: "Torres", description: "Duas torres residenciais com 122 unidades" },
@@ -466,7 +466,7 @@ export const projectsData: Record<string, Project> = {
       },
     ],
     location: {
-      description: "O D'NEX está localizado em uma área em pleno desenvolvimento, com projetos de infraestrutura e mobilidade em andamento.",
+      description: "O D/NEX está localizado em uma área em pleno desenvolvimento, com projetos de infraestrutura e mobilidade em andamento.",
       mapImage: "/images/dnex/localização.png",
     },
     differentials: [
@@ -477,7 +477,7 @@ export const projectsData: Record<string, Project> = {
       { title: "Piscina com Deck e Prainha", description: "Piscina ao ar livre com borda infinita e área rasa para crianças" },
       { title: "Coworking Completo", description: "Com estações compartilhadas, salas de reunião e áreas de estudo" },
     ],
-    fernandasNotes: "O D'NEX Smart Living é perfeito para jovens profissionais e pequenos núcleos familiares que buscam praticidade e inovação. Localizado no renovado bairro do Estreito, oferece espaços compartilhados que vão muito além do apartamento, criando uma verdadeira comunidade inteligente e conectada.",
+    fernandasNotes: "O D/NEX Smart Living é perfeito para jovens profissionais e pequenos núcleos familiares que buscam praticidade e inovação. Localizado no renovado bairro do Estreito, oferece espaços compartilhados que vão muito além do apartamento, criando uma verdadeira comunidade inteligente e conectada.",
     status: "breve-lancamento",
     type: "residencial",
     address: {
@@ -493,9 +493,9 @@ export const projectsData: Record<string, Project> = {
       }
     },
     salesMaterial: {
-      title: "Catálogo Exclusivo D'NEX",
+      title: "Catálogo Exclusivo D/NEX",
       description: "Acesse nosso material completo com plantas, acabamentos, fotos e condições especiais para investidores.",
-      fileUrl: "/materiais/DNex.pdf"
+      fileUrl: "/materiais/Material de Introdução  - Dnex.pdf"
     }
   }
 } 

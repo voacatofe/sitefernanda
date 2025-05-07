@@ -3,20 +3,20 @@ import { Building2, Home, Waves, Sun, Dumbbell, Coffee, Car, Lock } from 'lucide
 import { WHATSAPP_NUMBER } from '@/config/contact';
 
 const galleryImages = [
-  { src: "/images/dvert/dvert.webp", alt: "Fachada D'VERT" },
-  { src: "/images/dvert/dvert (2).webp", alt: "Vista D'VERT" },
-  { src: "/images/dvert/dvert (3).webp", alt: "Perspectiva D'VERT" },
-  { src: "/images/dvert/dvert (4).webp", alt: "Área Comum D'VERT" },
-  { src: "/images/dvert/dvert (5).webp", alt: "Detalhe D'VERT" },
-  { src: "/images/dvert/dvert (6).webp", alt: "Espaço D'VERT" },
-  { src: "/images/dvert/dvert (7).webp", alt: "Interior D'VERT" },
-  { src: "/images/dvert/dvert (8).webp", alt: "Decoração D'VERT" },
-  { src: "/images/dvert/dvert (9).webp", alt: "Acabamento D'VERT" },
-  { src: "/images/dvert/dvert (10).webp", alt: "Lazer D'VERT" },
-  { src: "/images/dvert/dvert (11).webp", alt: "Ambiente D'VERT" },
-  { src: "/images/dvert/dvert (12).webp", alt: "Estrutura D'VERT" },
-  { src: "/images/dvert/dvert (13).webp", alt: "Piscina D'VERT" },
-  { src: "/images/dvert/dvert (14).webp", alt: "Área Social D'VERT" },
+  { src: "/images/dvert/dvert.webp", alt: "Fachada D/VERT" },
+  { src: "/images/dvert/dvert (2).webp", alt: "Vista D/VERT" },
+  { src: "/images/dvert/dvert (3).webp", alt: "Perspectiva D/VERT" },
+  { src: "/images/dvert/dvert (4).webp", alt: "Área Comum D/VERT" },
+  { src: "/images/dvert/dvert (5).webp", alt: "Detalhe D/VERT" },
+  { src: "/images/dvert/dvert (6).webp", alt: "Espaço D/VERT" },
+  { src: "/images/dvert/dvert (7).webp", alt: "Interior D/VERT" },
+  { src: "/images/dvert/dvert (8).webp", alt: "Decoração D/VERT" },
+  { src: "/images/dvert/dvert (9).webp", alt: "Acabamento D/VERT" },
+  { src: "/images/dvert/dvert (10).webp", alt: "Lazer D/VERT" },
+  { src: "/images/dvert/dvert (11).webp", alt: "Ambiente D/VERT" },
+  { src: "/images/dvert/dvert (12).webp", alt: "Estrutura D/VERT" },
+  { src: "/images/dvert/dvert (13).webp", alt: "Piscina D/VERT" },
+  { src: "/images/dvert/dvert (14).webp", alt: "Área Social D/VERT" },
 ];
 
 const floorPlans = [
