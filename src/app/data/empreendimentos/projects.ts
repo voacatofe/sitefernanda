@@ -259,7 +259,7 @@ export const projectsData: Record<string, Project> = {
   },
   dvert: {
     title: "D/VERT Residence Club",
-    tagline: "Conexão profunda entre moradores e natureza",
+    tagline: "São José ficou tempo demais de costas para o mar",
     description: "O D/VERT Residence Club traz o conceito de design biofílico e sustentabilidade para a vida cotidiana. Com três torres, propõe uma conexão profunda entre os moradores e a natureza.",
     longDescription: "Localizado na Praia Comprida, em São José (região da Beira-Mar de São José), o D/VERT propõe uma conexão profunda entre os moradores e a natureza, seja por meio de formas orgânicas na arquitetura, da incorporação de vegetação abundante nos edifícios ou de soluções que melhoram a qualidade do ar e o conforto térmico nos ambientes. O nome D/VERT remete ao 'verde' que transborda do projeto – fachadas com jardins verticais, áreas comuns ajardinadas e um paisagismo integrado que cria um oásis natural em meio ao cenário urbano.",
     features: [

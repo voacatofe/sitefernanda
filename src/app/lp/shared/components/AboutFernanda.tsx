@@ -11,11 +11,11 @@ interface AboutFernandaProps {
 
 // Mapeamento de notas para cada empreendimento
 const notasEmpreendimentos: Record<string, string> = {
-  "D'VERSE": "O D'VERSE Beach Concept é perfeito para quem busca exclusividade e sofisticação à beira-mar. A localização privilegiada na Praia Brava e os acabamentos de alto padrão fazem deste empreendimento uma excelente opção para investimento ou segunda residência com atmosfera de refúgio.",
-  "D'NEX": "O D'NEX representa o novo conceito de morar bem, combinando design moderno, funcionalidade e qualidade de vida. Sua localização estratégica e planejamento inteligente dos espaços fazem deste empreendimento uma excelente opção para famílias contemporâneas.",
-  "D'SEASON": "O D'SEASON oferece uma experiência única de moradia, com ambientes pensados para o conforto e bem-estar durante todas as estações do ano. Seus diferenciais de lazer completo e acabamento premium criam um novo padrão de qualidade de vida.",
-  "D'SENSE": "O D'SENSE traz uma proposta sensorial única para o mercado imobiliário, com ambientes que despertam os sentidos e promovem bem-estar. O projeto harmoniza estética, conforto e funcionalidade para uma experiência de moradia diferenciada.",
-  "D'VERT": "O D'VERT é sinônimo de sustentabilidade e integração com a natureza. Seus espaços verdes e soluções eco-friendly criam um ambiente de moradia que respeita o meio ambiente sem abrir mão do conforto e sofisticação."
+  "D/VERSE": "O D'VERSE Beach Concept é perfeito para quem busca exclusividade e sofisticação à beira-mar. A localização privilegiada na Praia Brava e os acabamentos de alto padrão fazem deste empreendimento uma excelente opção para investimento ou segunda residência com atmosfera de refúgio.",
+  "D/NEX": "O D'NEX representa o novo conceito de morar bem, combinando design moderno, funcionalidade e qualidade de vida. Sua localização estratégica e planejamento inteligente dos espaços fazem deste empreendimento uma excelente opção para famílias contemporâneas.",
+  "D/SEASON": "O D'SEASON oferece uma experiência única de moradia, com ambientes pensados para o conforto e bem-estar durante todas as estações do ano. Seus diferenciais de lazer completo e acabamento premium criam um novo padrão de qualidade de vida.",
+  "D/SENSE": "O D'SENSE traz uma proposta sensorial única para o mercado imobiliário, com ambientes que despertam os sentidos e promovem bem-estar. O projeto harmoniza estética, conforto e funcionalidade para uma experiência de moradia diferenciada.",
+  "D/VERT": " D/Vert é o único residence club na Beira Mar de São José. Um projeto que integra a sua rotina, com a qualidade de viver próximo ao mar."
 };
 
 export default function AboutFernanda({ empreendimento }: AboutFernandaProps) {
