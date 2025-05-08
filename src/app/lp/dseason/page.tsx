@@ -9,19 +9,6 @@ const galleryImages = [
   { src: "/images/dseason/Ativo 4.png", alt: "Vista D/SEASON" },
   { src: "/images/dseason/Ativo 5.png", alt: "Área de Lazer D/SEASON" },
   { src: "/images/dseason/Ativo 6.png", alt: "Espaço Gourmet D/SEASON" },
-  { src: "/images/dseason/Ativo 7.png", alt: "Salão de Festas D/SEASON" },
-  { src: "/images/dseason/Ativo 8.png", alt: "Academia D/SEASON" },
-  { src: "/images/dseason/Ativo 9.png", alt: "Brinquedoteca D/SEASON" },
-  { src: "/images/dseason/Ativo 10.png", alt: "Coworking D/SEASON" },
-  { src: "/images/dseason/Ativo 11.png", alt: "Hall D/SEASON" },
-  { src: "/images/dseason/Ativo 12.png", alt: "Garagem D/SEASON" },
-  { src: "/images/dseason/Ativo 13.png", alt: "Churrasqueira D/SEASON" },
-  { src: "/images/dseason/Ativo 14.png", alt: "Espaço Pet D/SEASON" },
-  { src: "/images/dseason/Ativo 15.png", alt: "Playground D/SEASON" },
-  { src: "/images/dseason/Ativo 16.png", alt: "Salão de Jogos D/SEASON" },
-  { src: "/images/dseason/Ativo 17.png", alt: "Sala de Reunião D/SEASON" },
-  { src: "/images/dseason/Ativo 18.png", alt: "Espaço Zen D/SEASON" },
-  { src: "/images/dseason/Ativo 19.png", alt: "Vista Noturna D/SEASON" },
 ];
 
 const floorPlans = [

@@ -97,7 +97,7 @@ export function DSeasonLanding({
   // Referências para navegação
   const overviewRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
-  const floorplansRef = useRef<HTMLDivElement>(null);
+  const whatsappRef = useRef<HTMLDivElement>(null);
   const locationRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -159,9 +159,9 @@ export function DSeasonLanding({
             <Button 
               variant="link" 
               className="text-dimas-black hover:text-fernanda-gold mr-6"
-              onClick={() => scrollToSection(floorplansRef)}
+              onClick={() => scrollToSection(whatsappRef)}
             >
-              PLANTAS
+              CONTATO WHATSAPP
             </Button>
             <Button 
               variant="link" 
@@ -309,7 +309,7 @@ export function DSeasonLanding({
           <FadeInSection>
             <div className="relative aspect-video rounded-lg overflow-hidden">
               <Image
-                src="/images/dseason/ativo13.png"
+                src="/images/dseason/Ativo13.png"
                 alt="Fachada D'SEASON"
                 fill
                 className="object-cover"
@@ -347,34 +347,58 @@ export function DSeasonLanding({
         </div>
       </div>
 
-      {/* Plantas */}
-      <div id="floorplans" ref={floorplansRef} className="py-20 container mx-auto px-4">
+      {/* Seção de WhatsApp */}
+      <div id="whatsapp" ref={whatsappRef} className="py-20 container mx-auto px-4">
         <FadeInSection>
           <h2 className="text-3xl font-bold mb-16 text-center relative">
-            <span className="border-b-2 border-fernanda-gold pb-2 px-4">PLANTAS</span>
+            <span className="border-b-2 border-fernanda-gold pb-2 px-4">FALE PELO WHATSAPP</span>
           </h2>
         </FadeInSection>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {floorPlans.map((plan) => (
-            <FadeInSection key={plan.id}>
-              <Card className="bg-white border-gray-200 shadow-md overflow-hidden h-full">
-                <CardContent className="p-6">
-                  <div className="relative h-[400px] w-full overflow-hidden mb-6">
-                    <Image
-                      src={plan.image}
-                      alt={plan.name}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-fernanda-gold">{plan.name}</h3>
-                  <p className="text-gray-600">{plan.description}</p>
-                </CardContent>
-              </Card>
-            </FadeInSection>
-          ))}
+        <div className="flex flex-col items-center justify-center text-center">
+          <FadeInSection>
+            <div className="max-w-3xl mx-auto">
+              <h3 className="text-2xl font-bold mb-6 text-fernanda-gold">
+                Tire suas dúvidas diretamente pelo WhatsApp
+              </h3>
+              <p className="text-gray-600 mb-10 text-lg">
+                Converse diretamente com a nossa equipe de vendas e descubra todos os detalhes sobre o D/SEASON. 
+                Estamos prontos para atender você e ajudar a encontrar a melhor opção de investimento.
+              </p>
+              <Button
+                size="lg"
+                className="bg-green-600 hover:bg-green-700 text-white px-10 py-6 text-xl h-auto"
+                asChild
+              >
+                <Link
+                  href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D/SEASON.`}
+                  target="_blank"
+                  className="flex items-center gap-3"
+                >
+                  <svg 
+                    viewBox="0 0 32 32" 
+                    className="h-6 w-6"
+                    fill="currentColor"
+                  >
+                    <path d="M16.004 0h-.008C7.174 0 .004 7.17.004 16c0 3.097.879 5.99 2.4 8.444L.688 30.35l6.094-1.75a15.96 15.96 0 0 0 9.214 2.898h.008c8.822 0 15.996-7.17 15.996-16S24.826 0 16.004 0zm-5.498 12.879a1.9 1.9 0 0 1 1.889-1.889c.86 0 1.889.576 1.889 1.889s-1.1 2.186-2.141 2.186a1.819 1.819 0 0 1-1.637-2.186zm9.58 7.525c-2.065 0-4.37-1.889-6.509-1.889-.852 0-1.683.23-2.349.5-.86.352-1.514.537-2.349.537-.983 0-1.697-.46-1.697-.46l2.603-3.256s1.474.59 1.474-.132-.59-2.141-.59-2.141 1.308-.133 2.074-.354c.765-.222 1.661-.722 2.602-.722 1.339 0 2.095.943 2.095 2.282 0 1.339-.943 2.118-2.095 2.118-1.151 0-1.736-.59-1.736-1.339 0-.624.501-1.072.501-1.072s1.107-.428 1.107-1.072c0-.459-.265-.765-.765-.765s-1.339.826-1.339 2.141c0 1.339 1.185 2.236 2.818 2.236s3.444-1.041 3.444-3.066c0-2.024-1.224-3.151-3.632-3.151s-4.681 1.469-4.681 1.469l-.544-1.081s2.26-1.889 5.695-1.889 5.853 1.983 5.853 5.16-2.603 5.086-4.88 5.086z" />
+                  </svg>
+                  Falar com a corretora
+                </Link>
+              </Button>
+            </div>
+          </FadeInSection>
+          
+          <FadeInSection className="mt-16">
+            <div className="relative w-full max-w-md mx-auto h-80">
+              <Image
+                src="/images/dseason/whatsapp-mockup.png"
+                alt="Atendimento pelo WhatsApp"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 400px"
+              />
+            </div>
+          </FadeInSection>
         </div>
       </div>
 
@@ -441,17 +465,110 @@ export function DSeasonLanding({
         </FadeInSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <FadeInSection key={index}>
-              <Card className="bg-white border-gray-200 shadow-md h-full hover:border-fernanda-gold/50 transition-colors duration-300">
-                <CardContent className="p-6">
-                  <div className="text-fernanda-gold mb-4 flex justify-center items-center h-12">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2 text-center">{feature.title}</h3>
-                  <p className="text-gray-600 text-center">{feature.description}</p>
-                </CardContent>
-              </Card>
-            </FadeInSection>
-          ))}
+          {/* Acabamento alto padrão */}
+          <FadeInSection>
+            <Card className="bg-white border-gray-200 shadow-md h-full hover:border-fernanda-gold/50 transition-colors duration-300">
+              <CardContent className="p-6">
+                <div className="text-fernanda-gold mb-4 flex justify-center items-center h-12">
+                  <Building className="h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Acabamento alto padrão</h3>
+                <p className="text-gray-600 text-center">
+                  Áreas comuns entregues mobiliadas e finamente decoradas. <br />Materiais e acabamentos de alto padrão em todo o projeto.
+                </p>
+              </CardContent>
+            </Card>
+          </FadeInSection>
+
+          {/* Churrasqueira a carvão */}
+          <FadeInSection>
+            <Card className="bg-white border-gray-200 shadow-md h-full hover:border-fernanda-gold/50 transition-colors duration-300">
+              <CardContent className="p-6">
+                <div className="text-fernanda-gold mb-4 flex justify-center items-center h-12">
+                  <svg className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M6 19h12M6 16h12M9 8v4m6-4v4M4 4h16v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4z" /></svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Churrasqueira a carvão</h3>
+                <p className="text-gray-600 text-center">
+                  Varandas amplas, abertas com churrasqueira a carvão.
+                </p>
+              </CardContent>
+            </Card>
+          </FadeInSection>
+
+          {/* Localização */}
+          <FadeInSection>
+            <Card className="bg-white border-gray-200 shadow-md h-full hover:border-fernanda-gold/50 transition-colors duration-300">
+              <CardContent className="p-6">
+                <div className="text-fernanda-gold mb-4 flex justify-center items-center h-12">
+                  <MapPin className="h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Localização</h3>
+                <p className="text-gray-600 text-center">
+                  Localização privilegiada próximo ao Centro e praias do norte da ilha.
+                </p>
+              </CardContent>
+            </Card>
+          </FadeInSection>
+
+          {/* Piscina */}
+          <FadeInSection>
+            <Card className="bg-white border-gray-200 shadow-md h-full hover:border-fernanda-gold/50 transition-colors duration-300">
+              <CardContent className="p-6">
+                <div className="text-fernanda-gold mb-4 flex justify-center items-center h-12">
+                  <svg className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M3 20c1.333-1.333 2.667-2 4-2s2.667.667 4 2 2.667-2 4-2 2.667.667 4 2" /></svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Piscina</h3>
+                <p className="text-gray-600 text-center">
+                  3 Piscinas com design moderno e área de relaxamento
+                </p>
+              </CardContent>
+            </Card>
+          </FadeInSection>
+
+          {/* Academia */}
+          <FadeInSection>
+            <Card className="bg-white border-gray-200 shadow-md h-full hover:border-fernanda-gold/50 transition-colors duration-300">
+              <CardContent className="p-6">
+                <div className="text-fernanda-gold mb-4 flex justify-center items-center h-12">
+                  <svg className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M20 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm2 12v-2a4 4 0 0 1 8 0v2M4 18v-2a4 4 0 0 1 8 0v2" /></svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Academia</h3>
+                <p className="text-gray-600 text-center">
+                  Academia completa com vista mar
+                </p>
+              </CardContent>
+            </Card>
+          </FadeInSection>
+
+          {/* Garagem */}
+          <FadeInSection>
+            <Card className="bg-white border-gray-200 shadow-md h-full hover:border-fernanda-gold/50 transition-colors duration-300">
+              <CardContent className="p-6">
+                <div className="text-fernanda-gold mb-4 flex justify-center items-center h-12">
+                  <svg className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M3 13v-2a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2M5 19h14a2 2 0 0 0 2-2v-4H3v4a2 2 0 0 0 2 2z" /></svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Garagem</h3>
+                <p className="text-gray-600 text-center">
+                  Vagas de garagem com espera para carregadores de carros elétricos + hobbybox.
+                </p>
+              </CardContent>
+            </Card>
+          </FadeInSection>
+
+          {/* Trapiche e Espaço náutico */}
+          <FadeInSection>
+            <Card className="bg-white border-gray-200 shadow-md h-full hover:border-fernanda-gold/50 transition-colors duration-300">
+              <CardContent className="p-6">
+                <div className="text-fernanda-gold mb-4 flex justify-center items-center h-12">
+                  <svg className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M2 20h20M12 4v16M7 8l5-4 5 4" /></svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Trapiche e Espaço náutico</h3>
+                <p className="text-gray-600 text-center">
+                  O empreendimento terá um trapiche e espaço náutico com caiaques e Stand Up Paddle de uso compartilhado.
+                </p>
+              </CardContent>
+            </Card>
+          </FadeInSection>
         </div>
       </div>
 

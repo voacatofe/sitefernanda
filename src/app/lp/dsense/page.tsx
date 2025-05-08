@@ -9,16 +9,6 @@ const galleryImages = [
   { src: "/images/dsense/FSC_03_Embasamento_EF2.jpg", alt: "Embasamento D/SENSE" },
   { src: "/images/dsense/FSC_05_Detalhe Arquitetura_EF.jpg", alt: "Detalhes Arquitetônicos D/SENSE" },
   { src: "/images/dsense/FSC_06_ Playground Externo_EF.jpg", alt: "Playground D/SENSE" },
-  { src: "/images/dsense/FSC_07_Churrasqueiras_EF.jpg", alt: "Churrasqueiras D/SENSE" },
-  { src: "/images/dsense/FSC_10_ Piscina Rooftop_EF3.jpg", alt: "Piscina Rooftop D/SENSE" },
-  { src: "/images/dsense/FSC_11_Jardim_PetPlace_EF.jpg", alt: "Pet Place D/SENSE" },
-  { src: "/images/dsense/FSC_12_ Spa  Massagem_EF.jpg", alt: "Spa D/SENSE" },
-  { src: "/images/dsense/FSC_13_Academia_EF.jpg", alt: "Academia D/SENSE" },
-  { src: "/images/dsense/FSC_14_ Hall_com_Pe_Direito_Duplo_EF2.jpg", alt: "Hall D/SENSE" },
-  { src: "/images/dsense/FSC_15_Coworking_EF.jpg", alt: "Coworking D/SENSE" },
-  { src: "/images/dsense/FSC_16_Brinquedoteca_EF.jpg", alt: "Brinquedoteca D/SENSE" },
-  { src: "/images/dsense/FSC_17_Sports_Bar_EF.jpg", alt: "Sports Bar D/SENSE" },
-  { src: "/images/dsense/FSC_31_Skybar_Externo_EF2.jpg", alt: "Skybar D/SENSE" },
 ];
 
 const floorPlans = [

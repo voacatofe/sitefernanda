@@ -9,19 +9,6 @@ const galleryImages = [
   { src: "/images/dverse/dverse (4).webp", alt: "Vista D/VERSE" },
   { src: "/images/dverse/dverse (5).webp", alt: "Área de Lazer D/VERSE" },
   { src: "/images/dverse/dverse (6).webp", alt: "Espaço Gourmet D/VERSE" },
-  { src: "/images/dverse/dverse (7).webp", alt: "Salão de Festas D/VERSE" },
-  { src: "/images/dverse/dverse (8).webp", alt: "Academia D/VERSE" },
-  { src: "/images/dverse/dverse (9).webp", alt: "Brinquedoteca D/VERSE" },
-  { src: "/images/dverse/dverse (10).webp", alt: "Coworking D/VERSE" },
-  { src: "/images/dverse/dverse (11).webp", alt: "Hall D/VERSE" },
-  { src: "/images/dverse/dverse (12).webp", alt: "Garagem D/VERSE" },
-  { src: "/images/dverse/dverse (13).webp", alt: "Churrasqueira D/VERSE" },
-  { src: "/images/dverse/dverse (14).webp", alt: "Espaço Pet D/VERSE" },
-  { src: "/images/dverse/dverse (15).webp", alt: "Playground D/VERSE" },
-  { src: "/images/dverse/dverse (16).webp", alt: "Salão de Jogos D/VERSE" },
-  { src: "/images/dverse/dverse (17).webp", alt: "Sala de Reunião D/VERSE" },
-  { src: "/images/dverse/dverse (18).webp", alt: "Espaço Zen D/VERSE" },
-  { src: "/images/dverse/dverse (19).webp", alt: "Vista Noturna D/VERSE" },
 ];
 
 const floorPlans = [

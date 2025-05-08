@@ -283,7 +283,7 @@ export function DNexLanding({
               <ul className="space-y-4 text-gray-600">
                 <li className="flex items-center gap-2">
                   <Check className="text-fernanda-gold" />
-                  <span>Apartamentos de 2 e 3 dormitórios</span>
+                  <span>studios, um e dois dormitórios, além de opções garden</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="text-fernanda-gold" />
@@ -341,34 +341,47 @@ export function DNexLanding({
         </div>
       </div>
 
-      {/* Plantas */}
+      {/* Prédio pronto para visitação */}
       <div id="floorplans" ref={floorplansRef} className="py-20 container mx-auto px-4">
         <FadeInSection>
           <h2 className="text-3xl font-bold mb-16 text-center relative">
-            <span className="border-b-2 border-fernanda-gold pb-2 px-4">PLANTAS</span>
+            <span className="border-b-2 border-fernanda-gold pb-2 px-4">PRÉDIO PRONTO PARA VISITAÇÃO</span>
           </h2>
         </FadeInSection>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          {floorPlans.map((plan) => (
-            <FadeInSection key={plan.id}>
-              <Card className="bg-white border-gray-200 shadow-md overflow-hidden h-full">
-                <CardContent className="p-6">
-                  <div className="relative h-[400px] w-full overflow-hidden mb-6">
-                    <Image
-                      src={plan.image}
-                      alt={plan.name}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-fernanda-gold">{plan.name}</h3>
-                  <p className="text-gray-600">{plan.description}</p>
-                </CardContent>
-              </Card>
-            </FadeInSection>
-          ))}
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          <FadeInSection>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold mb-6 text-fernanda-gold text-center md:text-left">
+                O D/NEX já está pronto! Venha conhecer pessoalmente
+              </h3>
+              <p className="text-gray-600 mb-8 text-lg text-center md:text-left">
+                O empreendimento está 100% concluído e disponível para visitação imediata. Agende uma visita e conheça de perto todos os diferenciais, acabamentos e áreas comuns do D/NEX Smart Living.
+              </p>
+              <Button
+                size="lg"
+                className="bg-fernanda-gold hover:bg-fernanda-gold/80 text-white px-10 py-6 text-xl h-auto mx-auto md:mx-0"
+                asChild
+              >
+                <Link
+                  href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20agendar%20uma%20visita%20ao%20D/NEX.`}
+                  target="_blank"
+                >
+                  Agendar visita pelo WhatsApp
+                </Link>
+              </Button>
+            </div>
+          </FadeInSection>
+          <FadeInSection>
+            <div className="relative w-full max-w-md h-80 mx-auto md:mx-0 flex-1">
+              <Image
+                src="/images/dnex/predio-pronto.jpg"
+                alt="Prédio pronto para visitação D'NEX"
+                fill
+                className="object-cover rounded-lg shadow-lg"
+                sizes="(max-width: 768px) 100vw, 400px"
+              />
+            </div>
+          </FadeInSection>
         </div>
       </div>
 
@@ -424,29 +437,6 @@ export function DNexLanding({
               </div>
             </FadeInSection>
           </div>
-        </div>
-      </div>
-
-      {/* Diferenciais */}
-      <div id="features" ref={featuresRef} className="py-20 container mx-auto px-4">
-        <FadeInSection>
-          <h2 className="text-3xl font-bold mb-16 text-center relative">
-            <span className="border-b-2 border-fernanda-gold pb-2 px-4">DIFERENCIAIS</span>
-          </h2>
-        </FadeInSection>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <FadeInSection key={index}>
-              <Card className="bg-white border-gray-200 shadow-md h-full hover:border-fernanda-gold/50 transition-colors duration-300">
-                <CardContent className="p-6">
-                  <div className="text-fernanda-gold mb-4 flex justify-center items-center h-12">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2 text-center">{feature.title}</h3>
-                  <p className="text-gray-600 text-center">{feature.description}</p>
-                </CardContent>
-              </Card>
-            </FadeInSection>
-          ))}
         </div>
       </div>
 
