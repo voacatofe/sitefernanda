@@ -38,7 +38,7 @@ const features = [
   {
     icon: <Building2 size={32} />,
     title: "Sustentabilidade",
-    description: "Projeto com certificação ambiental e eficiência energética"
+    description: "Projeto com sistema de energia fotovoltaica, eficiência energética, reaproveitamento de água da chuva."
   },
   {
     icon: <Home size={32} />,
@@ -47,18 +47,13 @@ const features = [
   },
   {
     icon: <Waves size={32} />,
-    title: "Piscina Natural",
-    description: "Piscina com tratamento ecológico sem produtos químicos"
-  },
-  {
-    icon: <Sun size={32} />,
-    title: "Energia Solar",
-    description: "Sistema de captação de energia solar para áreas comuns"
+    title: "Piscina",
+    description: "Piscina com para a beira mar"
   },
   {
     icon: <Dumbbell size={32} />,
     title: "Academia Eco",
-    description: "Academia com equipamentos sustentáveis e vista para o verde"
+    description: "Academia completa com vista mar"
   },
   {
     icon: <Coffee size={32} />,
@@ -68,12 +63,12 @@ const features = [
   {
     icon: <Car size={32} />,
     title: "Mobilidade Verde",
-    description: "Estações para carros elétricos e bicicletário"
+    description: "Preparação para carros elétricos, bicicletário e bikes compartilhadas"
   },
   {
-    icon: <Lock size={32} />,
-    title: "Segurança Inteligente",
-    description: "Sistema de segurança eficiente com baixo consumo energético"
+    icon: <Sun size={32} />,
+    title: "Lazer completo",
+    description: "Mais de 15 áreas de lazer, entregues mobiliadas, decoradas e climatizadas."
   }
 ];
 
