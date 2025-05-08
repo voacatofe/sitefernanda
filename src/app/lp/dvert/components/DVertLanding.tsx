@@ -97,7 +97,6 @@ export function DVertLanding({
   // Referências para navegação
   const overviewRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
-  const floorplansRef = useRef<HTMLDivElement>(null);
   const locationRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -159,13 +158,6 @@ export function DVertLanding({
             <Button 
               variant="link" 
               className="text-dimas-black hover:text-fernanda-gold mr-6"
-              onClick={() => scrollToSection(floorplansRef)}
-            >
-              PLANTAS
-            </Button>
-            <Button 
-              variant="link" 
-              className="text-dimas-black hover:text-fernanda-gold mr-6"
               onClick={() => scrollToSection(locationRef)}
             >
               LOCALIZAÇÃO
@@ -217,7 +209,7 @@ export function DVertLanding({
               className="mx-auto mb-8"
             />
             <p className="text-xl md:text-2xl mb-8 text-fernanda-gold">
-              Sustentabilidade e estilo para uma vida equilibrada
+            São José ficou tempo demais de costas para o mar
             </p>
             <Button
               variant="outline"
@@ -272,17 +264,13 @@ export function DVertLanding({
                 Bem-vindo ao D/VERT
               </h2>
               <p className="text-gray-600 mb-6">
-                O D/VERT é um empreendimento inovador que redefine o conceito de morar bem, 
-                unindo sustentabilidade, design biofílico e conforto em um só lugar.
-                <br /><br />
-                Projetado para proporcionar uma conexão profunda com a natureza, o D/VERT 
-                oferece jardins verticais, áreas verdes integradas e soluções ambientalmente 
-                responsáveis que transformam o dia a dia dos moradores.
+              O D/VERT é um empreendimento preocupado com sustentabilidade, que une natureza e conforto, oferecendo uma experiência única de moradia em harmonia com o meio ambiente.<br></br>
+              Com espaços amplos, abertos e áreas verdes integradas, o D/VERT proporciona qualidade de vida e bem-estar para você e sua família.
               </p>
               <ul className="space-y-4 text-gray-600">
                 <li className="flex items-center gap-2">
                   <Check className="text-fernanda-gold" />
-                  <span>Projeto sustentável com certificação verde</span>
+                  <span>Áreas de lazer que proporcionam qualidade de vida</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="text-fernanda-gold" />
@@ -340,34 +328,42 @@ export function DVertLanding({
         </div>
       </div>
 
-      {/* Plantas */}
-      <div id="floorplans" ref={floorplansRef} className="py-20 container mx-auto px-4">
+      {/* Fale agora no WhatsApp */}
+      <div className="py-20 container mx-auto px-4">
         <FadeInSection>
           <h2 className="text-3xl font-bold mb-16 text-center relative">
-            <span className="border-b-2 border-fernanda-gold pb-2 px-4">PLANTAS</span>
+            <span className="border-b-2 border-fernanda-gold pb-2 px-4">FALE AGORA NO WHATSAPP</span>
           </h2>
         </FadeInSection>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {floorPlans.map((plan) => (
-            <FadeInSection key={plan.id}>
-              <Card className="bg-white border-gray-200 shadow-md overflow-hidden h-full">
-                <CardContent className="p-6">
-                  <div className="relative h-[400px] w-full overflow-hidden mb-6">
-                    <Image
-                      src={plan.image}
-                      alt={plan.name}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-fernanda-gold">{plan.name}</h3>
-                  <p className="text-gray-600">{plan.description}</p>
-                </CardContent>
-              </Card>
-            </FadeInSection>
-          ))}
+        <div className="max-w-3xl mx-auto text-center">
+          <FadeInSection>
+            <p className="text-xl mb-8">
+              Converse diretamente com a corretora Fernanda e tire todas as suas dúvidas sobre o D/VERT.
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-green-600 hover:bg-green-700 text-white py-6 px-8 text-lg rounded-lg flex items-center gap-2 mx-auto shadow-md transition-transform hover:scale-105"
+              asChild
+            >
+              <Link
+                href={`https://wa.me/${whatsappNumber}?text=Olá%20Fernanda,%20gostaria%20de%20mais%20informações%20sobre%20o%20D/VERT.`}
+                target="_blank"
+              >
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  width="24" 
+                  height="24" 
+                  className="fill-current mr-2"
+                >
+                  <path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345" />
+                  <path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411" />
+                </svg>
+                Falar no WhatsApp agora
+              </Link>
+            </Button>
+          </FadeInSection>
         </div>
       </div>
 
@@ -466,7 +462,7 @@ export function DVertLanding({
       <footer className="py-8 bg-gray-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm text-gray-300">
-            © {new Date().getFullYear()} D'VERT. Todos os direitos reservados. 
+            © {new Date().getFullYear()} D/VERT. Todos os direitos reservados. 
             <br />Desenvolvido por <span className="text-fernanda-gold">Fernanda Soares Imóveis</span>
           </p>
           <button 
