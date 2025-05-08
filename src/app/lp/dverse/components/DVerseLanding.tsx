@@ -306,6 +306,10 @@ tranquilidade de uma segunda moradia perfeita.
                   <Check className="text-fernanda-gold" />
                   <span>Acabamento alto padrão</span>
                 </li>
+                <li className="flex items-center gap-2">
+                  <Check className="text-fernanda-gold" />
+                  <span>Entrega em SET 2027</span>
+                </li>
               </ul>
             </div>
           </FadeInSection>
