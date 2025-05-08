@@ -3,7 +3,7 @@
 
 interface RDStationConversion {
   name?: string;
-  email: string;
+  email?: string;
   phone?: string;
   cf_interesse?: string;
   cf_mensagem?: string;
@@ -52,7 +52,7 @@ export async function sendRDStationConversion(
       payload: {
         conversion_identifier: identifier,
         name: conversion.name || "",
-        email: conversion.email,
+        email: conversion.email || "",
         personal_phone: conversion.phone || "",
         // Incluir todos os campos personalizados
         ...customFields,

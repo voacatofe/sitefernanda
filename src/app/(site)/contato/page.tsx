@@ -23,7 +23,6 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     interest: "",
     message: ""
@@ -49,7 +48,6 @@ export default function ContactPage() {
       const result = await sendRDStationConversion(
         {
           name: formData.name,
-          email: formData.email,
           phone: formData.phone,
           cf_interesse: `Contato: ${formData.interest || "Não especificado"}`,
           cf_mensagem: formData.message,
@@ -64,7 +62,6 @@ export default function ContactPage() {
         formName: 'contato-site',
         formTitle: 'Formulário de Contato',
         empreendimento: formData.interest,
-        leadEmail: formData.email,
         leadPhone: formData.phone,
         rdStationStatus: result.success ? 'success' : 'error'
       })
@@ -77,7 +74,6 @@ export default function ContactPage() {
       // Limpa o formulário
       setFormData({
         name: "",
-        email: "",
         phone: "",
         interest: "",
         message: ""
@@ -160,16 +156,6 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="h-12 w-12 rounded-full bg-fernanda-gold/10 flex items-center justify-center mr-4">
-                    <Mail className="h-5 w-5 text-fernanda-gold" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-light text-dimas-black mb-1">E-mail</h3>
-                    <p className="text-dimas-black/60">martinssoaresfernanda@gmail.com</p>
-                  </div>
-                </div>
-
                 <div className="pt-4">
                   <h3 className="text-lg font-light text-dimas-black mb-4">Redes Sociais</h3>
                   <div className="flex space-x-4">
@@ -230,20 +216,6 @@ export default function ContactPage() {
                         required
                       />
                     </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-light text-dimas-black/80 mb-1">
-                      E-mail
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-4 py-3 border border-dimas-beige focus:border-fernanda-gold focus:ring-0 outline-none"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
                   </div>
 
                   <div>

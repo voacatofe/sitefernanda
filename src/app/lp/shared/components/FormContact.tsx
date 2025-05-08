@@ -13,7 +13,6 @@ interface FormContactProps {
 export default function FormContact({ empreendimento, whatsappNumber }: FormContactProps) {
   const [formData, setFormData] = useState({
     nome: '',
-    email: '',
     telefone: '',
     mensagem: ''
   });
@@ -33,7 +32,7 @@ export default function FormContact({ empreendimento, whatsappNumber }: FormCont
     // Por exemplo, enviar para uma API, serviço de email, etc.
     
     // Por enquanto, vamos redirecionar para o WhatsApp
-    const message = `Olá Fernanda, me chamo ${formData.nome} e gostaria de mais informações sobre o ${empreendimento}.%0A%0AEmail: ${formData.email}%0ATelefone: ${formData.telefone}%0AMensagem: ${formData.mensagem}`;
+    const message = `Olá Fernanda, me chamo ${formData.nome} e gostaria de mais informações sobre o ${empreendimento}.%0A%0ATelefone: ${formData.telefone}%0AMensagem: ${formData.mensagem}`;
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
   };
 
@@ -50,21 +49,6 @@ export default function FormContact({ empreendimento, whatsappNumber }: FormCont
               id="nome"
               name="nome"
               value={formData.nome}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 rounded-md border border-border/30 bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-fernanda-gold/50"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
               onChange={handleChange}
               required
               className="w-full px-4 py-2 rounded-md border border-border/30 bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-fernanda-gold/50"

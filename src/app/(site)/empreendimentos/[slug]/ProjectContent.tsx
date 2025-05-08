@@ -358,16 +358,6 @@ export default function ProjectContent({ project }: ProjectContentProps) {
               </div>
             </div>
 
-            <div className="flex items-center">
-              <div className="h-12 w-12 rounded-full bg-fernanda-gold/10 flex items-center justify-center mr-4">
-                <Mail className="h-5 w-5 text-fernanda-gold" />
-              </div>
-              <div>
-                <h3 className="text-lg font-light text-dimas-black mb-1">E-mail</h3>
-                <p className="text-dimas-black/60">martinssoaresfernanda@gmail.com</p>
-              </div>
-            </div>
-
             <ScheduleVisitForm projectTitle={project.title} centered={true} />
           </div>
         </div>
