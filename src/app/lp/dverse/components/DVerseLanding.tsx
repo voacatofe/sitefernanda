@@ -438,7 +438,7 @@ tranquilidade de uma segunda moradia perfeita.
           </h2>
         </FadeInSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <FadeInSection key={index}>
               <Card className="bg-white border-gray-200 shadow-md h-full hover:border-fernanda-gold/50 transition-colors duration-300">
@@ -470,7 +470,7 @@ tranquilidade de uma segunda moradia perfeita.
       <footer className="py-8 bg-gray-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm text-gray-300">
-            © {new Date().getFullYear()} D'VERSE. Todos os direitos reservados. 
+            © {new Date().getFullYear()} D/VERSE. Todos os direitos reservados. 
             <br />Desenvolvido por <span className="text-fernanda-gold">Fernanda Soares Imóveis</span>
           </p>
           <button 
