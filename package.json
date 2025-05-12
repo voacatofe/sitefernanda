@@ -4,15 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build && node scripts/fix-nextauth.js",
+    "build": "prisma generate && next build && node scripts/generate-sitemap.js && node scripts/fix-nextauth.js",
     "start": "next start",
     "lint": "next lint",
     "seed": "node prisma/seed.js",
     "postinstall": "prisma generate",
-    "build:static": "node scripts/prepare-hostinger.js",
+    "build:static": "node scripts/prepare-hostinger.js && node scripts/generate-sitemap.js",
     "build:v1": "node scripts/prepare-v1.js",
     "build:lps": "node scripts/build-landing-pages.js",
-    "export:lps": "node scripts/export-landing-pages.js"
+    "export:lps": "node scripts/export-landing-pages.js",
+    "generate:sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@auth/core": "0.27.0",
