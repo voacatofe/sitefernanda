@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { galano } from "./fonts"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { AuthProvider } from "@/components/auth-provider"
 import Script from "next/script"
 
 export const metadata: Metadata = {
@@ -44,11 +43,9 @@ export default function RootLayout({
         }} />
         {/* End Google Tag Manager (noscript) */}
         
-        <AuthProvider>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-            {children}
-          </ThemeProvider>
-        </AuthProvider>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
