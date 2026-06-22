@@ -6,7 +6,11 @@ Este documento apresenta o histórico administrativo, cronológico e técnico da
 
 ## Nota de Disponibilidade e Prova de Entrega (2026)
 
-A versão finalizada da aplicação, correspondendo exatamente às entregas da primeira fase descritas neste documento, está disponibilizada publicamente para auditoria e verificação de funcionamento. 
+A versão finalizada da aplicação, correspondendo exatamente às entregas da primeira fase descritas neste documento, está disponibilizada publicamente para auditoria e verificação de funcionamento:
+
+👉 **Repositório do Código Fonte (GitHub):** [https://github.com/voacatofe/sitefernanda](https://github.com/voacatofe/sitefernanda)
+
+👉 **URL de Demonstração Pública:** [https://n8n-fernanda.hvlihi.easypanel.host/](https://n8n-fernanda.hvlihi.easypanel.host/)
 
 Abaixo estão os links diretos para o portal e para cada uma das landing pages (produtos imobiliários) que foram desenvolvidas e configuradas por meio do sistema de redirecionamento de domínios:
 
