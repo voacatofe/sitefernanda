@@ -1,6 +1,6 @@
 # Stage 1: Dependências
 FROM node:20-alpine AS deps
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 
 # Instalar pnpm v9 para corresponder ao lockfile
@@ -15,6 +15,7 @@ RUN pnpm install --frozen-lockfile
 
 # Stage 2: Construtor
 FROM node:20-alpine AS builder
+RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 
 # Instalar pnpm v9
@@ -37,6 +38,7 @@ RUN pnpm build
 
 # Stage 3: Executor
 FROM node:20-alpine AS runner
+RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 
 ENV NODE_ENV=production
