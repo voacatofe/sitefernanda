@@ -3,32 +3,8 @@
 import type React from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { useSession, signOut } from "next-auth/react"
-import { usePathname } from "next/navigation"
-import SessionProvider from "@/components/session-provider"
 
-function AdminLayoutContent({ children }: { children: React.ReactNode }) {
-  const { data: session, status } = useSession()
-  const pathname = usePathname()
-  const isLoginPage = pathname === "/admin/login"
-  const isLoading = status === "loading"
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <p className="text-lg">Carregando...</p>
-      </div>
-    )
-  }
-
-  if (!session && !isLoginPage) {
-    return <main>{children}</main>
-  }
-
-  if (isLoginPage) {
-    return <main>{children}</main>
-  }
-
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b">
@@ -42,12 +18,6 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
               <Button variant="ghost" asChild>
                 <Link href="/">Voltar ao Site</Link>
               </Button>
-              <Button 
-                variant="ghost" 
-                onClick={() => signOut({ callbackUrl: "/admin/login" })}
-              >
-                Sair
-              </Button>
             </nav>
           </div>
         </div>
@@ -55,13 +25,5 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
       <main>{children}</main>
     </div>
-  )
-}
-
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <SessionProvider>
-      <AdminLayoutContent>{children}</AdminLayoutContent>
-    </SessionProvider>
   )
 } 
