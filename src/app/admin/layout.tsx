@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useSession, signOut } from "next-auth/react"
 import { usePathname } from "next/navigation"
+import SessionProvider from "@/components/session-provider"
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+function AdminLayoutContent({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession()
   const pathname = usePathname()
   const isLoginPage = pathname === "/admin/login"
@@ -54,5 +55,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       <main>{children}</main>
     </div>
+  )
+}
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <SessionProvider>
+      <AdminLayoutContent>{children}</AdminLayoutContent>
+    </SessionProvider>
   )
 } 
