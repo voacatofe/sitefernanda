@@ -18,4 +18,3 @@ deploy-instructions.md
 documentacao-site.md
 Dockerfile
 .dockerignore
-docker-entrypoint.sh
