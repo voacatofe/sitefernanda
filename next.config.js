@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configurar output apenas para produção
-  output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
+  output: process.env.NEXT_STANDALONE === 'true'
+    ? 'standalone'
+    : (process.env.NODE_ENV === 'production' ? 'export' : undefined),
   images: {
     unoptimized: process.env.NODE_ENV === 'production', // Otimiza em dev, não em prod
   },
