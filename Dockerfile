@@ -3,8 +3,8 @@ FROM node:20-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Instalar pnpm v8 para corresponder ao lockfile e workflow existente
-RUN npm install -g pnpm@8
+# Instalar pnpm v9 para corresponder ao lockfile
+RUN npm install -g pnpm@9
 
 # Copiar arquivos de dependências
 COPY package.json pnpm-lock.yaml* ./
@@ -17,8 +17,8 @@ RUN pnpm install --frozen-lockfile
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Instalar pnpm v8
-RUN npm install -g pnpm@8
+# Instalar pnpm v9
+RUN npm install -g pnpm@9
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
